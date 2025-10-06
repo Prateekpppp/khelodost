@@ -20,7 +20,6 @@ class AuthMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         if(Session::has('username')) {
-            dd('asdf');
             return redirect()->route('index');
         }
         $country_phone_code = Country::pluck('country_phone_code');

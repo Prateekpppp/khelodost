@@ -35,7 +35,7 @@ class CustomSessionMiddleware
 
         $userAgent = $_SERVER['HTTP_USER_AGENT'];
 
-        $_GAMES = ["Cricket","Football","Tennis","Casino","Sports Book","Horse Racing","Greyhound Racing","Binary","Kabaddi","Politics","Basketball","Baseball","Table Tennis","Volleyball","Ice Hockey","Rugby","Mixed Martial Arts","Darts","Futsal","Casino Vivo"];
+        $sports = ["Cricket","Football","Tennis"];
 
         $providers = Storage::disk('local')->get('games_data/providers.json');
         
@@ -45,7 +45,7 @@ class CustomSessionMiddleware
 
         
         
-        View::share('_GAMES',$_GAMES);
+        View::share('sports',$sports);
         View::share('providers',$providers);
 
         return $next($request);

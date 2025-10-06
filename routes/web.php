@@ -23,6 +23,9 @@ Route::middleware(['auth_middleware'])->group(function () {
         return view('pages.forgot_password');
     })->name('forgot_password');
 
+    Route::get('social', [AuthController::class,'social'])->name('api.login.social');
+
+    Route::get('callback/{redirect}', [AuthController::class,'callback'])->name('api.login.callback');
 });
 
 

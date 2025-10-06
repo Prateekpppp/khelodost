@@ -16,7 +16,27 @@ use App\Models\Activity;
 class AuthController extends Controller
 {
     //
+    public function social()
+    {
+        return Socialite::driver('google')->redirect();
+    }
     
+    public function callback(Request $request){
+
+        try {
+            $user = Socialite::driver($request->redirect)->user();
+            $request = new Request();
+            $request->email = $user->email;
+
+            Log::info('This callback.----'.$user->email);
+
+            $this->signin($request);
+            
+        } catch (Throwable $e) {
+            return redirect('/')->with('error', 'Google authentication failed.');
+        }
+    }
+
     public function setUserSession($value){
         Session::put([
             'username'=>$value

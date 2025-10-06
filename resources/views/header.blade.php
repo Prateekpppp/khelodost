@@ -25,13 +25,15 @@
             </div>
         </div>
 
+        @if(!$userData)
         <!-- Buttons -->
         <div class="d-flex align-items-center gap-2 ms-auto flex-shrink-0" id="headerButtons">
-            <a href="{{ route('login') }}"
+            <a href="{{ route('user.login') }}"
                 class="btn btn-outline-light btn-sm rounded-pill px-2 px-sm-3 py-1 text-nowrap">Log In</a>
-            <a href="{{ route('signin') }}" class="btn btn-light btn-sm rounded-pill px-2 px-sm-3 py-1 text-nowrap">Sign
+            <a href="{{ route('user.signin') }}" class="btn btn-light btn-sm rounded-pill px-2 px-sm-3 py-1 text-nowrap">Sign
                 Up</a>
         </div>
+        @endif
     </div>
 </nav>
 

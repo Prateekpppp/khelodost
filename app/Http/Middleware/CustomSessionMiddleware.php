@@ -21,6 +21,18 @@ class CustomSessionMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         
+        $userData = User::getCurrentUser();
+        // dd($userData);
+        if($userData){
+
+            View::share('userData',$userData);
+
+        } else{
+            
+            View::share('userData',False);
+
+        }
+
         $userAgent = $_SERVER['HTTP_USER_AGENT'];
 
         $_GAMES = ["Cricket","Football","Tennis","Casino","Sports Book","Horse Racing","Greyhound Racing","Binary","Kabaddi","Politics","Basketball","Baseball","Table Tennis","Volleyball","Ice Hockey","Rugby","Mixed Martial Arts","Darts","Futsal","Casino Vivo"];
@@ -31,33 +43,6 @@ class CustomSessionMiddleware
         
         $domain = $request->host();
 
-        $userData = User::getCurrentUser();
-        // dd($userData);
-        if(!empty($userData)){
-
-            $userAdmin = User::where('user_uid', $userData->admin_uid)->whereIn('status',[1,2,3,4])->first();
-            // dd($userAdmin);
-            View::share('userData',$userData);
-            View::share('userAdmin',$userAdmin);
-
-            $appdata = User::where('user_uid', $userData->admin_uid)->first();
-            if($appdata){
-                if($appdata->additional_data){
-                    $additional_data = json_decode($appdata->additional_data);
-                    $news = $additional_data->marquee;
-                    View::share('news',$news);
-                } else{
-                    View::share('news',[]);
-                }
-            }else{
-                View::share('news',[]);
-            }
-
-        } else{
-            
-            View::share('userData',False);
-
-        }
         
         
         View::share('_GAMES',$_GAMES);

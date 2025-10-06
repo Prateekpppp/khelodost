@@ -6,9 +6,10 @@
   <title>Register Page</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Bootstrap & Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ asset('css') }}/tailwind.min.css">
+  <link rel="stylesheet" href="{{ asset('css') }}/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ asset('css') }}/bootstrap-icons.css">
+  <link rel="stylesheet" href="{{ asset('css') }}/app_style.css">
 
   <style>
     body {
@@ -47,23 +48,31 @@
   <div class="bg-custom-green p-4 rounded-3 shadow-lg" style="width: 100%; max-width: 440px; color: white;">
 
     <!-- Logo -->
-    <a class="d-block mb-4 text-center">
+    <a href="javascript:void(0)" class="d-block mb-4 text-center">
       <img src="{{ asset('images/logo.png') }}" alt="Logo" style="max-width: 180px;" />
     </a>
 
     <!-- Form -->
-    <form>
+    <form action="{{route('post.signin')}}" method="POST">
+      @csrf
       <!-- Phone -->
       <div class="input-group mb-3">
-        <span class="input-group-text input-group-text-yellow"><i class="bi bi-phone text-warning"></i> +91</span>
+        <!-- <span class="input-group-text input-group-text-yellow"><i class="bi bi-phone text-warning"></i> +91</span> -->
+        <select class="input-group-text input-group-text-yellow" name="country_phone_code" id="country_phone_code">
+          <option value="{{$country_phone_code[0]}}" selected><i class="bi bi-phone text-warning"></i> +{{$country_phone_code[0]}}</option>
+          @foreach($country_phone_code as $code)
+            <option value="{{$code}}"><i class="bi bi-phone text-warning"></i> +{{$code}}</option>
+          @endforeach
+          <!-- ... other countries ... -->
+        </select>
         <input type="text" name="phone" class="form-control rounded-0 rounded-end" placeholder="Enter Your 10 Digit Number" maxlength="10" />
-        <a href="javascript:void(0)" class="btn btn-yellow rounded-0 rounded-end text-center">Get OTP</a>
+        <!-- <a href="javascript:void(0)" class="btn btn-yellow rounded-0 rounded-end text-center">Get OTP</a> -->
       </div>
 
       <!-- OTP -->
-      <div class="mb-3">
+      <!-- <div class="mb-3">
         <input type="text" name="otp" class="form-control rounded-3" placeholder="Enter OTP" maxlength="6" />
-      </div>
+      </div> -->
 
       <!-- Password -->
       <div class="input-group mb-3">
@@ -85,37 +94,53 @@
 
       <!-- Referral Code -->
       <div class="mb-3">
-        <input type="text" name="referral_code" class="form-control rounded-3" placeholder="Referral Code (if any)" />
+        <input type="text" name="referral_code" class="form-control rounded-3" placeholder="Referral Code (optional)" />
       </div>
 
       <!-- Remember Me -->
       <div class="form-check mb-3 text-start">
-        <input class="form-check-input" type="checkbox" id="remember" name="remember" />
-        <label class="form-check-label small fw-semibold" for="remember">REMEMBER ME</label>
+        <input class="form-check-input" type="checkbox" id="remember" name="age_confirm" />
+        <label class="form-check-label small fw-semibold" for="remember">I am over 18 years and have read and accepted Terms & Conditions.</label>
       </div>
 
       <!-- Register -->
       <div class="d-grid mb-3">
-        <a href="javascript:void(0)" class="btn btn-yellow rounded-3 text-center">Register</a>
+        <a href="javascript:void(0)" class="btn btn-yellow rounded-3 text-center signIn">Register</a>
       </div>
-
-      <!-- Or -->
-      <p class="mb-3 fs-6 text-white">Or register with</p>
-
-      <!-- Chatbot -->
-      <div class="d-grid mb-3">
-        <a href="javascript:void(0)" class="btn btn-success rounded-3 fw-semibold text-center">
-          <i class="bi bi-chat-dots-fill me-2"></i> Chatbot
-        </a>
-      </div>
-
-      <!-- Login link -->
-      <p class="small text-white">
-        Already have an account? <a href="{{route('login')}}"><b>Login</b></a>
-      </p>
     </form>
+    
+          <!-- Or -->
+          <p class="mb-3 fs-6 text-white">Or register with</p>
+    
+          <!-- Chatbot -->
+          <div class="d-grid mb-3">
+            <a href="javascript:void(0)" class="btn btn-success rounded-3 fw-semibold text-center">
+              <i class="bi bi-chat-dots-fill me-2"></i> Google
+            </a>
+          </div>
+    
+          <!-- Login link -->
+          <p class="small text-white">
+            Already have an account? <a href="{{route('login')}}"><b>Login</b></a>
+          </p>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+@include('includes.app_toast')
+
+  <script src="{{ asset('js') }}/jquery-3.7.1.min.js"></script>
+  <script src="{{ asset('js') }}/tailwind.min.js"></script>
+  <script src="{{ asset('js') }}/bootstrap.bundle.min.js"></script>
+@include('includes.ajaxCalls')
+@include('includes.script')
+
+<script>
+  $('.signIn').click(function(){
+    let formData = new FormData($('form')[0]);
+    callAjaxFormData('post',"{{route('post.signin')}}",formData,ajaxResponse);
+  });
+
+
+</script>
+
 </body>
 </html>

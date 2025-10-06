@@ -1,84 +1,110 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+use App\Http\Controllers\AuthController;
 
-Route::get('/login', function () {
-    return view('pages.login');
-})->name('login');
 
-Route::get('/signin', function () {
-    return view('pages.signin');
-})->name('signin');
+Route::middleware(['auth_middleware'])->group(function () {
+    
+    Route::get('/login', function () {
+        return view('pages.login');
+    })->name('login');
 
-Route::get('/forgot_password', function () {
-    return view('pages.forgot_password');
-})->name('forgot_password');
+    Route::get('signin', function () {
+        return view('pages.signin');
+    })->name('signin');
 
-Route::get('/', function () {
-    return view('pages.index');
-})->name('index');
+    Route::post('signin', [AuthController::class,'signin'])->name('post.signin');
+    Route::post('login', [AuthController::class,'login'])->name('post.login');
 
-Route::get('/cricket', function () {
-    return view('pages.cricket');
-})->name('cricket');
+    Route::get('/forgot_password', function () {
+        return view('pages.forgot_password');
+    })->name('forgot_password');
 
-Route::get('/football', function () {
-    return view('pages.football');
-})->name('football');
+});
 
-Route::get('/tennis', function () {
-    return view('pages.tennis');
-})->name('tennis');
 
-Route::get('/indian_card_games', function () {
-    return view('pages.indian_card_games');
-})->name('indian_card_games');
+Route::middleware(['custom_session_middleware'])->group(function () {
 
-Route::get('/casino', function () {
-    return view('pages.casino');
-})->name('casino');
+    Route::middleware(['auth_check_middleware'])->group(function () {
+        
+    });
 
-Route::get('/1X2_gaming', function () {
-    return view('pages.1X2_gaming');
-})->name('1X2_gaming');
+    Route::get('/', function () {
+        return view('pages.index');
+    })->name('index');
 
-Route::get('/ezugi', function () {
-    return view('pages.ezugi');
-})->name('ezugi');
+    Route::get('/cricket', function () {
+        return view('pages.cricket');
+    })->name('cricket');
 
-Route::get('/supernova', function () {
-    return view('pages.supernova');
-})->name('supernova');
+    Route::get('/football', function () {
+        return view('pages.football');
+    })->name('football');
 
-Route::get('/slot_casino', function () {
-    return view('pages.slot_casino');
-})->name('slot_casino');
+    Route::get('/tennis', function () {
+        return view('pages.tennis');
+    })->name('tennis');
 
-// Account page 
-Route::get('/deposit', function () {
-    return view('accounts.deposit');
-})->name('deposit'); 
+    Route::get('/indian_card_games', function () {
+        return view('pages.indian_card_games');
+    })->name('indian_card_games');
 
-Route::get('/withdraw', function () {
-    return view('accounts.withdraw');
-})->name('withdraw');
+    Route::get('/casino', function () {
+        return view('pages.casino');
+    })->name('casino');
 
-Route::get('/account_statement', function () {
-    return view('accounts.account_statement');
-})->name('account_statement');
+    Route::get('/1X2_gaming', function () {
+        return view('pages.1X2_gaming');
+    })->name('1X2_gaming');
 
-Route::get('/open_bets', function () {
-    return view('accounts.open_bets');
-})->name('open_bets');
+    Route::get('/ezugi', function () {
+        return view('pages.ezugi');
+    })->name('ezugi');
 
-Route::get('/profit_loss_event', function () {
-    return view('accounts.profit_loss_event');
-})->name('profit_loss_event');
+    Route::get('/supernova', function () {
+        return view('pages.supernova');
+    })->name('supernova');
 
-Route::get('/change_password', function () {
-    return view('accounts.change_password');
-})->name('change_password');
+    Route::get('/slot_casino', function () {
+        return view('pages.slot_casino');
+    })->name('slot_casino');
 
-Route::get('/account_setting', function () {
-    return view('accounts.account_setting');
-})->name('account_setting');
+    // Account page 
+    Route::get('/deposit', function () {
+        return view('accounts.deposit');
+    })->name('deposit'); 
+
+    Route::get('/withdraw', function () {
+        return view('accounts.withdraw');
+    })->name('withdraw');
+
+    Route::get('/account_statement', function () {
+        return view('accounts.account_statement');
+    })->name('account_statement');
+
+    Route::get('/open_bets', function () {
+        return view('accounts.open_bets');
+    })->name('open_bets');
+
+    Route::get('/profit_loss_event', function () {
+        return view('accounts.profit_loss_event');
+    })->name('profit_loss_event');
+
+    Route::get('/change_password', function () {
+        return view('accounts.change_password');
+    })->name('change_password');
+
+    Route::get('/account_setting', function () {
+        return view('accounts.account_setting');
+    })->name('account_setting');
+
+    
+    Route::get('logout', function () {
+        session()->forget('username');
+        // Session::flush('username');
+        return redirect()->route('index');
+    })->name('logout');
+});

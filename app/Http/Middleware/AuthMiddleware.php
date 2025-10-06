@@ -5,7 +5,10 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
+use App\Models\Country;
 
 class AuthMiddleware
 {
@@ -16,10 +19,12 @@ class AuthMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(Session::get('user_session')) {
+        if(Session::has('username')) {
+            dd('asdf');
             return redirect()->route('index');
-        } else{
-            return $next($request);
         }
+        $country_phone_code = Country::pluck('country_phone_code');
+        View::share('country_phone_code',$country_phone_code);
+        return $next($request);
     }
 }

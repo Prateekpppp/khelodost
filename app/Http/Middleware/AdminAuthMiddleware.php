@@ -16,7 +16,7 @@ class AdminAuthMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(Session::get('admin_session')) {
+        if(Session::get('admin_username')) {
             return redirect()->route('admin.index');
         } else{
             return $next($request);

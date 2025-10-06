@@ -1,100 +1,33 @@
 <script>
 
-    function callAjax(type = null, url = null, data = null, action = null, beforeAction = null, catchError = null) {
-        // if(type.tpLowerCase() != 'get'){
-        $.ajax({
-            type: type,
-            url: `{{ url('/') }}/${url}`,
-            data: data,
-            beforeSend: () => {
-                if (beforeAction) beforeAction();
-            },
-            success: (response) => {
-                if(response.error_code == '409'){
-                    alert(response.error);
-                    setTimeout(() => {
-                        window.location.href = response.redirect;
-                    }, 2000);
-                    return false;
-                }
-                if (action) {
-                    action(response);
-                } else {
-                    return response;
-                }
-            },
-            error: (error) => {
-                if (catchError) catchError();
+    // toast js start
+        
+        function responseToast(msg,background='bg-light'){
+            $('.app_toast .toast-body').html(msg);
+            $('.app_toast').css('right','1%');
+            $('.app_toast').addClass(background);
+            $('.app_toast').fadeIn('slow',function(){
+                setTimeout(() => {
+                    $('.app_toast').fadeOut('slow');
+                    $('.app_toast').css('right','-100%');
+                    $('.app_toast').removeClass(background);
+                }, 2000);
+            });
+        }
+        
+    // toast js end
+
+    
+    function ajaxResponse(response){
+        
+        if(response.code==200){
+            responseToast(response.message,'bg-success');
+            if(response.redirect){
+                window.location.href = response.redirect;
             }
-        });
-        // }
-    }
-  
-    function callAjaxFormData(type = null, url = null, data = null, action = null, beforeAction = null, catchError = null) {
-        // if(type.tpLowerCase() != 'get'){
-        $.ajax({
-            type: type,
-            url: url,
-            processData: false,
-            contentType: false,
-            enctype: "multipart/form-data",
-            data: data,
-            beforeSend: () => {
-                if (beforeAction) beforeAction();
-            },
-            success: (response) => {
-                if(response.error_code == '409'){
-                    alert(response.error);
-                    setTimeout(() => {
-                        window.location.href = response.redirect;
-                    }, 2000);
-                    return false;
-                }
-                if (action) {
-                    action(response);
-                } else {
-                    return response;
-                }
-            },
-            error: (error) => {
-                if (catchError) catchError();
-            }
-        });
-        // }
+        } else{
+            responseToast(response.message,'bg-warning');
+        }
     }
 
-    function callApiFormData(type = null, url = null, data = null, action = null, beforeAction = null, catchError = null, backendToken=localStorage.getItem('backendToken')) {
-        // if(type.tpLowerCase() != 'get'){
-        $.ajax({
-            type: type,
-            url: url,
-            data: data,
-            processData: false,
-            contentType: false,
-            headers: {
-                'Authorization': 'Bearer ' + backendToken
-            },
-            beforeSend: () => {
-                if (beforeAction) beforeAction();
-            },
-            success: (response) => {
-                if(response.error_code == '409'){
-                    alert(response.error);
-                    setTimeout(() => {
-                        window.location.href = response.redirect;
-                    }, 2000);
-                    return false;
-                }
-                if (action) {
-                    action(response);
-                } else {
-                    return response;
-                }
-            },
-            error: (error) => {
-                if (catchError) catchError();
-            }
-        });
-        // }
-    }
 </script>

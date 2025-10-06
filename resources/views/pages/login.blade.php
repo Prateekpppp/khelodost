@@ -5,8 +5,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Playcrickgg Login</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet" />
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet" /> -->
+  <link rel="stylesheet" href="{{ asset('css') }}/tailwind.min.css">
+  <link rel="stylesheet" href="{{ asset('css') }}/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ asset('css') }}/bootstrap-icons.css">
+  <link rel="stylesheet" href="{{ asset('css') }}/app_style.css">
   <style>
     .bg-custom-green { background-color: #059669; }
     .btn-yellow {
@@ -30,6 +34,7 @@
 
     <!-- Login Form -->
     <form>
+      @csrf
       <!-- Mobile Number -->
       <div class="mb-3">
         <div class="input-group">
@@ -48,7 +53,7 @@
 
       <!-- Login Buttons -->
       <div class="d-grid gap-2 mb-3">
-        <a href="javascript:void(0)" class="btn btn-yellow text-center">Login</a>
+        <a href="javascript:void(0)" class="btn btn-yellow text-center login">Login</a>
         <a href="javascript:void(0)" onclick="demoLogin()" class="btn btn-yellow text-center">Login With Demo ID</a>
       </div>
 
@@ -72,12 +77,26 @@
     </form>
   </div>
 
+@include('includes.app_toast')
+
+  <script src="{{ asset('js') }}/jquery-3.7.1.min.js"></script>
+  <script src="{{ asset('js') }}/tailwind.min.js"></script>
+  <script src="{{ asset('js') }}/bootstrap.bundle.min.js"></script>
+@include('includes.ajaxCalls')
+@include('includes.script')
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     function demoLogin() {
       localStorage.setItem('demo_login', 'true');
       window.location.href = "{{ route('index') }}";
     }
+    
+  $('.login').click(function(){
+    let formData = new FormData($('form')[0]);
+    callAjaxFormData('post',"{{route('post.login')}}",formData,ajaxResponse);
+  });
+
   </script>
 </body>
 </html>

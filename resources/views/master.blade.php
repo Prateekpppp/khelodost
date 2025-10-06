@@ -4,24 +4,29 @@
 <head>
     @include('head')
 
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     @yield('head')
 </head>
 
 <body>
-    <div>
-        @include('header')
-        @include('navbar')
-    </div>
+    <div class="app_body">
+        <div>
+            @include('header')
+            @include('navbar')
+        </div>
 
-    <div>
-        @yield('body')
-    </div>
+        <div>
+            @yield('body')
+        </div>
 
+        <div class="footer_part w-full">
+            @include('footer')
+        </div>
+    </div>
+    @include('includes.app_toast')
+    @include('includes.ajaxCalls')
+    @include('includes.user_js')
+    @include('includes.script')
     @yield('js')
-    <div class="footer_part w-full">
-        @include('footer')
-    </div>
 </body>
 
 </html>

@@ -161,7 +161,7 @@
       }
 
       var optionWithImage = $(
-        '<span style="display: flex;justify-content: space-between;"><img src="' + option.id + '" class="img-flag" width="15" /> ' + option.text + '</span>'
+        '<span style="display: flex;justify-content: space-between;"><img src="' + option.img + '" class="img-flag" width="15" /> ' + option.text + '</span>'
       );
       return optionWithImage;
     }
@@ -169,7 +169,7 @@
     // Add options dynamically
     var options = [
       @foreach($country_phone_code as $code)
-      { id: '{{asset('icons')}}/flags/{{$code}}.svg', text: '{{$code}}' },
+      { id: '{{$code}}', text: ' +{{$code}}', img: '{{asset('icons')}}/flags/{{$code}}.svg' },
       @endforeach
     ];
 

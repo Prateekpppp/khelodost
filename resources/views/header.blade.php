@@ -33,13 +33,12 @@
             <a href="{{ route('signin') }}" class="btn btn-light btn-sm rounded-pill px-2 px-sm-3 py-1 text-nowrap">Sign
                 Up</a>
             @else
-            <div class="flex flex-col align-items-center">
-                <span>{{$userData->username}}</span>
-                <span>Balance : {{$userData->wallet_amount}}</span>
+            <div class="flex flex-row gap-1 align-items-center">
+                <button class="btn btn-outline-light btn-sm rounded-pill px-2 px-sm-3 py-1 text-nowrap" data-bs-toggle="offcanvas" data-bs-target="#accountPanel">Account</button>
                 
-                <a class="relative logout" href="{{route('logout')}}">
+                <!-- <a class="relative logout" href="{{route('logout')}}">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width: 23px;height: 23px;fill: #fce31a;"><path d="M256 73.825a182.18 182.18 0 0 0-182.18 182.18c0 100.617 81.567 182.17 182.18 182.17a182.175 182.175 0 1 0 0-364.35zm-18.096 86.22a18.099 18.099 0 0 1 36.197 0v53.975a18.099 18.099 0 0 1-36.197 0zM256 348.589a92.413 92.413 0 0 1-32.963-178.751v33.38a62.453 62.453 0 1 0 65.93 0v-33.38A92.415 92.415 0 0 1 256 348.588z" data-name="Logout"></path></svg>
-                </a>
+                </a> -->
             </div>
             @endif
         </div>
@@ -94,10 +93,11 @@
     </div>
 </div>
 
+@if($userData)
 <!-- Account Panel Offcanvas -->
 <div class="offcanvas offcanvas-end account-offcanvas" tabindex="-1" id="accountPanel">
     <div class="offcanvas-header bg-light text-dark d-flex justify-content-between align-items-center">
-        <span class="fs-5 fw-semibold d-flex align-items-center gap-2">📧 demo_playcrick99</span>
+        <span class="fs-5 fw-semibold d-flex align-items-center gap-2">📧 {{$userData->username}}</span>
         <a type="button" class="btn-close btn-close-dark" data-bs-dismiss="offcanvas"></a>
     </div>
 
@@ -110,7 +110,7 @@
 
             <div class="mb-3">
                 <div class="text-muted small fw-semibold">BALANCE</div>
-                <div class="balance-amount fs-6 fw-bold text-success">₹ 0.00</div>
+                <div class="balance-amount fs-6 fw-bold text-success">₹ {{$userData->wallet_amount}}</div>
             </div>
 
             <div class="d-flex justify-content-between mb-3">
@@ -161,13 +161,12 @@
         <div class="ms-3 border-top">
             <a href="{{ route('change_password') }}" class="d-block py-2 px-3 text-decoration-none text-dark border-bottom">🔑 Change
                 Password</a>
-            <a href="#" class="d-block py-2 px-3 text-decoration-none text-dark border-bottom"
-                onclick="signOut()">🚪 Sign Out</a>
+            <a href="{{ route('logout') }}" class="d-block py-2 px-3 text-decoration-none text-dark border-bottom">🚪 Sign Out</a>
         </div>
 
     </div>
 </div>
-
+@endif
 <script>
     // Check localStorage on page load
     window.addEventListener('load', function() {

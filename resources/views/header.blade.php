@@ -34,7 +34,7 @@
                 Up</a>
             @else
             <div class="flex flex-col align-items-center">
-                <span>Username : {{$userData->username}}</span>
+                <span>{{$userData->username}}</span>
                 <span>Balance : {{$userData->wallet_amount}}</span>
                 
                 <a class="relative logout" href="{{route('logout')}}">

@@ -114,7 +114,7 @@
     
           <!-- Chatbot -->
           <div class="d-grid mb-3">
-            <a href="{{route('api.login.social'}}" class="btn btn-success rounded-3 fw-semibold text-center">
+            <a href="{{route('api.login.social')}}" class="btn btn-success rounded-3 fw-semibold text-center">
               <i class="bi bi-chat-dots-fill me-2"></i> Google
             </a>
           </div>

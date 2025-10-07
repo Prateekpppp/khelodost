@@ -65,7 +65,7 @@
       <!-- Or login with -->
       <p class="mb-2">Or login with</p>
       <div class="d-grid mb-3">
-        <a href="{{route('api.login.social'}}" class="btn btn-success rounded-3 fw-semibold">
+        <a href="{{route('api.login.social')}}" class="btn btn-success rounded-3 fw-semibold">
           <i class="bi bi-chat-dots-fill me-2"></i> Google
         </a>
       </div>

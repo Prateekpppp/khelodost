@@ -39,7 +39,7 @@
       <div class="mb-3">
         <div class="input-group">
           <span class="input-group-text input-group-text-yellow"><i class="bi bi-phone"></i></span>
-          <input type="text" name="phone" class="form-control rounded-end" placeholder="Enter mobile number" />
+          <input type="text" name="phone" class="form-control rounded-end" placeholder="Enter your mobile number" />
         </div>
       </div>
 
@@ -65,8 +65,8 @@
       <!-- Or login with -->
       <p class="mb-2">Or login with</p>
       <div class="d-grid mb-3">
-        <a href="{{route('api.login.social')}}" class="btn btn-success rounded-3 fw-semibold">
-          <i class="bi bi-chat-dots-fill me-2"></i> Google
+        <a href="{{route('api.login.social')}}" class="btn btn-success rounded-3 fw-semibold text-center !flex items-center justify-center">
+          <img class="rounded-circle mr-1" src="{{asset('icons/google.png')}}" width="20" height=20"> Google
         </a>
       </div>
 

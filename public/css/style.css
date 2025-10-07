@@ -409,7 +409,7 @@ body {
 
 /* Indian game ka */
 main {
-    height: 100vh;
+    /* height: 100vh; */
     overflow-y: auto;
     scrollbar-width: none;
     -ms-overflow-style: none;

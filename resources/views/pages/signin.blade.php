@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="{{ asset('css') }}/bootstrap-icons.css">
   <link rel="stylesheet" href="{{ asset('css') }}/app_style.css">
 
+ <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
   <style>
     body {
       background-color: #f0f8ff;
@@ -41,6 +42,9 @@
       width: 3rem; display: flex; align-items: center; justify-content: center; transition: background 0.3s ease;
     }
     .btn-outline-secondary:hover { background: rgba(255 255 255 / 0.3); color: #fff; }
+    span.select2 {
+      width: 4rem !important;
+    }
   </style>
 </head>
 
@@ -56,16 +60,17 @@
     <form action="{{route('post.signin')}}" method="POST">
       @csrf
       <!-- Phone -->
-      <div class="input-group mb-3">
+      <div class="input-group mb-3 rounded">
+
         <!-- <span class="input-group-text input-group-text-yellow"><i class="bi bi-phone text-warning"></i> +91</span> -->
         <select class="input-group-text input-group-text-yellow" name="country_phone_code" id="country_phone_code">
-          <option value="{{$country_phone_code[0]}}" selected><i class="bi bi-phone text-warning"></i> +{{$country_phone_code[0]}}</option>
+          <!-- <option value="{{$country_phone_code[2]}}"><img src='{{asset('icons')}}/flags/{{$country_phone_code[2]}}.svg' width='15'> +{{$country_phone_code[2]}}</option>       
           @foreach($country_phone_code as $code)
-            <option value="{{$code}}"><i class="bi bi-phone text-warning"></i> +{{$code}}</option>
-          @endforeach
-          <!-- ... other countries ... -->
+            <option value="{{$code}}"><img src='{{asset('icons')}}/flags/{{$code}}.svg' width='15'> +{{$code}}</option>
+          @endforeach -->
+          
         </select>
-        <input type="text" name="phone" class="form-control rounded-0 rounded-end" placeholder="Enter Your 10 Digit Number" maxlength="10" />
+        <input type="text" name="phone" class="form-control" placeholder="Enter your phone number" maxlength="10" />
         <!-- <a href="javascript:void(0)" class="btn btn-yellow rounded-0 rounded-end text-center">Get OTP</a> -->
       </div>
 
@@ -114,8 +119,8 @@
     
           <!-- Chatbot -->
           <div class="d-grid mb-3">
-            <a href="{{route('api.login.social')}}" class="btn btn-success rounded-3 fw-semibold text-center">
-              <i class="bi bi-chat-dots-fill me-2"></i> Google
+            <a href="{{route('api.login.social')}}" class="btn btn-success rounded-3 fw-semibold text-center !flex items-center justify-center">
+              <img class="rounded-circle mr-1" src="{{asset('icons/google.png')}}" width="20" height=20"> Google
             </a>
           </div>
     
@@ -130,6 +135,7 @@
   <script src="{{ asset('js') }}/jquery-3.7.1.min.js"></script>
   <script src="{{ asset('js') }}/tailwind.min.js"></script>
   <script src="{{ asset('js') }}/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 @include('includes.ajaxCalls')
 @include('includes.script')
 
@@ -137,6 +143,33 @@
   $('.signIn').click(function(){
     let formData = new FormData($('form')[0]);
     callAjaxFormData('post',"{{route('post.signin')}}",formData,ajaxResponse);
+  });
+
+  $(document).ready(function(){
+    function formatOption(option) {
+      if (!option.id) {
+        return option.text;
+      }
+
+      var optionWithImage = $(
+        '<span style="display: flex;justify-content: space-between;"><img src="' + option.id + '" class="img-flag" width="15" /> ' + option.text + '</span>'
+      );
+      return optionWithImage;
+    }
+
+    // Add options dynamically
+    var options = [
+      @foreach($country_phone_code as $code)
+      { id: '{{asset('icons')}}/flags/{{$code}}.svg', text: '{{$code}}' },
+      @endforeach
+    ];
+
+    $('select').select2({
+      templateResult: formatOption,
+      templateSelection: formatOption,
+      data: options,
+      minimumResultsForSearch: Infinity
+    });
   });
 
 

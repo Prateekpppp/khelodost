@@ -25,15 +25,18 @@
             </div>
         </div>
 
-        @if(!$userData)
         <!-- Buttons -->
         <div class="d-flex align-items-center gap-2 ms-auto flex-shrink-0" id="headerButtons">
+            @if(!$userData)
             <a href="{{ route('login') }}"
                 class="btn btn-outline-light btn-sm rounded-pill px-2 px-sm-3 py-1 text-nowrap">Log In</a>
             <a href="{{ route('signin') }}" class="btn btn-light btn-sm rounded-pill px-2 px-sm-3 py-1 text-nowrap">Sign
                 Up</a>
+            @else
+            <span>Username : {{$userData->username}}</span>
+            <span>Balance : {{$userData->wallet_amount}}</span>
+            @endif
         </div>
-        @endif
     </div>
 </nav>
 

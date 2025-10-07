@@ -20,6 +20,9 @@ return new class extends Migration
             $table->string('password')->nullable();
             $table->integer('status')->default(2);
             $table->string('referral')->nullable();
+            $table->string('wallet_amount')->default(0);
+            $table->string('unsattled_amount')->default(0);
+            $table->string('commission_amount')->default(0);
             $table->string('referral_code')->unique()->nullable();
             $table->integer('referral_nos')->default(0);
             $table->integer('last_login')->nullable();

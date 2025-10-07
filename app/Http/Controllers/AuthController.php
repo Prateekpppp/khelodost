@@ -97,7 +97,7 @@ class AuthController extends Controller
                 $this->setUserSession($user->username);
             
             } else if($request->email){
-                Log::info('This email testing'.$request->email);
+                
                 $user = User::where('email',$request->email)->first();
                 if(!$user){
                     $user = new User();
@@ -123,10 +123,11 @@ class AuthController extends Controller
                 $user = User::where('username',$username)->first();
                 $referralUser = User::where('referral_code',$request->referral_code)->first();
                 if($referralUser){
-                    $user->referral = $referralUser->username;
-                    $user->save();
                     $referralUser->referral_nos += 1;
                     $referralUser->save();
+                    
+                    $user->referral = $referralUser->username;
+                    $user->save();
                 }
             }
 

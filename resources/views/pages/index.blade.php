@@ -6,8 +6,11 @@
 
             <!-- 🔷 Banner Image Card -->
             <div class="mb-2 shadow-sm">
-                <div class="card-body text-center">
-                    <a href="{{ route('index') }}">
+                <div class="card-body text-center flex flex-row max-w-full overflow-x-auto">
+                    <a href="{{ route('index') }}" class="min-w-full">
+                        <img src="{{ asset('images/playcrick99-banner.webp') }}" class="img-fluid rounded-4" alt="Banner">
+                    </a>
+                    <a href="{{ route('index') }}" class="min-w-full">
                         <img src="{{ asset('images/playcrick99-banner.webp') }}" class="img-fluid rounded-4" alt="Banner">
                     </a>
                 </div>

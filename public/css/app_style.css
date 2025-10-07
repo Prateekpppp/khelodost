@@ -5,7 +5,9 @@
     /* normal text color: #000 */
     /* special text color: #929391 */
 
-
+.form-control:focus {
+    box-shadow: none;
+}
 
 .app_toast {
     opacity: 1;

@@ -42,8 +42,17 @@
       width: 3rem; display: flex; align-items: center; justify-content: center; transition: background 0.3s ease;
     }
     .btn-outline-secondary:hover { background: rgba(255 255 255 / 0.3); color: #fff; }
+
     span.select2 {
       width: 4rem !important;
+    }
+
+    .select2-selection {
+      height: 100% !important;
+      display: flex !important;
+      border-radius: inherit !important;
+      align-items: center;
+      justify-content: center;
     }
   </style>
 </head>

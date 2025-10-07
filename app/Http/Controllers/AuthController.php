@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
+use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\Admin\AdminDataController;
 use App\Models\User;
 use App\Models\Bonus;
@@ -28,10 +29,8 @@ class AuthController extends Controller
             $request = new Request();
             $request->email = $user->email;
 
-            Log::info('This callback.----'.$user->email);
-
-            $this->signin($request);
-            
+            $redirect = json_decode($this->signin($request)->getContent());
+            return redirect($redirect->redirect);
         } catch (Throwable $e) {
             return redirect('/')->with('error', 'Google authentication failed.');
         }

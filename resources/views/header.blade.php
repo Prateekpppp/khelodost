@@ -169,12 +169,12 @@
 @endif
 <script>
     // Check localStorage on page load
-    window.addEventListener('load', function() {
-        if (localStorage.getItem('demo_login') === 'true') {
-            document.getElementById('headerButtons').innerHTML =
-                '<button class="btn btn-outline-light btn-sm rounded-pill px-2 px-sm-3 py-1 text-nowrap" data-bs-toggle="offcanvas" data-bs-target="#accountPanel">Account</button>';
-        }
-    });
+    // window.addEventListener('load', function() {
+    //     if (localStorage.getItem('demo_login') === 'true') {
+    //         document.getElementById('headerButtons').innerHTML =
+    //             '<button class="btn btn-outline-light btn-sm rounded-pill px-2 px-sm-3 py-1 text-nowrap" data-bs-toggle="offcanvas" data-bs-target="#accountPanel">Account</button>';
+    //     }
+    // });
 
     // Sign out function
     function signOut() {

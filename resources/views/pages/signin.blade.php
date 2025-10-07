@@ -33,7 +33,7 @@
     .input-group-text-yellow {
       background-color: #ffd600; color: #000; font-weight: 600; border: none; border-radius: 0.5rem 0 0 0.5rem;
     }
-    .form-control:focus { box-shadow: 0 0 0 0.25rem rgb(255 214 0 / 0.5); border-color: #ffd600; outline: none; }
+    .form-control:focus { box-shadow: none; }
     a { color: #fff; font-weight: 600; text-decoration: none; }
     a:hover { text-decoration: underline; }
     .btn-outline-secondary {

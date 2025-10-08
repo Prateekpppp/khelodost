@@ -69,7 +69,7 @@ class AuthController extends Controller
                 $user = User::where('phone',$request->phone)->first();
                 if(!$user){
                     $user = new User();
-                    $user->username = $username;
+                    $user->username = $request->phone;
                     $user->phone = $request->phone;
                     $user->password = Hash::make($request->password);
                     $user->referral_code = rand(100000,999999);
@@ -101,7 +101,7 @@ class AuthController extends Controller
                 $user = User::where('email',$request->email)->first();
                 if(!$user){
                     $user = new User();
-                    $user->username = $username;
+                    $user->username = $request->email;
                     $user->email = $request->email;
                     $user->referral_code = rand(100000,999999);
                     if($request->age_confirm){

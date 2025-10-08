@@ -20,55 +20,14 @@ class CustomAdminSessionMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        
-        $userAgent = $_SERVER['HTTP_USER_AGENT'];
-
-        $_GAMES = ["Cricket","Football","Tennis","Casino","Sports Book","Horse Racing","Greyhound Racing","Binary","Kabaddi","Politics","Basketball","Baseball","Table Tennis","Volleyball","Ice Hockey","Rugby","Mixed Martial Arts","Darts","Futsal","Casino Vivo"];
-
-        $providers = Storage::disk('local')->get('games_data/providers.json');
-        
-        $providers = json_decode($providers);
-        
-        $domain = $request->host();
 
         $userData='';
-        if(Session::has('admin_session')){
-            $userData = explode('_user_',Session::get('admin_session'));
-            $userData = $userData[1];
-            $userData = User::getCurrentUser('user_uid', $userData);           
-        } else{
-            $userData = User::getCurrentUser();
-        }
+        if(Session::has('admin_username')){
+            $userData = Session::get('admin_username');
+            $userData = User::getCurrentUser('username', $userData);           
+        } 
         
-        if(!empty($userData)){
-
-            $userAdmin = User::where('user_uid', $userData->admin_uid)->whereIn('status',[1,2,3,4])->first();
-            // dd($userAdmin);
-            View::share('userData',$userData);
-            View::share('userAdmin',$userAdmin);
-
-            $appdata = User::where('user_uid', $userData->admin_uid)->first();
-            if($appdata){
-                if($appdata->additional_data){
-                    $additional_data = json_decode($appdata->additional_data);
-                    $news = $additional_data->marquee;
-                    View::share('news',$news);
-                } else{
-                    View::share('news',[]);
-                }
-            }else{
-                View::share('news',[]);
-            }
-
-        } else{
-            
-            View::share('userData',False);
-
-        }
-        
-        
-        View::share('_GAMES',$_GAMES);
-        View::share('providers',$providers);
+        View::share('userData',$userData);
 
         return $next($request);
     }

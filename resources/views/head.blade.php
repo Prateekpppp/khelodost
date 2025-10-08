@@ -23,6 +23,7 @@
 <!-- Google Fonts: Montserrat -->
 <link rel="stylesheet" href="{{ asset('css') }}/Montserrat_font.css">
 <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+<link rel="stylesheet" href="{{ asset('css/app_style.css') }}">
 
 <script src="{{ asset('js') }}/jquery-3.7.1.min.js"></script>
 <script src="{{ asset('js') }}/tailwind.min.js"></script>

@@ -125,8 +125,8 @@
             </div>
 
             <div class="d-flex gap-2">
-                <a href="{{ route('deposit') }}" class="btn btn-success flex-fill fw-bold">➕ Deposit</a>
-                <a href="{{ route('withdraw') }}" class="btn btn-danger flex-fill fw-bold">➖ Withdraw</a>
+                <a href="{{ route('user.deposit') }}" class="btn btn-success flex-fill fw-bold">➕ Deposit</a>
+                <a href="{{ route('user.withdraw') }}" class="btn btn-danger flex-fill fw-bold">➖ Withdraw</a>
             </div>
         </div>
 

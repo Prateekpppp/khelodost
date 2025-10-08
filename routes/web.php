@@ -3,7 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\UserController;
 
 
 Route::middleware(['auth_middleware'])->group(function () {
@@ -33,6 +36,10 @@ Route::middleware(['custom_session_middleware'])->group(function () {
 
     Route::middleware(['auth_check_middleware'])->group(function () {
         
+        Route::post('paymentGatewayMethod', [TransactionController::class,'paymentGatewayMethod'])->name('paymentGatewayMethod')->withoutMiddleware([VerifyCsrfToken::class]);
+        
+        Route::get('/deposit', [UserController::class,'deposit'])->name('user.deposit');
+
     });
 
     Route::get('/', function () {
@@ -76,13 +83,13 @@ Route::middleware(['custom_session_middleware'])->group(function () {
     })->name('slot_casino');
 
     // Account page 
-    Route::get('/deposit', function () {
-        return view('accounts.deposit');
-    })->name('deposit'); 
+    // Route::get('/deposit', function () {
+    //     return view('accounts.deposit');
+    // })->name('deposit'); 
 
     Route::get('/withdraw', function () {
         return view('accounts.withdraw');
-    })->name('withdraw');
+    })->name('user.withdraw');
 
     Route::get('/account_statement', function () {
         return view('accounts.account_statement');

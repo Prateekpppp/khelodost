@@ -34,6 +34,7 @@
                 Up</a>
             @else
             <div class="flex flex-row gap-1 align-items-center">
+                <img src="{{asset('logo/avatar.jpg')}}" data-bs-target="#accountPanel" data-bs-toggle="offcanvas" alt="" class="w-9 rounded-circle border-2 border-solid !border-[#2d92f6] cursor-pointer">
                 <button class="btn btn-outline-light btn-sm rounded-pill px-2 px-sm-3 py-1 text-nowrap" data-bs-toggle="offcanvas" data-bs-target="#accountPanel">Account</button>
                 
                 <!-- <a class="relative logout" href="{{route('logout')}}">

@@ -154,8 +154,8 @@ class AuthController extends Controller
 
         if(empty($user)){
             return response()->json([
-                'error'=> 'User not found',
-                'error_code'=> '104'
+                'message'=> 'User not found',
+                'code'=> '104'
             ]);
         } else{
             if(Hash::check($request->password,$user->password)){
@@ -164,8 +164,8 @@ class AuthController extends Controller
                 ]);
             } else{
                 return response()->json([
-                    'error'=> 'Wrong Password',
-                    'error_code'=> '105'
+                    'message'=> 'Wrong Password',
+                    'code'=> '105'
                 ]);
             }
         }

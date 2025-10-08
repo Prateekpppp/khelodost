@@ -6,12 +6,18 @@
 
             <!-- 🔷 Banner Image Card -->
             <div class="mb-2 shadow-sm">
-                <div class="card-body text-center flex flex-row max-w-full overflow-x-auto">
+                <div class="rounded-4 text-center flex flex-row max-w-full overflow-hidden app_scroller">
                     <a href="{{ route('index') }}" class="min-w-full">
-                        <img src="{{ asset('images/playcrick99-banner.webp') }}" class="img-fluid rounded-4" alt="Banner">
+                        <img src="{{ asset('banners/banner1.png') }}" class="img-fluid" alt="Banner">
                     </a>
                     <a href="{{ route('index') }}" class="min-w-full">
-                        <img src="{{ asset('images/playcrick99-banner.webp') }}" class="img-fluid rounded-4" alt="Banner">
+                        <img src="{{ asset('banners/banner2.png') }}" class="img-fluid" alt="Banner">
+                    </a>
+                    <a href="{{ route('index') }}" class="min-w-full">
+                        <img src="{{ asset('banners/banner3.png') }}" class="img-fluid" alt="Banner">
+                    </a>
+                    <a href="{{ route('index') }}" class="min-w-full">
+                        <img src="{{ asset('banners/banner4.png') }}" class="img-fluid" alt="Banner">
                     </a>
                 </div>
             </div>

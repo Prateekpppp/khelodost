@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('country_code');
             $table->string('country_phone_code');
+            $table->string('currency');
             $table->json('additional_data')->nullable();
             $table->timestamps();
         });

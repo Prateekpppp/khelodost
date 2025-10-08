@@ -28,9 +28,9 @@
     @include('admin.model.edit_bonus')
     @include('admin.model.casino_control')
     @include('admin.model.responseModel')
+    @include('includes.app_toast')
     @include('includes.ajaxCalls')
     @include('includes.admin_js')
-    @include('includes.app_toast')
     @yield('js')
 </body>
 

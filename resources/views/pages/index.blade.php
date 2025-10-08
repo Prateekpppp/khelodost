@@ -5,7 +5,7 @@
         <div class="container">
 
             <!-- 🔷 Banner Image Card -->
-            <div class="mb-2 shadow-sm">
+            <div class="mb-2">
                 <div class="rounded-4 text-center flex flex-row max-w-full overflow-hidden app_scroller">
                     <a href="{{ route('index') }}" class="min-w-full">
                         <img src="{{ asset('banners/banner1.png') }}" class="img-fluid" alt="Banner">

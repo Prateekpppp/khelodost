@@ -110,10 +110,10 @@
   </div>
 
   @include('includes.app_toast')
-@if ($error=request()->session()->get('error'))
+@if (request()->session()->get('code')=='304')
 
   <script>
-    
+    responseToast(request()->session()->get('message'));
   </script>
 @endif
 

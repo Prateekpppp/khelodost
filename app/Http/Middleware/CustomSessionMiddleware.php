@@ -22,6 +22,10 @@ class CustomSessionMiddleware
     {
         
         $userData = User::getCurrentUser();
+        $userData = User::join('countries','countries.country_phone_code','=','users.country_phone_code')
+        ->select('users.*','countries.currency')
+        ->first();
+        
         // dd($userData);
         if($userData){
 

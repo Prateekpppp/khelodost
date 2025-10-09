@@ -36,6 +36,11 @@ class EventNotification
             new Channel('getSportFixture'),
         ];
     }
+
+    public function broadcastAs()
+    {
+        return 'getSportFixture';
+    }
     
     public function broadcastWith(): array
     {

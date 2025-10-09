@@ -1,8 +1,7 @@
 <script>
     
     function updateSports(res){
-        console.log('res----',res);
-        console.log('res.sport----',res.sport);
+        let html = ``;
         
         data = JSON.parse(res.data);
         $(data).each(function(){
@@ -11,7 +10,6 @@
         $('.sportData').html(html);
     }
 
-    let html = ``;
 
     function cricket(data){
         return `

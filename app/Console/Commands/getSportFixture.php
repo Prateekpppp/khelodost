@@ -60,7 +60,7 @@ class getSportFixture extends Command
         $body = array_slice($body, 0, 15);
         $body = json_encode($body);
 
-        $response = $pusher->trigger('sportsupdate', 'sportsupdate-event', $body);
+        $response = $pusher->trigger('sportsupdate', 'sportsupdate-event', ['data' => $body,'sport'=>$sportname]);
             
 
             // return json_decode($response->getBody(), true);

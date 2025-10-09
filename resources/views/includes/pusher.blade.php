@@ -11,7 +11,6 @@
     var channel = pusher.subscribe('sportsupdate');
     channel.bind('sportsupdate-event', function(data) {
       updateSports(data);
-      console.log('pusher is working',JSON.stringify(data));
     });
 
   </script>

@@ -18,7 +18,7 @@
                 <td class="text-start px-3">
                     <div class="match-layout">
                         <!-- Left Side: Date & Time -->
-                        <span class="match-status today">${(data.eventName).split(' / ')[1]}</small></span>
+                        <span class="match-status today">${new Date((data.eventName).split(' / ')[1]).toLocaleString();}</small></span>
 
                         <!-- Right Side: Teams -->
                         <div class="right-side">

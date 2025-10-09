@@ -25,6 +25,7 @@
     @include('includes.app_toast')
     @include('includes.ajaxCalls')
     @include('includes.script')
+    @include('includes.user_js')
     @include('includes.pusher')
     @yield('js')
 @endsection

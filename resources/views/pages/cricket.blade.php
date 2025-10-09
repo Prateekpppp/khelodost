@@ -13,7 +13,7 @@
                         <th style="width: 20%">2</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="sportData">
                     <tr>
                         <!-- Cricket -->
                         <td class="text-start px-3">

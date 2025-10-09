@@ -2,7 +2,7 @@
   <script>
 
     // Enable pusher logging - don't include this in production
-    Pusher.logToConsole = true;
+    // Pusher.logToConsole = true;
 
     var pusher = new Pusher('{{env('PUSHER_APP_KEY')}}', {
       cluster: 'ap2'
@@ -10,6 +10,7 @@
 
     var channel = pusher.subscribe('sportsupdate');
     channel.bind('sportsupdate-event', function(data) {
+      updateSports(data);
       console.log('pusher is working',JSON.stringify(data));
     });
 

@@ -32,7 +32,7 @@ class getSportFixture extends Command
     {
         //
         $sportname = $this->argument('sportname');
-        $sportData = Cache::remember($sportname, 1, function () use($sportname) {
+        // $sportData = Cache::remember($sportname, 1, function () use($sportname) {
             $sportname = $this->argument('sportname');
             $client = new Client(); 
             $response = $client->get("https://marketsarket.qnsports.live/get".$sportname."matches2"); 
@@ -41,7 +41,7 @@ class getSportFixture extends Command
             Storage::put('sports/'.$sportname.'.json', $body);
             // event(new EventNotification($body));
             // return $body;
-        });
+        // });
 
         $options = [
             'cluster' => env('PUSHER_APP_CLUSTER'),
@@ -57,10 +57,10 @@ class getSportFixture extends Command
 
         $body = Storage::get('sports/'.$sportname.'.json');
         $body = json_decode($body,true);
-        $body = array_slice($body, 0, 5);
+        $body = array_slice($body, 0, 15);
         $body = json_encode($body);
 
-        $response = $pusher->trigger('sportsupdate', 'sportsupdate-event', ['data' => $body]);
+        $response = $pusher->trigger('sportsupdate', 'sportsupdate-event', $body);
             
 
             // return json_decode($response->getBody(), true);

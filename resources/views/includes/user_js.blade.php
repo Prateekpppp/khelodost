@@ -1,9 +1,9 @@
 <script>
     
-    function updateSports(data, sport){
+    function updateSports(data){
         data = JSON.parse(data.data);
         $(data).each(function(){
-            html += eval(sport)(data);
+            html += eval(data.sport)(data);
         });
         $('.sportData').append(html);
     }

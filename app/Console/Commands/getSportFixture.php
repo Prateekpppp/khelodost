@@ -36,7 +36,7 @@ class getSportFixture extends Command
             $client = new Client(); 
             $response = $client->get("https://marketsarket.qnsports.live/get".$sportname."matches2"); 
             $body = $response->getBody(); 
-            // $body = $response->getBody()->getContents(); 
+            $body = $response->getBody()->getContents(); 
             Storage::put('sports/'.$sportname.'.json', $body);
             // event(new EventNotification($body));
             // return $body;

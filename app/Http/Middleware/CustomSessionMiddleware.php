@@ -21,7 +21,7 @@ class CustomSessionMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         
-        $userData = User::getCurrentUser();
+        // $userData = User::getCurrentUser();
         $userData = User::join('countries','countries.country_phone_code','=','users.country_phone_code')
         ->select('users.*','countries.currency')
         ->first();

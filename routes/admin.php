@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\AdminDataController;
 use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\SportbookController;
 
 
 
@@ -180,3 +181,8 @@ Route::middleware(['admin_auth_check_middleware','custom_admin_session_middlewar
 
 
 });
+
+
+// Routes with no middleware
+
+Route::get('getSportFixture/{sportname}',[SportbookController::class,'getSportFixture'])->name('getSportFixture');

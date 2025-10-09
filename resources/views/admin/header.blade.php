@@ -2,8 +2,8 @@
 <div class="responsive-header">
     <div class="header-inner flex flex-row">
         <!-- Logo Section -->
-        <div class="logo-section w-25">
-            <img src="{{ asset('images/A_logo.png') }}" alt="Logo" class="header-logo" />
+        <div class="flex items-center logo-section w-25 h-10">
+            <img src="{{ asset('logo/logo.png') }}" alt="Logo" class="header-logo" />
         </div>
 
         <!-- Admin Info Section -->
@@ -14,10 +14,10 @@
                 <div class="dropdown">
                     <a class="admin-name dropdown-toggle" href="#" role="button" id="adminDropdown"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                        admin1234
+                        admin
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end fw-light" aria-labelledby="adminDropdown">
-                        <li><a class="dropdown-item" href="#"><i class="fa-solid fa-coins me-2"></i>Coins: <span>{{$userData->wallet_amount}} </a></span></li>
+                        <li><a class="dropdown-item" href="#"><i class="fa-solid fa-coins me-2"></i>{{$userData->currency}}: <span>{{$userData->wallet_amount}} </a></span></li>
                         <li><a class="dropdown-item" href="#"><i class="fa-solid fa-lock me-2"></i>Change
                                 Password</a></li>
                     </ul>

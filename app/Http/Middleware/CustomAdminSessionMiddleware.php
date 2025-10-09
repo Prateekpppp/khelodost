@@ -24,7 +24,9 @@ class CustomAdminSessionMiddleware
         $userData='';
         if(Session::has('admin_username')){
             $userData = Session::get('admin_username');
-            $userData = User::getCurrentUser('username', $userData);           
+            $userData = User::join('countries','countries.country_phone_code','=','users.country_phone_code')
+        ->select('users.*','countries.currency')
+        ->first();      
         } 
         
         View::share('userData',$userData);

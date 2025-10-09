@@ -98,10 +98,7 @@ table tbody tr:hover {
 
 /* Responsive Logo */
 .header-logo {
-    height: auto;
-    max-height: 35px;
-    width: auto;
-    max-width: 100%;
+    width: inherit;
     transition: max-height 0.2s ease;
 }
 

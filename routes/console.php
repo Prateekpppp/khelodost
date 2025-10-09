@@ -6,4 +6,6 @@ use Illuminate\Support\Facades\Schedule;
 
 
   
-Schedule::command('app:get-sport-fixture')->everyMinute();
+Schedule::command('app:get-sport-fixture cricket')->everyMinute();
+Schedule::command('app:get-sport-fixture soccer')->everyMinute();
+Schedule::command('app:get-sport-fixture tennis')->everyMinute();

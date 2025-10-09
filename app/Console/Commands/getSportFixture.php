@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Cache;
+use Pusher\Pusher;
 use GuzzleHttp\Client;
 use App\Events\EventNotification;
 
@@ -14,7 +15,7 @@ class getSportFixture extends Command
      *
      * @var string
      */
-    protected $signature = 'app:get-sport-fixture';
+    protected $signature = 'app:get-sport-fixture {sportname}';
 
     /**
      * The console command description.
@@ -30,16 +31,33 @@ class getSportFixture extends Command
     {
         //
         // $sportData = Cache::remember($sportname, 1, function () use ($sportname) {
+        $sportname = $this->argument('sportname');
             $client = new Client(); 
             $response = $client->get("https://marketsarket.qnsports.live/get".$sportname."matches2"); 
             $body = $response->getBody(); 
             // $body = $response->getBody()->getContents(); 
             Storage::put('sports/'.$sportname.'.json', $body);
-            event(new EventNotification($body));
+            // event(new EventNotification($body));
+            // return $body;
+        // });
+
+        $options = [
+            'cluster' => env('PUSHER_APP_CLUSTER'),
+            'useTLS' => true
+        ];
+
+        $pusher = new Pusher(
+            env('PUSHER_APP_KEY'),
+            env('PUSHER_APP_SECRET'),
+            env('PUSHER_APP_ID'),
+            $options
+        );
+
+        $response = $pusher->trigger('sportsupdate', 'sportsupdate-event', ['data' => $body]);
+            
 
             // return json_decode($response->getBody(), true);
             
             // return User::where('active', 1)->get();
-        // });
     }
 }

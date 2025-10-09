@@ -24,7 +24,6 @@
     </div>
     @include('includes.app_toast')
     @include('includes.ajaxCalls')
-    @include('includes.user_js')
     @include('includes.script')
     @yield('js')
 </body>

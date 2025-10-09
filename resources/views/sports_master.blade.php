@@ -22,4 +22,9 @@
     </div>
 </div>
 
+    @include('includes.app_toast')
+    @include('includes.ajaxCalls')
+    @include('includes.script')
+    @include('includes.pusher')
+    @yield('js')
 @endsection

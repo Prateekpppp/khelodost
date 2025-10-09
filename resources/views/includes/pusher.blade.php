@@ -4,14 +4,15 @@
     // Enable pusher logging - don't include this in production
     Pusher.logToConsole = true;
 
-    var pusher = new Pusher('4ba4ddea55b2636d6b54', {
+    var pusher = new Pusher('{{env('PUSHER_APP_KEY')}}', {
       cluster: 'ap2'
     });
 
-    var channel = pusher.subscribe('my-channel');
-    channel.bind('my-event', function(data) {
-      alert(JSON.stringify(data));
+    var channel = pusher.subscribe('sportsupdate');
+    channel.bind('sportsupdate-event', function(data) {
+      console.log('pusher is working',JSON.stringify(data));
     });
+
   </script>
 
   

@@ -14,7 +14,7 @@ class SportbookController extends Controller
 
     public function getSportFixture(Request $request){
         $sportname = $request->sportname;
-        $sportData = Cache::remember($sportname, 60, function ($sportname) {
+        $sportData = Cache::remember($sportname, 60, function () use ($sportname) {
             $client = new Client(); 
             $response = $client->get("https://marketsarket.qnsports.live/get".$sportname."matches2"); 
             $body = $response->getBody(); 

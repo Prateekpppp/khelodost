@@ -8,7 +8,7 @@
         $(data).each(function(){
             html += eval(res.sport)(this);
         });
-        $('.sportData').append(html);
+        $('.sportData').html(html);
     }
 
     let html = ``;

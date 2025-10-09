@@ -1,9 +1,12 @@
 <script>
     
-    function updateSports(data){
-        data = JSON.parse(data.data);
+    function updateSports(res){
+        console.log('res----',res);
+        console.log('res.sport----',res.sport);
+        
+        data = JSON.parse(res.data);
         $(data).each(function(){
-            html += eval(data.sport)(data);
+            html += eval(res.sport)(this);
         });
         $('.sportData').append(html);
     }

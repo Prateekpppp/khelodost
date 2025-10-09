@@ -19,8 +19,9 @@ class SportbookController extends Controller
             $response = $client->get("https://marketsarket.qnsports.live/get".$sportname."matches2"); 
             $body = $response->getBody(); 
             // $body = $response->getBody()->getContents(); 
-            $data = json_decode($response->getBody(), true);
-            return $data;
+            // event(new EventNotification($sportData));
+            return json_decode($response->getBody(), true);
+            
             // return User::where('active', 1)->get();
         });
 

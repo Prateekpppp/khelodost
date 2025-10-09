@@ -18,7 +18,7 @@
                 <td class="text-start px-3">
                     <div class="match-layout">
                         <!-- Left Side: Date & Time -->
-                        <span class="match-status today">${new Date((data.eventName).split(' / ')[1]).toLocaleString();}</small></span>
+                        <span class="match-status today">${new Date((data.eventName).split(' / ')[1]).toLocaleString()}</small></span>
 
                         <!-- Right Side: Teams -->
                         <div class="right-side">
@@ -28,15 +28,15 @@
                 </td>
 
                 <td>
-                    <a class="odd-btn">2.32<br><small>${data.back1}</small></a>
+                    <a class="odd-btn">${data.back1}<br><small>${data.back1}</small></a>
                 </td>
 
                 <td>
-                    <a class="odd-btn">1.72<br><small>${data.back1}</small></a>
+                    <a class="odd-btn">${data.back1}<br><small>${data.back1}</small></a>
                 </td>
 
                 <td>
-                    <a class="odd-btn">0<br><small>${data.lay1}</small></a>
+                    <a class="odd-btn">${data.lay1}<br><small>${data.lay1}</small></a>
                 </td>
             </tr>
         `;

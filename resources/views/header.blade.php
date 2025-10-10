@@ -27,12 +27,7 @@
 
         <!-- Buttons -->
         <div class="d-flex align-items-center gap-2 ms-auto flex-shrink-0" id="headerButtons">
-            @if(!$userData)
-            <a href="{{ route('login') }}"
-                class="btn btn-outline-light btn-sm rounded-pill px-2 px-sm-3 py-1 text-nowrap">Log In</a>
-            <a href="{{ route('signin') }}" class="btn btn-light btn-sm rounded-pill px-2 px-sm-3 py-1 text-nowrap">Sign
-                Up</a>
-            @else
+            @if($userData)
             <div class="flex flex-row gap-1 align-items-center">
                 <img src="{{asset('logo/avatar.jpg')}}" data-bs-target="#accountPanel" data-bs-toggle="offcanvas" alt="" class="w-12 rounded-circle border-2 border-solid !border-[#2d92f6] cursor-pointer">
                 <button class="account_btn rounded-[0.4rem] px-2 px-sm-3 py-1 text-nowrap flex items-center gap-[0.6rem]" data-bs-toggle="offcanvas" data-bs-target="#accountPanel"><span>{{$userData->currency}} : {{$userData->wallet_amount}} </a></span><i class="bi bi-arrow-repeat"></i></button>
@@ -41,6 +36,11 @@
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width: 23px;height: 23px;fill: #fce31a;"><path d="M256 73.825a182.18 182.18 0 0 0-182.18 182.18c0 100.617 81.567 182.17 182.18 182.17a182.175 182.175 0 1 0 0-364.35zm-18.096 86.22a18.099 18.099 0 0 1 36.197 0v53.975a18.099 18.099 0 0 1-36.197 0zM256 348.589a92.413 92.413 0 0 1-32.963-178.751v33.38a62.453 62.453 0 1 0 65.93 0v-33.38A92.415 92.415 0 0 1 256 348.588z" data-name="Logout"></path></svg>
                 </a> -->
             </div>
+            @else
+            <a href="{{ route('login') }}"
+                class="btn btn-outline-light btn-sm rounded-pill px-2 px-sm-3 py-1 text-nowrap">Log In</a>
+            <a href="{{ route('signin') }}" class="btn btn-light btn-sm rounded-pill px-2 px-sm-3 py-1 text-nowrap">Sign
+                Up</a>
             @endif
         </div>
     </div>

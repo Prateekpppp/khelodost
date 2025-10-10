@@ -24,9 +24,11 @@ class CustomSessionMiddleware
         // $userData = User::getCurrentUser();
         $userData = User::join('countries','countries.country_phone_code','=','users.country_phone_code')
         ->select('users.*','countries.currency')
+        ->where('username', Session::get('username'))
         ->first();
         
         // dd($userData);
+        
         if($userData){
 
             View::share('userData',$userData);

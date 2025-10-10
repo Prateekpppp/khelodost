@@ -5,6 +5,18 @@
         
         data = JSON.parse(res.data);
         $(data).each(function(){
+
+            let date = (this.eventName).split(' / ')[1];
+            date = date.split('M (')[0];
+            dateHour = date[date.length-1];
+            date = date.split(dateHour)[0];
+            date += ' '+dateHour+'M';
+
+            console.log('date---',date);
+            
+            
+            this.eventName = new Date(date).toLocaleString();
+
             html += eval(res.sport)(this);
         });
         $('.sportData').html(html);
@@ -18,7 +30,7 @@
                 <td class="text-start px-3">
                     <div class="match-layout">
                         <!-- Left Side: Date & Time -->
-                        <span class="match-status today">${new Date((data.eventName).split(' / ')[1]).toLocaleString()}</small></span>
+                        <span class="match-status today">${data.eventName}</small></span>
 
                         <!-- Right Side: Teams -->
                         <div class="right-side">

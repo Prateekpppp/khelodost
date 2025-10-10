@@ -9,14 +9,14 @@ use Pusher\Pusher;
 use GuzzleHttp\Client;
 use App\Events\EventNotification;
 
-class getSportFixture extends Command
+class getEventData extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'app:get-sport-fixture {sportname}';
+    protected $signature = 'app:get-event-data {sportname}';
 
     /**
      * The console command description.
@@ -31,17 +31,17 @@ class getSportFixture extends Command
     public function handle()
     {
         //
+        
         $sportname = $this->argument('sportname');
-        // $sportData = Cache::remember($sportname, 1, function () use($sportname) {
-            // $sportname = $this->argument('sportname');
-            $client = new Client(); 
-            $response = $client->get("https://marketsarket.qnsports.live/get".$sportname."matches2"); 
-            $body = $response->getBody(); 
-            $body = $response->getBody()->getContents(); 
-            Storage::put('sports/'.$sportname.'.json', $body);
-            // event(new EventNotification($body));
-            // return $body;
-        // });
+        $client = new Client(); 
+        if($sportname=='cricket'){
+            $response = $client->get("http://170.187.250.13/getbm?eventId=".$request->eventId); 
+        } else{
+            $response = $client->get("http://172.232.74.157/getdata?eventId=".$request->eventId); 
+        }
+        $body = $response->getBody(); 
+        $body = $response->getBody()->getContents(); 
+        Storage::put('sports/'.$sportname.'.json', $body);
 
         $options = [
             'cluster' => env('PUSHER_APP_CLUSTER'),
@@ -73,10 +73,6 @@ class getSportFixture extends Command
         $body = json_encode($body);
 
         $response = $pusher->trigger('sportsupdate', 'sportsupdate-event', ['data' => $body,'sport'=>$sportname]);
-            
-
-            // return json_decode($response->getBody(), true);
-            
-            // return User::where('active', 1)->get();
+          
     }
 }

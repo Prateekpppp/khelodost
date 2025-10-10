@@ -27,4 +27,24 @@ class SportbookController extends Controller
 
         return $sportData;
     }
+
+    public function getCricketEventData(Request $request){
+        $sportname = $request->sportname;
+        $sportData = Cache::remember($sportname, 60, function () use ($sportname) {
+            $client = new Client(); 
+            $response = $client->get("http://170.187.250.13/getbm?eventId=".$request->eventId); 
+            $body = $response->getBody(); 
+            // $body = $response->getBody()->getContents(); 
+            // event(new EventNotification($sportData));
+            return json_decode($response->getBody(), true);
+            
+            // return User::where('active', 1)->get();
+        });
+
+        return $sportData;
+    }
+
+    public function eventPage(Request $request){
+        return view('pages.eventPage');
+    }
 }

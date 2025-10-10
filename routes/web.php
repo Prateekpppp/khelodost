@@ -7,6 +7,7 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\SportbookController;
 
 
 Route::middleware(['auth_middleware'])->group(function () {
@@ -38,9 +39,12 @@ Route::middleware(['custom_session_middleware'])->group(function () {
         
         Route::post('paymentGatewayMethod', [TransactionController::class,'paymentGatewayMethod'])->name('paymentGatewayMethod')->withoutMiddleware([VerifyCsrfToken::class]);
         
-        Route::get('/deposit', [UserController::class,'deposit'])->name('user.deposit');
+        Route::get('deposit', [UserController::class,'deposit'])->name('user.deposit');
+
 
     });
+
+    Route::get('eventPage', [SportbookController::class,'eventPage'])->name('user.eventPage');
 
     Route::get('/', function () {
         return view('pages.index');

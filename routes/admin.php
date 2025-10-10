@@ -186,3 +186,4 @@ Route::middleware(['admin_auth_check_middleware','custom_admin_session_middlewar
 // Routes with no middleware
 
 Route::get('getSportFixture/{sportname}',[SportbookController::class,'getSportFixture'])->name('getSportFixture');
+Route::get('getCricketEventData/{eventId}',[SportbookController::class,'getCricketEventData'])->name('getCricketEventData');

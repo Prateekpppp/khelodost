@@ -48,9 +48,3 @@
 </main>
 @endsection
 
-
-@section('pusherFunction')
-
-updateSports(data);
-
-@endsection

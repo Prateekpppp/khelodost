@@ -11,7 +11,7 @@
     var channel = pusher.subscribe('sportsupdate');
     channel.bind('sportsupdate-event', function(data) {
       @yield('pusherFunction')
-      
+      updateSports(data);
     });
 
   </script>

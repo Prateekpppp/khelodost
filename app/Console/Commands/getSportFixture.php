@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Pusher\Pusher;
 use GuzzleHttp\Client;
@@ -69,7 +70,7 @@ class getSportFixture extends Command
             }
         }
 
-        $body = array_slice($sportdataArray, 0, 15);
+        $body = array_slice($sportdataArray, 0, 10);
         $body = json_encode($body);
 
         $response = $pusher->trigger('sportsupdate', 'sportsupdate-event', ['data' => $body,'sport'=>$sportname]);

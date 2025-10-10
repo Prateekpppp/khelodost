@@ -47,3 +47,10 @@
     </div>
 </main>
 @endsection
+
+
+@section(pusherFunction)
+
+updateSports(data);
+
+@endsection

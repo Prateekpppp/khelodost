@@ -45,6 +45,7 @@ class SportbookController extends Controller
     }
 
     public function eventPage(Request $request){
+        
         return view('pages.eventPage');
     }
 }

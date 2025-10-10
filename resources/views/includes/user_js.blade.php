@@ -7,15 +7,14 @@
         $(data).each(function(){
 
             let date = (this.eventName).split(' / ')[1];
+            this.eventName = (this.eventName).split(' / ')[0];
+
             date = date.split('M (')[0];
             dateHour = date[date.length-1];
             date = date.split(dateHour)[0];
             date += ' '+dateHour+'M';
-
-            console.log('date---',date);
             
-            
-            this.eventName = new Date(date).toLocaleString();
+            this.eventDate = new Date(date).toLocaleString();
 
             html += eval(res.sport)(this);
         });
@@ -30,11 +29,11 @@
                 <td class="text-start px-3">
                     <div class="match-layout">
                         <!-- Left Side: Date & Time -->
-                        <span class="match-status today">${data.eventName}</small></span>
+                        <span class="match-status today">${data.eventDate}</small></span>
 
                         <!-- Right Side: Teams -->
                         <div class="right-side">
-                            ${data.cname}
+                            ${data.eventName}
                         </div>
                     </div>
                 </td>

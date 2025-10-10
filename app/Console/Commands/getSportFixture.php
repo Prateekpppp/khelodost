@@ -55,9 +55,21 @@ class getSportFixture extends Command
             $options
         );
 
-        $body = Storage::get('sports/'.$sportname.'.json');
+        // $body = Storage::get('sports/'.$sportname.'.json');
+        
         $body = json_decode($body,true);
-        $body = array_slice($body, 0, 15);
+        $body = array_chunk($body,15);
+        $sportdataArray = [];
+
+        foreach ($body as $chunk) {
+            foreach ($chunk as $item) {
+                if($item['marketId']){
+                    $sportdataArray[] = $item;
+                };
+            }
+        }
+
+        $body = array_slice($sportdataArray, 0, 15);
         $body = json_encode($body);
 
         $response = $pusher->trigger('sportsupdate', 'sportsupdate-event', ['data' => $body,'sport'=>$sportname]);

@@ -49,7 +49,7 @@
 @endsection
 
 
-@section(pusherFunction)
+@section('pusherFunction')
 
 updateSports(data);
 

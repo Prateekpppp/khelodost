@@ -50,14 +50,16 @@ class SportbookController extends Controller
         $eventId = $request->eventId;
         return view('pages.eventPage',compact('eventId'));
     }
+    
+    public function inplay(Request $request){
+        $eventId = $request->eventId;
+        return view('pages.inplay',compact('eventId'));
+    }
 
     public function eventData(Request $request){
-        // $body = Storage::get('event/'.$request->eventId.'.json');
-        $client = new Client(); 
-        $response = $client->get("http://170.187.250.13/getbm?eventId=".$request->eventId); 
-        $body = $response->getBody(); 
-        $body = $response->getBody()->getContents(); 
-        dd($body);
+        $body = Storage::get('event/'.$request->eventId.'.json');
+
+        // dd($body);
         return response()->json([
             'response'=>$body,
             'code'=>'200'

@@ -32,68 +32,67 @@ class getApi extends Command
     public function handle()
     {
         //
+
         $sportname = $this->argument('sportname');
-        // $sportData = Cache::remember($sportname, 1, function () use($sportname) {
-            // $sportname = $this->argument('sportname');
-            $client = new Client(); 
-            $response = $client->get("https://marketsarket.qnsports.live/get".$sportname."matches2"); 
-            $body = $response->getBody(); 
-            $body = $response->getBody()->getContents(); 
-            // event(new EventNotification($body));
-            // return $body;
-        // });
+        $eventData = Storage::get('sports/inplay/'.$sportname.'.json');
 
-        $options = [
-            'cluster' => env('PUSHER_APP_CLUSTER'),
-            'useTLS' => true
-        ];
-
-        $pusher = new Pusher(
-            env('PUSHER_APP_KEY'),
-            env('PUSHER_APP_SECRET'),
-            env('PUSHER_APP_ID'),
-            $options
-        );
-
-        // $body = Storage::get('sports/'.$sportname.'.json');
+        $eventData = json_decode($eventData,true);
         
-        $body = json_decode($body,true);
-        $body = array_chunk($body,15);
-        $sportInplayDataArray = [];
-        $sportUpcomingDataArray = [];
-        
-        foreach ($body as $chunk) {
+        $eventData = array_chunk($eventData,15);
+
+        $inplaySports = [];
+
+        foreach ($eventData as $chunk) {
             foreach ($chunk as $item) {
-                if($item['marketId']){
-                    
-                    $date = explode(' / ',$item['eventName'])[1];
-                    
-                    if(strtotime(now()) > strtotime($date) && $item['inPlay']=="True"){
-                        $sportInplayDataArray[] = $item;
-                    } else if(strtotime(now()) < strtotime($date)){
-                        $sportUpcomingDataArray[] = $item;
+                // if($item['inPlay']){
+                    if($sportname=='cricket'){
+                        $inplaySports[] = $item['gameId'];
+                    } else{
+                        $inplaySports[] = $item['gmid'];
                     }
-                };
+                // }
             }
         }
-
-        // $sportInplayDataArray = array_slice($sportInplayDataArray, 0, 2);
-        // $sportUpcomingDataArray = array_slice($sportUpcomingDataArray, 0, 5);
-
-        $body = array_merge($sportInplayDataArray,$sportUpcomingDataArray);
-        $body = json_encode($body);
-
-        $sportInplayDataArray = json_encode($sportInplayDataArray);
-        $sportUpcomingDataArray = json_encode($sportUpcomingDataArray);
         
-        Storage::put('sports/inplay/'.$sportname.'.json', $sportInplayDataArray);
-        Storage::put('sports/upcoming/'.$sportname.'.json', $sportUpcomingDataArray);
+        // $body = array_slice($sportdataArray, 0, 15);
 
-        $response = $pusher->trigger('sportsupdate', 'sportsupdate-event', ['data' => $body,'sport'=>$sportname]);
-            
+        $eventData = array_slice($eventData, 0, 10);
 
-            // return json_decode($response->getBody(), true);
+        $client = new Client(); 
+        foreach ($inplaySports as $eventId) {
             
-            // return User::where('active', 1)->get();
+            if($sportname=='cricket'){
+                $response = $client->get("http://170.187.250.13/getbm?eventId=".$eventId); 
+            } else{
+                $response = $client->get("http://172.232.74.157/getdata?eventId=".$eventId); 
+            }
+            $body = $response->getBody(); 
+            $body = $response->getBody()->getContents(); 
+
+            // data manupulation
+            $body = json_decode($body);
+            
+            Storage::put('event/'.$eventId.'.json', $body);
+            dd($body);
+            usleep(500000);
+        }
+
+        // $options = [
+        //     'cluster' => env('PUSHER_APP_CLUSTER'),
+        //     'useTLS' => true
+        // ];
+
+        // $pusher = new Pusher(
+        //     env('PUSHER_APP_KEY'),
+        //     env('PUSHER_APP_SECRET'),
+        //     env('PUSHER_APP_ID'),
+        //     $options
+        // );
+
+        
+        // $body = json_encode($body);
+
+        // $response = $pusher->trigger('inplayUpdate', 'inplayUpdate-event', ['data' => $body,'sport'=>$sportname]);
+          
     }
 }

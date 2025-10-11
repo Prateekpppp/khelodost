@@ -72,7 +72,7 @@ class getApi extends Command
             // data manupulation
             $body = json_decode($body);
             
-            Storage::put('event/'.$eventId.'.json', $body);
+            Storage::put('event/inplay/'.$eventId.'.json', $body);
             dd($body);
             usleep(500000);
         }

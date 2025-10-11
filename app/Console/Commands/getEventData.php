@@ -33,7 +33,7 @@ class getEventData extends Command
         //
 
         $sportname = $this->argument('sportname');
-        $eventData = Storage::get('sports/'.$sportname.'.json', $body);
+        $eventData = Storage::get('sports/inplay/'.$sportname.'.json');
 
         $eventData = json_decode($eventData,true);
         
@@ -67,25 +67,31 @@ class getEventData extends Command
             }
             $body = $response->getBody(); 
             $body = $response->getBody()->getContents(); 
-            Storage::put('event/'.$eventId.'.json', $body);
+
+            // data manupulation
+            $body = json_decode($body);
+            
+            Storage::put('event/inplay/'.$eventId.'.json', $body);
+            dd($body);
+            usleep(500000);
         }
 
-        $options = [
-            'cluster' => env('PUSHER_APP_CLUSTER'),
-            'useTLS' => true
-        ];
+        // $options = [
+        //     'cluster' => env('PUSHER_APP_CLUSTER'),
+        //     'useTLS' => true
+        // ];
 
-        $pusher = new Pusher(
-            env('PUSHER_APP_KEY'),
-            env('PUSHER_APP_SECRET'),
-            env('PUSHER_APP_ID'),
-            $options
-        );
+        // $pusher = new Pusher(
+        //     env('PUSHER_APP_KEY'),
+        //     env('PUSHER_APP_SECRET'),
+        //     env('PUSHER_APP_ID'),
+        //     $options
+        // );
 
         
-        $body = json_encode($body);
+        // $body = json_encode($body);
 
-        $response = $pusher->trigger('sportsupdate', 'sportsupdate-event', ['data' => $body,'sport'=>$sportname]);
+        // $response = $pusher->trigger('inplayUpdate', 'inplayUpdate-event', ['data' => $body,'sport'=>$sportname]);
           
     }
 }

@@ -60,7 +60,8 @@ class getApi extends Command
         $body = json_decode($body,true);
         $body = array_chunk($body,15);
         $sportdataArray = [];
-
+        
+        dump($body);
         foreach ($body as $chunk) {
             foreach ($chunk as $item) {
                 if($item['marketId']){
@@ -70,7 +71,7 @@ class getApi extends Command
                 };
             }
         }
-        dd($body);
+        dd('after',$body);
         $body = array_slice($sportdataArray, 0, 10);
         $body = json_encode($body);
         Storage::put('sports/'.$sportname.'.json', $body);

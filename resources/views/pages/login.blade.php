@@ -88,8 +88,11 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     function demoLogin() {
-      localStorage.setItem('demo_login', 'true');
-      window.location.href = "{{ route('index') }}";
+      let formData = new FormData();
+      formData.append('_token', '{{ csrf_token() }}');
+      formData.append('phone', '9999999999');
+      formData.append('password', 'abcd1234');
+      callAjaxFormData('post',"{{route('post.login')}}",formData,ajaxResponse);
     }
     
   $('.login').click(function(){

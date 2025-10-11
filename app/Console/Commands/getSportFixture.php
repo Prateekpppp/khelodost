@@ -82,7 +82,8 @@ class getSportFixture extends Command
 
         $body = array_merge($sportInplayDataArray,$sportUpcomingDataArray);
         $body = json_encode($body);
-
+        $sportInplayDataArray = json_encode($sportInplayDataArray);
+        $sportUpcomingDataArray = json_encode($sportUpcomingDataArray);
         Storage::put('sports/inplay/'.$sportname.'.json', $sportInplayDataArray);
         Storage::put('sports/upcoming/'.$sportname.'.json', $sportUpcomingDataArray);
 

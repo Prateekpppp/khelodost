@@ -143,7 +143,7 @@
 
 <script>
     setInterval(() => {
-        callApi('get',`http://170.187.250.13/getbm?eventId="{{$eventId}}`,{},updateEvent);
+        callApi('get',`{{route('eventData',$eventId)}}`,{},updateEvent);
     }, 500);
 </script>
 

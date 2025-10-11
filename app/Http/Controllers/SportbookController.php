@@ -52,8 +52,11 @@ class SportbookController extends Controller
     }
 
     public function eventData(Request $request){
-        $body = Storage::get('event/'.$request->eventId.'.json');
-        // $body = json_decode($body);
+        // $body = Storage::get('event/'.$request->eventId.'.json');
+        $client = new Client(); 
+        $response = $client->get("http://170.187.250.13/getbm?eventId=".$eventId); 
+        $body = $response->getBody(); 
+        $body = $response->getBody()->getContents(); 
 
         return response()->json([
             'response'=>$body,

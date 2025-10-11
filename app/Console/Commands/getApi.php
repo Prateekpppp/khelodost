@@ -17,7 +17,7 @@ class getApi extends Command
      *
      * @var string
      */
-    protected $signature = 'app:get-api';
+    protected $signature = 'app:get-api {sportname}';
 
     /**
      * The console command description.

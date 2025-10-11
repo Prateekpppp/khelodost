@@ -42,9 +42,9 @@
                         </td>
                         
                         <td>
-                            <a class="odd-btn lay1">--</a>
-                            <a class="odd-btn lay2">--</a>
-                            <a class="odd-btn lay3">--</a>
+                            <a class="!bg-pink-300 odd-btn lay1">--</a>
+                            <a class="!bg-pink-300 odd-btn lay2">--</a>
+                            <a class="!bg-pink-300 odd-btn lay3">--</a>
                         </td>
 
                     </tr>
@@ -64,9 +64,9 @@
                         </td>
                         
                         <td>
-                            <a class="odd-btn lay1">--</a>
-                            <a class="odd-btn lay2">--</a>
-                            <a class="odd-btn lay3">--</a>
+                            <a class="!bg-pink-300 odd-btn lay1">--</a>
+                            <a class="!bg-pink-300 odd-btn lay2">--</a>
+                            <a class="!bg-pink-300 odd-btn lay3">--</a>
                         </td>
 
                     </tr>
@@ -86,9 +86,9 @@
                         </td>
                         
                         <td>
-                            <a class="odd-btn lay1">--</a>
-                            <a class="odd-btn lay2">--</a>
-                            <a class="odd-btn lay3">--</a>
+                            <a class="!bg-pink-300 odd-btn lay1">--</a>
+                            <a class="!bg-pink-300 odd-btn lay2">--</a>
+                            <a class="!bg-pink-300 odd-btn lay3">--</a>
                         </td>
 
                     </tr>
@@ -121,9 +121,9 @@
                         </td>
                         
                         <td>
-                            <a class="odd-btn lay1">--</a>
-                            <a class="odd-btn lay2">--</a>
-                            <a class="odd-btn lay3">--</a>
+                            <a class="!bg-pink-300 odd-btn lay1">--</a>
+                            <a class="!bg-pink-300 odd-btn lay2">--</a>
+                            <a class="!bg-pink-300 odd-btn lay3">--</a>
                         </td>
 
                     </tr>
@@ -143,9 +143,9 @@
                         </td>
                         
                         <td>
-                            <a class="odd-btn lay1">--</a>
-                            <a class="odd-btn lay2">--</a>
-                            <a class="odd-btn lay3">--</a>
+                            <a class="!bg-pink-300 odd-btn lay1">--</a>
+                            <a class="!bg-pink-300 odd-btn lay2">--</a>
+                            <a class="!bg-pink-300 odd-btn lay3">--</a>
                         </td>
 
                     </tr>
@@ -165,9 +165,9 @@
                         </td>
                         
                         <td>
-                            <a class="odd-btn lay1">--</a>
-                            <a class="odd-btn lay2">--</a>
-                            <a class="odd-btn lay3">--</a>
+                            <a class="!bg-pink-300 odd-btn lay1">--</a>
+                            <a class="!bg-pink-300 odd-btn lay2">--</a>
+                            <a class="!bg-pink-300 odd-btn lay3">--</a>
                         </td>
 
                     </tr>
@@ -197,9 +197,9 @@
 @section('js')
 
 <script>
-    setInterval(() => {
+    // setInterval(() => {
         callApi('get',`{{route('user.eventData')}}`,{eventId:{{$eventId}}},updateEvent);
-    }, 500);
+    // }, 500);
 </script>
 
 @endsection

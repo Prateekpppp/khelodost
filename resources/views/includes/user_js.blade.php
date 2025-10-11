@@ -60,12 +60,12 @@
 
     function updateEvent(res){
 
-        console.log('res in eventPage',res);
-        
-        let html = ``;
-        
+        console.log('res in eventPage',res.response);
+        data = res.response;
         data = JSON.parse(res);
         console.log('data in eventPage',data);
+        let html = ``;
+        
         // $(data).each(function(){
 
         //     let date = (this.eventName).split(' / ')[1];

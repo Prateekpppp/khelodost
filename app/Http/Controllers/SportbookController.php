@@ -57,7 +57,7 @@ class SportbookController extends Controller
         $response = $client->get("http://170.187.250.13/getbm?eventId=".$request->eventId); 
         $body = $response->getBody(); 
         $body = $response->getBody()->getContents(); 
-
+        dd($body);
         return response()->json([
             'response'=>$body,
             'code'=>'200'

@@ -385,8 +385,8 @@ body {
 
 .odd-btn {
     display: inline-block;
-    width: 46%;
-    padding: 8px 0;
+    /* width: 46%; */
+    padding: 0.6rem 1rem;
     border: 1px solid #dee2e6;
     border-radius: 6px;
     background: #a7d8fd;

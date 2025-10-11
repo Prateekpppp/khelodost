@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Storage;
 use App\Events\EventNotification;
 
 class SportbookController extends Controller
@@ -57,7 +58,7 @@ class SportbookController extends Controller
     }
 
     public function eventData(Request $request){
-        $body = Storage::get('event/'.$request->eventId.'.json');
+        $body = Storage::get('event/inplay/'.$request->eventId.'.json');
 
         // dd($body);
         return response()->json([

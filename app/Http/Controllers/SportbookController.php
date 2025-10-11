@@ -45,7 +45,19 @@ class SportbookController extends Controller
     }
 
     public function eventPage(Request $request){
-        
-        return view('pages.eventPage');
+        // $body = Storage::get('event/'.$request->eventId.'.json');
+        // $body = json_decode($body);
+        $eventId = $request->eventId;
+        return view('pages.eventPage',compact('eventId'));
+    }
+
+    public function eventData(Request $request){
+        $body = Storage::get('event/'.$request->eventId.'.json');
+        // $body = json_decode($body);
+
+        return response()->json([
+            'response'=>$body,
+            'code'=>'200'
+        ]);
     }
 }

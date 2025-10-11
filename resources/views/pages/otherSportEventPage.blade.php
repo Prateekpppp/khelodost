@@ -142,8 +142,10 @@
 @section('js')
 
 <script>
+    // updateEvent({{$body}});
+    eventId = {{$eventId}};
     setInterval(() => {
-        callApi('get',`http://170.187.250.13/getbm?eventId="{{$eventId}}`,{},updateEvent);
+        callAjax('get','http://170.187.250.13/getdata?eventId="${eventId}',{},updateEvent);
     }, 500);
 </script>
 

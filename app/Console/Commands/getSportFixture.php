@@ -77,13 +77,15 @@ class getSportFixture extends Command
             }
         }
 
-        $sportInplayDataArray = array_slice($sportInplayDataArray, 0, 2);
+        // $sportInplayDataArray = array_slice($sportInplayDataArray, 0, 2);
         $sportUpcomingDataArray = array_slice($sportUpcomingDataArray, 0, 5);
 
         $body = array_merge($sportInplayDataArray,$sportUpcomingDataArray);
         $body = json_encode($body);
+
         $sportInplayDataArray = json_encode($sportInplayDataArray);
         $sportUpcomingDataArray = json_encode($sportUpcomingDataArray);
+        
         Storage::put('sports/inplay/'.$sportname.'.json', $sportInplayDataArray);
         Storage::put('sports/upcoming/'.$sportname.'.json', $sportUpcomingDataArray);
 

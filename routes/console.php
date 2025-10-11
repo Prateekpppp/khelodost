@@ -10,7 +10,7 @@ Schedule::command('app:get-sport-fixture cricket')->everySecond();
 Schedule::command('app:get-sport-fixture soccer')->everySecond();
 Schedule::command('app:get-sport-fixture tennis')->everySecond();
 
-// event crons
-// Schedule::command('app:get-event-data cricket')->everySecond();
+// inplay event crons
+Schedule::command('app:get-event-data cricket')->everySecond();
 // Schedule::command('app:get-event-data soccer')->everySecond();
 // Schedule::command('app:get-event-data tennis')->everySecond();

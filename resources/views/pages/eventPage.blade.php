@@ -36,8 +36,8 @@
                         </td>
 
                         <td>
-                            <a class="odd-btn">2.32</a>
-                            <a class="odd-btn">2.32</a>
+                            <a class="odd-btn">--</a>
+                            <a class="odd-btn">--</a>
                         </td>
 
                     </tr>
@@ -52,8 +52,8 @@
                         </td>
 
                         <td>
-                            <a class="odd-btn">2.32</a>
-                            <a class="odd-btn">2.32</a>
+                            <a class="odd-btn">--</a>
+                            <a class="odd-btn">--</a>
                         </td>
 
                     </tr>
@@ -65,7 +65,8 @@
                 <thead class="table-light">
                     <tr>
                         <th style="">Match Odds</th>
-                        <th style="">Position</th>
+                        <th style="">Back</th>
+                        <th style="">Lay</th>
                     </tr>
                 </thead>
                 <tbody class="match_odds">
@@ -73,14 +74,21 @@
                         <td class="text-start px-3">
                             <div class="match-layout">
                                 <div class="right-side">
-                                    <div>India</div>
+                                    <div class="match_nat1">India</div>
                                 </div>
                             </div>
                         </td>
 
                         <td>
-                            <a class="odd-btn">2.32</a>
-                            <a class="odd-btn">2.32</a>
+                            <a class="odd-btn back3">--</a>
+                            <a class="odd-btn back2">--</a>
+                            <a class="odd-btn back1">--</a>
+                        </td>
+                        
+                        <td>
+                            <a class="odd-btn lay1">--</a>
+                            <a class="odd-btn lay2">--</a>
+                            <a class="odd-btn lay3">--</a>
                         </td>
 
                     </tr>
@@ -88,14 +96,14 @@
                         <td class="text-start px-3">
                             <div class="match-layout">
                                 <div class="right-side">
-                                    <div>South Africa</div>
+                                    <div class="match_nat2">South Africa</div>
                                 </div>
                             </div>
                         </td>
 
                         <td>
-                            <a class="odd-btn">2.32</a>
-                            <a class="odd-btn">2.32</a>
+                            <a class="odd-btn">--</a>
+                            <a class="odd-btn">--</a>
                         </td>
 
                     </tr>
@@ -124,10 +132,10 @@
                         </td>
 
                         <td>
-                            <a class="odd-btn !w-full">2.32</a>
+                            <a class="odd-btn !w-full">--</a>
                         </td>
                         <td>
-                            <a class="odd-btn !w-full">2.32</a>
+                            <a class="odd-btn !w-full">--</a>
                         </td>
 
                     </tr>
@@ -142,9 +150,9 @@
 @section('js')
 
 <script>
-    // setInterval(() => {
+    setInterval(() => {
         callApi('get',`{{route('user.eventData')}}`,{eventId:{{$eventId}}},updateEvent);
-    // }, 500);
+    }, 500);
 </script>
 
 @endsection

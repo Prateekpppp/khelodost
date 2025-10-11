@@ -69,7 +69,7 @@ class getEventData extends Command
             $body = $response->getBody()->getContents(); 
             
             Storage::put('event/inplay/'.$eventId.'.json', $body);
-            dd($body);
+            
             usleep(500000);
         }
 

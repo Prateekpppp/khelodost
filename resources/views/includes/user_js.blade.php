@@ -57,12 +57,11 @@
     }
 
 
+    function inplay(res){
 
-    function updateEvent(res){
-
-        console.log('res in eventPage',res.response);
-        data = res.response;
-        data = JSON.parse(res);
+        console.log('res in eventPage',res.data);
+        data = res.data;
+        data = JSON.parse(data);
         console.log('data in eventPage',data);
         let html = ``;
         
@@ -83,6 +82,43 @@
         // $('.eventData').html(html);
     }
 
+    function updateEvent(res){
+
+        res = res.response;
+        res = JSON.parse(res);
+        data = res.data;
+        
+        
+        $(data).each(function(){
+
+            if(this.mname == "MATCH_ODDS"){
+                updateMatchOdds(this);
+            }
+        //     let date = (this.eventName).split(' / ')[1];
+        //     this.eventName = (this.eventName).split(' / ')[0];
+
+        //     date = date.split('M (')[0];
+        //     dateHour = date[date.length-1];
+        //     date = date.split(dateHour)[0];
+        //     date += ' '+dateHour+'M';
+            
+        //     this.eventDate = new Date(date).toLocaleString();
+
+        //     html += eventData(this);
+        });
+        // $('.eventData').html(html);
+    }
+
+    function updateMatchOdds(data){
+        let odds = data.section.odds;
+
+        $('.match_nat1').html($(data.section[0]).nat);
+        $('.match_nat2').html($(data.section[1]).nat);
+
+        $(odds).each(function(){
+            $(`.${this.oname}`).html(this.odds);
+        });
+    }
 
     function eventData(data){
         return `

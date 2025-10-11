@@ -64,16 +64,33 @@ class getSportFixture extends Command
         
         foreach ($body as $chunk) {
             foreach ($chunk as $item) {
-                if($item['marketId']){
-                    
-                    $date = explode(' / ',$item['eventName'])[1];
-                    
-                    if(strtotime(now()) > strtotime($date) && $item['inPlay']=="True"){
-                        $sportInplayDataArray[] = $item;
-                    } else if(strtotime(now()) < strtotime($date)){
-                        $sportUpcomingDataArray[] = $item;
+                if($sportname=='cricket'){
+
+                    if($item['marketId']){
+                        
+                        $date = explode(' / ',$item['eventName'])[1];
+                        
+                        if(strtotime(now()) > strtotime($date) && $item['inPlay']=="True"){
+                            $sportInplayDataArray[] = $item;
+                        } else if(strtotime(now()) < strtotime($date)){
+                            $sportUpcomingDataArray[] = $item;
+                        }
                     }
-                };
+
+                } else{
+                    
+                    if($item['mid']){
+                        
+                        $date = $item['stime'];
+                        
+                        if(strtotime(now()) > strtotime($date) && $item['iplay']=="true"){
+                            $sportInplayDataArray[] = $item;
+                        } else if(strtotime(now()) < strtotime($date)){
+                            $sportUpcomingDataArray[] = $item;
+                        }
+                    }
+
+                }
             }
         }
 

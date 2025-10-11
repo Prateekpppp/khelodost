@@ -59,22 +59,32 @@ class getApi extends Command
         
         $body = json_decode($body,true);
         $body = array_chunk($body,15);
-        $sportdataArray = [];
+        $sportInplayDataArray = [];
+        $sportUpcomingDataArray = [];
         
-        dump($body);
         foreach ($body as $chunk) {
             foreach ($chunk as $item) {
                 if($item['marketId']){
-                    if($item['inPlay']){
-                        $sportdataArray[] = $item;
+                    
+                    $date = explode(' / ',$item['eventName'])[1];
+                    
+                    if(strtotime(now()) > strtotime($date) && $item['inPlay']=="True"){
+                        $sportInplayDataArray[] = $item;
+                    } else if(strtotime(now()) < strtotime($date)){
+                        $sportUpcomingDataArray[] = $item;
                     }
                 };
             }
         }
-        dd('after',$body);
-        $body = array_slice($sportdataArray, 0, 10);
+
+        $sportInplayDataArray = array_slice($sportInplayDataArray, 0, 2);
+        $sportUpcomingDataArray = array_slice($sportUpcomingDataArray, 0, 5);
+
+        $body = array_merge($sportInplayDataArray,$sportUpcomingDataArray);
         $body = json_encode($body);
-        Storage::put('sports/'.$sportname.'.json', $body);
+
+        Storage::put('sports/inplay/'.$sportname.'.json', $sportInplayDataArray);
+        Storage::put('sports/upcoming/'.$sportname.'.json', $sportUpcomingDataArray);
 
         $response = $pusher->trigger('sportsupdate', 'sportsupdate-event', ['data' => $body,'sport'=>$sportname]);
             

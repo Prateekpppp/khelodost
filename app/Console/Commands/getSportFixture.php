@@ -39,7 +39,6 @@ class getSportFixture extends Command
             $response = $client->get("https://marketsarket.qnsports.live/get".$sportname."matches2"); 
             $body = $response->getBody(); 
             $body = $response->getBody()->getContents(); 
-            Storage::put('sports/'.$sportname.'.json', $body);
             // event(new EventNotification($body));
             // return $body;
         // });
@@ -60,18 +59,32 @@ class getSportFixture extends Command
         
         $body = json_decode($body,true);
         $body = array_chunk($body,15);
-        $sportdataArray = [];
-
+        $sportInplayDataArray = [];
+        $sportUpcomingDataArray = [];
+        
         foreach ($body as $chunk) {
             foreach ($chunk as $item) {
                 if($item['marketId']){
-                    $sportdataArray[] = $item;
+                    
+                    $date = explode(' / ',$item['eventName'])[1];
+                    
+                    if(strtotime(now()) > strtotime($date) && $item['inPlay']=="True"){
+                        $sportInplayDataArray[] = $item;
+                    } else if(strtotime(now()) < strtotime($date)){
+                        $sportUpcomingDataArray[] = $item;
+                    }
                 };
             }
         }
 
-        $body = array_slice($sportdataArray, 0, 10);
+        $sportInplayDataArray = array_slice($sportInplayDataArray, 0, 2);
+        $sportUpcomingDataArray = array_slice($sportUpcomingDataArray, 0, 5);
+
+        $body = array_merge($sportInplayDataArray,$sportUpcomingDataArray);
         $body = json_encode($body);
+
+        Storage::put('sports/inplay/'.$sportname.'.json', $sportInplayDataArray);
+        Storage::put('sports/upcoming/'.$sportname.'.json', $sportUpcomingDataArray);
 
         $response = $pusher->trigger('sportsupdate', 'sportsupdate-event', ['data' => $body,'sport'=>$sportname]);
             

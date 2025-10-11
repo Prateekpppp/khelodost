@@ -67,9 +67,6 @@ class getEventData extends Command
             }
             $body = $response->getBody(); 
             $body = $response->getBody()->getContents(); 
-
-            // data manupulation
-            $body = json_decode($body);
             
             Storage::put('event/inplay/'.$eventId.'.json', $body);
             dd($body);

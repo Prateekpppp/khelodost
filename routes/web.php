@@ -46,8 +46,8 @@ Route::middleware(['custom_session_middleware'])->group(function () {
 
     Route::get('eventPage/{eventId}', [SportbookController::class,'eventPage'])->name('user.eventPage');
     
-    Route::get('eventData/{eventId}', [SportbookController::class,'eventData'])->name('user.eventData');
-    
+    Route::get('eventData', [SportbookController::class,'eventData'])->name('user.eventData');
+
     Route::get('otherSportEventPage/{eventId}', [SportbookController::class,'otherSportEventPage'])->name('user.otherSportEventPage');
 
 

@@ -180,29 +180,12 @@
                 <thead class="table-light">
                     <tr>
                         <th style="">Line Market</th>
-                        <th class="w-22">No</th>
-                        <th class="w-22">Yes</th>
+                        <th style="">Back</th>
+                        <th style="">Lay</th>
                     </tr>
                 </thead>
-                <tbody class="line_market">
-                    <tr>
-                        <td class="text-start px-3 flex flex-row items-center justify-between">
-                            <div class="match-layout">
-                                1st Innings run bhav IND
-                            </div>
-                            <div class="rounded-[0.4rem] px-2 border-2 !border-gray-300 btn w-16">
-                                Bets
-                            </div>
-                        </td>
-
-                        <td>
-                            <a class="odd-btn !w-full">--</a>
-                        </td>
-                        <td>
-                            <a class="odd-btn !w-full">--</a>
-                        </td>
-
-                    </tr>
+                <tbody class="linemarket">
+                    
                 </tbody>
             </table>
         </div>

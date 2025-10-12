@@ -98,6 +98,7 @@ class getSportFixture extends Command
         // $sportUpcomingDataArray = array_slice($sportUpcomingDataArray, 0, 5);
 
         $body = array_merge($sportInplayDataArray,$sportUpcomingDataArray);
+        $body = array_slice($sportUpcomingDataArray, 0, 10);
         $body = json_encode($body);
 
         $sportInplayDataArray = json_encode($sportInplayDataArray);

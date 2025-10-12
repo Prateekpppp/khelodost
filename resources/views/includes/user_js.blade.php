@@ -110,14 +110,25 @@
     }
 
     function updateMatchOdds(data){
-        let odds = data.section.odds;
 
-        $('.match_nat1').html($(data.section[0]).nat);
-        $('.match_nat2').html($(data.section[1]).nat);
+        let m_div = $('.match_odds');
 
-        $(odds).each(function(){
-            $(`.${this.oname}`).html(this.odds);
+        let section = data.section;
+
+        $(m_div).find('.match_nat1').html(section[0].nat);
+        $(m_div).find('.match_nat2').html(section[1].nat);
+        $(m_div).find('.match_nat3').html(section[2].nat);
+
+        $(section).each(function(i,j){
+            
+            $(m_div).find(`.match_nat${i}`).html(j.nat);
+            
+            $(j.odds).each(function(){
+                $(m_div).find(`.m_row${i}`).find(`.${this.oname}`).html(this.odds);
+            });
         });
+
+
     }
 
     function eventData(data){

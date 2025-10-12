@@ -123,9 +123,9 @@
                 let odd = $(m_div).find(`.m_row${i}`).find(`.${this.oname}`);
                 if($(odd).html() != this.odds){
                     setTimeout(() => {
-                        $(this).addClass('odd_change');
+                        $(odd).addClass('odd_change');
                     }, 100);
-                    $(this).removeClass('odd_change');
+                    $(odd).removeClass('odd_change');
                 }
                 $(odd).html(this.odds);
             });

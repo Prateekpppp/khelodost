@@ -115,10 +115,6 @@
 
         let section = data.section;
 
-        $(m_div).find('.match_nat1').html(section[0].nat);
-        $(m_div).find('.match_nat2').html(section[1].nat);
-        $(m_div).find('.match_nat3').html(section[2].nat);
-
         $(section).each(function(i,j){
             
             $(m_div).find(`.match_nat${i}`).html(j.nat);

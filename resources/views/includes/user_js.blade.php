@@ -25,7 +25,7 @@
     function cricket(data){
         let eventPage = "{{url('eventPage')}}";
         let c_time = (new Date()).getTime();
-        if((new Date()).getTime() > (new Date(data.eventDate)).getTime()) {
+        if((new Date()).getTime() < (new Date(data.eventDate)).getTime()) {
             eventPage = "{{url('upcomingEventPage')}}";
         }
         return `

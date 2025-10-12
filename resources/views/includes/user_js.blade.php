@@ -113,7 +113,7 @@
 
     function updateMatchOdds(data){
 
-        let m_div = $('.bookmaker');
+        let m_div = $('.match_odds');
 
         let section = data.section;
 
@@ -138,8 +138,7 @@
     
     function updateBookmaker(data){
 
-        let m_div = $('.match_odds');
-
+        let m_div = $('.bookmaker');
         let section = data.section;
 
         $(section).each(function(i,j){

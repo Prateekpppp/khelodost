@@ -170,6 +170,10 @@
         let m_div = $('.linemarket');
         let section = data.section;
         let html =``;
+
+        if(section.length) {
+            $(m_div).parents('table').show();
+        }
         $(section).each(function(i,j){
             html += `
                 <tr class="m_row">

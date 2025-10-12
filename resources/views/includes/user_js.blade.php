@@ -195,7 +195,7 @@
                     </td>
                     
                     <td>
-                        <a class="odd-btn lay1">${j.odds[0].odds}</a>
+                        <a class="!bg-pink-300 odd-btn lay1">${j.odds[0].odds}</a>
                     </td>
 
                 </tr>

@@ -50,12 +50,12 @@
 
                 <td>
                     <a class="odd-btn">${data.back12}<br><small>${data.back12}</small></a>
-                    <a class="!bg-pink-300 odd-btn">${data.lay11}<br><small>${data.lay11}</small></a>
+                    <a class="odd-btn lay">${data.lay11}<br><small>${data.lay11}</small></a>
                 </td>
 
                 <td>
-                    <a class="!bg-pink-300 odd-btn">${data.lay1}<br><small>${data.lay1}</small></a>
-                    <a class="!bg-pink-300 odd-btn">${data.lay12}<br><small>${data.lay12}</small></a>
+                    <a class="odd-btn lay">${data.lay1}<br><small>${data.lay1}</small></a>
+                    <a class="odd-btn lay">${data.lay12}<br><small>${data.lay12}</small></a>
                 </td>
             </tr>
         `;
@@ -194,7 +194,7 @@
                     </td>
                     
                     <td>
-                        <a class="!bg-pink-300 odd-btn lay1">${j.odds[0].odds}</a>
+                        <a class="odd-btn lay lay1">${j.odds[0].odds}</a>
                     </td>
 
                 </tr>
@@ -228,12 +228,12 @@
 
                 <td>
                     <a class="odd-btn">${data.back12}<br><small>${data.back12}</small></a>
-                    <a class="!bg-pink-300 odd-btn">${data.lay11}<br><small>${data.lay11}</small></a>
+                    <a class="odd-btn lay">${data.lay11}<br><small>${data.lay11}</small></a>
                 </td>
 
                 <td>
-                    <a class="!bg-pink-300 odd-btn">${data.lay1}<br><small>${data.lay1}</small></a>
-                    <a class="!bg-pink-300 odd-btn">${data.lay12}<br><small>${data.lay12}</small></a>
+                    <a class="odd-btn lay">${data.lay1}<br><small>${data.lay1}</small></a>
+                    <a class="odd-btn lay">${data.lay12}<br><small>${data.lay12}</small></a>
                 </td>
             </tr>
         `;

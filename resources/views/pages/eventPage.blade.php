@@ -70,6 +70,28 @@
                     </tr>
                 </thead>
                 <tbody class="match_odds">
+                    <tr class="m_row0">
+                        <td class="text-start px-3">
+                            <div class="match-layout">
+                                <div class="right-side">
+                                    <div class="match_nat0">India</div>
+                                </div>
+                            </div>
+                        </td>
+
+                        <td>
+                            <a class="odd-btn back3">--</a>
+                            <a class="odd-btn back2">--</a>
+                            <a class="odd-btn back1">--</a>
+                        </td>
+                        
+                        <td>
+                            <a class="odd-btn lay1">--</a>
+                            <a class="odd-btn lay2">--</a>
+                            <a class="odd-btn lay3">--</a>
+                        </td>
+
+                    </tr>
                     <tr class="m_row1">
                         <td class="text-start px-3">
                             <div class="match-layout">
@@ -97,28 +119,6 @@
                             <div class="match-layout">
                                 <div class="right-side">
                                     <div class="match_nat2">India</div>
-                                </div>
-                            </div>
-                        </td>
-
-                        <td>
-                            <a class="odd-btn back3">--</a>
-                            <a class="odd-btn back2">--</a>
-                            <a class="odd-btn back1">--</a>
-                        </td>
-                        
-                        <td>
-                            <a class="odd-btn lay1">--</a>
-                            <a class="odd-btn lay2">--</a>
-                            <a class="odd-btn lay3">--</a>
-                        </td>
-
-                    </tr>
-                    <tr class="m_row3">
-                        <td class="text-start px-3">
-                            <div class="match-layout">
-                                <div class="right-side">
-                                    <div class="match_nat3">India</div>
                                 </div>
                             </div>
                         </td>

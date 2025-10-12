@@ -23,6 +23,11 @@
 
 
     function cricket(data){
+        let eventPage = "{{url('eventPage')}}";
+        let c_time = (new Date()).getTime();
+        if((new Date()).getTime() > (new Date(data.eventDate)).getTime()) {
+            eventPage = "{{url('upcomingEventPage')}}";
+        }
         return `
             <tr data-gameId='${data.gameId}' data-marketId='${data.marketId}'>
                 <!-- Cricket -->
@@ -32,7 +37,7 @@
                         <span class="match-status today">${data.eventDate}</small></span>
 
                         <!-- Right Side: Teams -->
-                        <a href="{{url('eventPage')}}/${data.gameId}" class="right-side">
+                        <a href="${eventPage}/${data.gameId}" class="right-side">
                             ${data.eventName}
                         </a>
                     </div>

@@ -2,17 +2,35 @@
 
 @section('sports_body')
 <main class="layout-content-center p-3">
-    <div class="card shadow-sm mb-4">
+    
+            <!-- 🔷 Banner Image Card -->
+            <div class="mb-2">
+                <div class="rounded-4 text-center flex flex-row max-w-full overflow-hidden app_scroller">
+                    <a href="{{ route('index') }}" class="min-w-full">
+                        <img src="{{ asset('banners/banner1.png') }}" class="img-fluid" alt="Banner">
+                    </a>
+                    <a href="{{ route('index') }}" class="min-w-full">
+                        <img src="{{ asset('banners/banner2.png') }}" class="img-fluid" alt="Banner">
+                    </a>
+                    <a href="{{ route('index') }}" class="min-w-full">
+                        <img src="{{ asset('banners/banner3.png') }}" class="img-fluid" alt="Banner">
+                    </a>
+                    <a href="{{ route('index') }}" class="min-w-full">
+                        <img src="{{ asset('banners/banner4.png') }}" class="img-fluid" alt="Banner">
+                    </a>
+                </div>
+            </div>
+    <div class="shadow-sm mb-4">
         <div class="card-body p-0">
             <div class="text-center">
-                <h4 class="my-1 border-b-2 border-gray-300">India Vs South Africa</h4>
-                <div class="flex flex-row justify-evenly items-center my-1 border-b-2 border-gray-300">
-                    <h5>Live</h5>
-                    <h5>Scorecard</h5>
+                <h4 class="my-1 bg-[#0c9971] text-white p-2">India Vs South Africa</h4>
+                <div class="flex flex-row justify-evenly items-center my-1">
+                    <span>Live</span>
+                    <span>Scorecard</span>
                 </div>
-                <div class="flex flex-row justify-evenly items-center my-1 border-b-2 border-gray-300">
-                    <h5>Market Start Time</h5>
-                    <h5>10 Oct 2025</h5>
+                <div class="flex flex-row justify-evenly items-center my-1 bg-[#0c9971] text-white p-2">
+                    <span>Market Start Time</span>
+                    <span>10 Oct 2025</span>
                 </div>
             </div>
 
@@ -42,9 +60,9 @@
                         </td>
                         
                         <td>
-                            <a class="!bg-pink-300 odd-btn lay1">--</a>
-                            <a class="!bg-pink-300 odd-btn lay2">--</a>
-                            <a class="!bg-pink-300 odd-btn lay3">--</a>
+                            <a class="odd-btn lay lay1">--</a>
+                            <a class="odd-btn lay lay2">--</a>
+                            <a class="odd-btn lay lay3">--</a>
                         </td>
 
                     </tr>
@@ -64,9 +82,9 @@
                         </td>
                         
                         <td>
-                            <a class="!bg-pink-300 odd-btn lay1">--</a>
-                            <a class="!bg-pink-300 odd-btn lay2">--</a>
-                            <a class="!bg-pink-300 odd-btn lay3">--</a>
+                            <a class="odd-btn lay lay1">--</a>
+                            <a class="odd-btn lay lay2">--</a>
+                            <a class="odd-btn lay lay3">--</a>
                         </td>
 
                     </tr>
@@ -86,9 +104,9 @@
                         </td>
                         
                         <td>
-                            <a class="!bg-pink-300 odd-btn lay1">--</a>
-                            <a class="!bg-pink-300 odd-btn lay2">--</a>
-                            <a class="!bg-pink-300 odd-btn lay3">--</a>
+                            <a class="odd-btn lay lay1">--</a>
+                            <a class="odd-btn lay lay2">--</a>
+                            <a class="odd-btn lay lay3">--</a>
                         </td>
 
                     </tr>
@@ -121,9 +139,9 @@
                         </td>
                         
                         <td>
-                            <a class="!bg-pink-300 odd-btn lay1">--</a>
-                            <a class="!bg-pink-300 odd-btn lay2">--</a>
-                            <a class="!bg-pink-300 odd-btn lay3">--</a>
+                            <a class="odd-btn lay lay1">--</a>
+                            <a class="odd-btn lay lay2">--</a>
+                            <a class="odd-btn lay lay3">--</a>
                         </td>
 
                     </tr>
@@ -143,9 +161,9 @@
                         </td>
                         
                         <td>
-                            <a class="!bg-pink-300 odd-btn lay1">--</a>
-                            <a class="!bg-pink-300 odd-btn lay2">--</a>
-                            <a class="!bg-pink-300 odd-btn lay3">--</a>
+                            <a class="odd-btn lay lay1">--</a>
+                            <a class="odd-btn lay lay2">--</a>
+                            <a class="odd-btn lay lay3">--</a>
                         </td>
 
                     </tr>
@@ -165,9 +183,9 @@
                         </td>
                         
                         <td>
-                            <a class="!bg-pink-300 odd-btn lay1">--</a>
-                            <a class="!bg-pink-300 odd-btn lay2">--</a>
-                            <a class="!bg-pink-300 odd-btn lay3">--</a>
+                            <a class="odd-btn lay lay1">--</a>
+                            <a class="odd-btn lay lay2">--</a>
+                            <a class="odd-btn lay lay3">--</a>
                         </td>
 
                     </tr>

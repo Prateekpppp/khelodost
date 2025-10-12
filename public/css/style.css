@@ -389,13 +389,17 @@ body {
     padding: 0.4rem 0rem;
     border: 1px solid #dee2e6;
     border-radius: 6px;
-    background: #a7d8fd;
+    background: #0c9971;
     font-weight: 600;
     text-decoration: none;
     color: #000;
     cursor: pointer;
     transition: 0.2s;
     text-align: center;
+}
+
+.odd-btn.lay {
+    background: #fc7600;
 }
 
 .odd-btn small {
@@ -693,3 +697,8 @@ main::-webkit-scrollbar {
       padding-right: 40px;
     }
   }
+
+.table-light th {
+  background: #fc7600;
+  color: white;
+}

@@ -95,7 +95,6 @@
         
         
         $(data).each(function(){
-            console.log('data-----items---',this);
             
             if(this.mname == "MATCH_ODDS"){
                 updateMatchOdds(this);

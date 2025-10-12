@@ -409,6 +409,10 @@ body {
     background: #91c9f5;
 }
 
+.odd_change{
+    background: yellow;
+}
+
 /* Indian game ka */
 main {
     /* height: 100vh; */

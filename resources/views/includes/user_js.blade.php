@@ -96,10 +96,8 @@
                 updateMatchOdds(this);
             } else if(this.mname == "Bookmaker"){
                 updateBookmaker(this);
-            }
             } else if(this.mname == "fancy1"){
                 updateLinemarket(this);
-            }
             } else if(this.mname == "Bookmaker"){
                 updateBookmaker(this);
             }

@@ -93,6 +93,8 @@
 
             if(this.mname == "MATCH_ODDS"){
                 updateMatchOdds(this);
+            } else if(this.mname == "Bookmaker"){
+                updateBookmaker(this);
             }
         //     let date = (this.eventName).split(' / ')[1];
         //     this.eventName = (this.eventName).split(' / ')[0];
@@ -111,6 +113,31 @@
 
     function updateMatchOdds(data){
 
+        let m_div = $('.bookmaker');
+
+        let section = data.section;
+
+        $(section).each(function(i,j){
+            
+            $(m_div).find(`.match_nat${i}`).html(j.nat);
+            
+            $(j.odds).each(function(){
+                let odd = $(m_div).find(`.m_row${i}`).find(`.${this.oname}`);
+                if($(odd).html() != this.odds){
+                    $(this).addClass('odd_change');
+                    setTimeout(() => {
+                        $(this).removeClass('odd_change');
+                    }, 300);
+                }
+                $(odd).html(this.odds);
+            });
+        });
+
+
+    }
+    
+    function updateBookmaker(data){
+
         let m_div = $('.match_odds');
 
         let section = data.section;
@@ -122,10 +149,10 @@
             $(j.odds).each(function(){
                 let odd = $(m_div).find(`.m_row${i}`).find(`.${this.oname}`);
                 if($(odd).html() != this.odds){
+                    $(this).addClass('odd_change');
                     setTimeout(() => {
-                        $(odd).addClass('odd_change');
-                    }, 100);
-                    $(odd).removeClass('odd_change');
+                        $(this).removeClass('odd_change');
+                    }, 300);
                 }
                 $(odd).html(this.odds);
             });

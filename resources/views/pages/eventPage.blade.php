@@ -17,43 +17,78 @@
             </div>
 
             <!-- Bookmaker -->
-            <table class="table text-center mb-0 align-middle odds-table my-2">
+            <table class="table text-center mb-0 align-middle odds-table my-4 border-t-2 border-gray-300">
                 <thead class="table-light">
                     <tr>
-                        <th style="">BookMaker</th>
-                        <th style="">Position</th>
+                        <th style="">Bookmaker</th>
+                        <th style="">Back</th>
+                        <th style="">Lay</th>
                     </tr>
                 </thead>
                 <tbody class="bookmaker">
-                    <tr>
-                        <!-- Cricket -->
+                    <tr class="m_row0">
                         <td class="text-start px-3">
                             <div class="match-layout">
                                 <div class="right-side">
-                                    <div>India</div>
+                                    <div class="match_nat0">India</div>
                                 </div>
                             </div>
                         </td>
 
                         <td>
-                            <a class="odd-btn">--</a>
-                            <a class="odd-btn">--</a>
+                            <a class="odd-btn back3">--</a>
+                            <a class="odd-btn back2">--</a>
+                            <a class="odd-btn back1">--</a>
+                        </td>
+                        
+                        <td>
+                            <a class="odd-btn lay1">--</a>
+                            <a class="odd-btn lay2">--</a>
+                            <a class="odd-btn lay3">--</a>
                         </td>
 
                     </tr>
-                    <tr>
-                        <!-- Cricket -->
+                    <tr class="m_row1">
                         <td class="text-start px-3">
                             <div class="match-layout">
                                 <div class="right-side">
-                                    <div>South Africa</div>
+                                    <div class="match_nat1">India</div>
                                 </div>
                             </div>
                         </td>
 
                         <td>
-                            <a class="odd-btn">--</a>
-                            <a class="odd-btn">--</a>
+                            <a class="odd-btn back3">--</a>
+                            <a class="odd-btn back2">--</a>
+                            <a class="odd-btn back1">--</a>
+                        </td>
+                        
+                        <td>
+                            <a class="odd-btn lay1">--</a>
+                            <a class="odd-btn lay2">--</a>
+                            <a class="odd-btn lay3">--</a>
+                        </td>
+
+                    </tr>
+                    <tr class="m_row2">
+                        <td class="text-start px-3">
+                            <div class="match-layout">
+                                <div class="right-side">
+                                    <div class="match_nat2">India</div>
+                                </div>
+                            </div>
+                        </td>
+
+                        <td>
+                            <a class="odd-btn back3">--</a>
+                            <a class="odd-btn back2">--</a>
+                            <a class="odd-btn back1">--</a>
+                        </td>
+                        
+                        <td>
+                            <a class="odd-btn lay1">--</a>
+                            <a class="odd-btn lay2">--</a>
+                            <a class="odd-btn lay3">--</a>
                         </td>
 
                     </tr>

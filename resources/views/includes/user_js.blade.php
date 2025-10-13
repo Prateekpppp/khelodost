@@ -14,7 +14,7 @@
             date = date.split(dateHour)[0];
             date += ' '+dateHour+'M';
             
-            this.eventDate = new Date(date).toLocaleString();
+            this.eventDate = date;
 
             html += eval(res.sport)(this);
         });

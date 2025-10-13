@@ -112,7 +112,7 @@
                     </tr>
                 </tbody>
             </table>
-            
+
             <!-- Bookmaker -->
             <table class="table text-center mb-0 align-middle odds-table my-4 border-t-2 border-gray-300" style="display: none;">
                 <thead class="table-light">
@@ -192,7 +192,19 @@
                 </tbody>
             </table>
 
-
+            <!-- Tied Match -->
+            <table class="table text-center mb-0 align-middle odds-table my-4 border-t-2 border-gray-300" style="display: none;">
+                <thead class="table-light">
+                    <tr>
+                        <th style="">Tied Match</th>
+                        <th style="">Back</th>
+                        <th style="">Lay</th>
+                    </tr>
+                </thead>
+                <tbody class="tiedmatch">
+                    
+                </tbody>
+            </table>
             
             <!-- Line Market -->
             <table class="table text-center mb-0 align-middle odds-table my-4 border-t-2 border-gray-300" style="display: none;">
@@ -207,6 +219,7 @@
                     
                 </tbody>
             </table>
+            
         </div>
     </div>
 </main>

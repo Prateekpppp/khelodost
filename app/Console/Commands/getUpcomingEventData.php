@@ -65,7 +65,7 @@ class getUpcomingEventData extends Command
 
             
             Storage::put('event/inplay/'.$eventId.'.json', $body);
-            dd($body);
+            // dd($body);
             usleep(500000);
         }
 

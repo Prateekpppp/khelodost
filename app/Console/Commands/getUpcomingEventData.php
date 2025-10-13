@@ -11,7 +11,7 @@ class getUpcomingEventData extends Command
      *
      * @var string
      */
-    protected $signature = 'app:get-upcoming-event-data';
+    protected $signature = 'app:get-upcoming-event-data {sportname}';
 
     /**
      * The console command description.

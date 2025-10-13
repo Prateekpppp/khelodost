@@ -202,7 +202,50 @@
                     </tr>
                 </thead>
                 <tbody class="tiedmatch">
-                    
+                    <tr class="m_row0">
+                        <td class="text-start px-3">
+                            <div class="match-layout">
+                                <div class="right-side">
+                                    <div class="match_nat0">India</div>
+                                </div>
+                            </div>
+                        </td>
+
+                        <td>
+                            <a class="odd-btn back3">--</a>
+                            <a class="odd-btn back2">--</a>
+                            <a class="odd-btn back1">--</a>
+                        </td>
+                        
+                        <td>
+                            <a class="odd-btn lay lay1">--</a>
+                            <a class="odd-btn lay lay2">--</a>
+                            <a class="odd-btn lay lay3">--</a>
+                        </td>
+
+                    </tr>
+                    <tr class="m_row1">
+                        <td class="text-start px-3">
+                            <div class="match-layout">
+                                <div class="right-side">
+                                    <div class="match_nat1">India</div>
+                                </div>
+                            </div>
+                        </td>
+
+                        <td>
+                            <a class="odd-btn back3">--</a>
+                            <a class="odd-btn back2">--</a>
+                            <a class="odd-btn back1">--</a>
+                        </td>
+                        
+                        <td>
+                            <a class="odd-btn lay lay1">--</a>
+                            <a class="odd-btn lay lay2">--</a>
+                            <a class="odd-btn lay lay3">--</a>
+                        </td>
+
+                    </tr>
                 </tbody>
             </table>
             

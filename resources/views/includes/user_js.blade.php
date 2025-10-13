@@ -221,35 +221,26 @@
 
         let m_div = $('.tiedmatch');
         let section = data.section;
-        let html =``;
 
         if(section.length) {
             $(m_div).parents('table').show();
         }
+
         $(section).each(function(i,j){
-            html += `
-                <tr class="m_row">
-                    <td class="text-start px-3">
-                        <div class="match-layout">
-                            <div class="right-side">
-                                <div class="match_nat">${j.nat}</div>
-                            </div>
-                        </div>
-                    </td>
-
-                    <td>
-                        <a class="odd-btn back1">${j.odds[0].odds}</a>
-                    </td>
-                    
-                    <td>
-                        <a class="odd-btn lay lay1">${j.odds[0].odds}</a>
-                    </td>
-
-                </tr>
-            `;
             
+            $(m_div).find(`.match_nat${i}`).html(j.nat);
+            
+            $(j.odds).each(function(){
+                let odd = $(m_div).find(`.m_row${i}`).find(`.${this.oname}`);
+                if($(odd).html() != this.odds){
+                    $(this).addClass('odd_change');
+                    setTimeout(() => {
+                        $(this).removeClass('odd_change');
+                    }, 300);
+                }
+                $(odd).html(this.odds);
+            });
         });
-        $(m_div).html(html);
 
     }
 

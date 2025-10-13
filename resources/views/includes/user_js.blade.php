@@ -102,8 +102,8 @@
                 updateBookmaker(this);
             } else if(this.mname == "TIED_MATCH"){
                 updateTiedmatch(this);
-            } else if(this.mname == "TIED_MATCH"){
-                updateTiedmatch(this);
+            } else if(this.mname == "oddeven"){
+                updateOddeven(this);
             } else if(this.mname == "fancy1"){
                 updateLinemarket(this);
             } else if(this.mname == "TIED_MATCH"){
@@ -241,6 +241,42 @@
                 $(odd).html(this.odds);
             });
         });
+
+    }
+
+    function updateOddeven(data){
+
+        let m_div = $('.oddeven');
+        let section = data.section;
+        let html =``;
+
+        if(section.length) {
+            $(m_div).parents('table').show();
+        }
+        $(section).each(function(i,j){
+            html += `
+                <tr class="m_row">
+                    <td class="text-start px-3">
+                        <div class="match-layout">
+                            <div class="right-side">
+                                <div class="match_nat">${j.nat}</div>
+                            </div>
+                        </div>
+                    </td>
+
+                    <td>
+                        <a class="odd-btn back1">${j.odds[0].odds}</a>
+                    </td>
+                    
+                    <td>
+                        <a class="odd-btn lay lay1">${j.odds[0].odds}</a>
+                    </td>
+
+                </tr>
+            `;
+            
+        });
+        $(m_div).html(html);
 
     }
 

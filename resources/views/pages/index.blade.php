@@ -64,40 +64,13 @@
                     <table class="table text-center mb-0 align-middle odds-table">
                         <thead class="table-light">
                             <tr>
-                                <th class="text-start" style="width: 40%">🏏 Cricket</th>
+                                <th class="text-start fw-bold" style="width: 40%">🏏 Cricket</th>
                                 <th style="width: 20%">1</th>
                                 <th style="width: 20%">X</th>
                                 <th style="width: 20%">2</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <!-- Cricket -->
-                                <td class="text-start px-3">
-                                    <div class="match-layout">
-                                        <!-- Left Side: Date & Time -->
-                                        <span class="match-status today">Today<br><small>6:00 PM</small></span>
-
-                                        <!-- Right Side: Teams -->
-                                        <div class="right-side">
-                                            <div>India</div>
-                                            <div>China</div>
-                                        </div>
-                                    </div>
-                                </td>
-
-                                <td>
-                                    <a class="odd-btn">2.32<br><small>—</small></a>
-                                </td>
-
-                                <td>
-                                    <a class="odd-btn">1.72<br><small>—</small></a>
-                                </td>
-
-                                <td>
-                                    <a class="odd-btn">0<br><small>—</small></a>
-                                </td>
-                            </tr>
+                        <tbody class="cricketDataIndex">
                         </tbody>
                     </table>
                 </div>
@@ -269,4 +242,25 @@
         initScrollSlider(".providers_slider", ".providers_scroll");
         initScrollSlider(".cards_slider", ".cards_scroll");
     </script>
+@endsection
+
+
+@section('js')
+<script src="https://js.pusher.com/8.4.0/pusher.min.js"></script>
+  <script>
+
+    // Enable pusher logging - don't include this in production
+    // Pusher.logToConsole = true;
+
+    var pusher = new Pusher('{{env('PUSHER_APP_KEY')}}', {
+      cluster: 'ap2'
+    });
+
+    var channel = pusher.subscribe('sportsupdate');
+    channel.bind('sportsupdate-event', function(data) {
+        updateCricketIndex(data);
+    });
+
+  </script>
+
 @endsection

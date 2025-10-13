@@ -5,19 +5,19 @@
     <div class="card shadow-sm mb-4">
         <div class="card-body p-0">
             <div class="text-center">
-                <h4 class="my-1 border-b-2 border-gray-300">India Vs South Africa</h4>
-                <div class="flex flex-row justify-evenly items-center my-1 border-b-2 border-gray-300">
+                <h4 class="my-1 border-b-2 border-gray-300" style="display: none;">India Vs South Africa</h4>
+                <div class="flex flex-row justify-evenly items-center my-1 border-b-2 border-gray-300" style="display: none;">
                     <h5>Live</h5>
                     <h5>Scorecard</h5>
                 </div>
-                <div class="flex flex-row justify-evenly items-center my-1 border-b-2 border-gray-300">
+                <div class="flex flex-row justify-evenly items-center my-1 border-b-2 border-gray-300" style="display: none;">
                     <h5>Market Start Time</h5>
                     <h5>10 Oct 2025</h5>
                 </div>
             </div>
 
             <!-- Bookmaker -->
-            <table class="table text-center mb-0 align-middle odds-table my-4 border-t-2 border-gray-300">
+            <table class="table text-center mb-0 align-middle odds-table my-4 border-t-2 border-gray-300" style="display: none;">
                 <thead class="table-light">
                     <tr>
                         <th style="">Bookmaker</th>
@@ -30,7 +30,7 @@
                         <td class="text-start px-3">
                             <div class="match-layout">
                                 <div class="right-side">
-                                    <div class="match_nat0">India</div>
+                                    <div class="match_nat0">--</div>
                                 </div>
                             </div>
                         </td>
@@ -52,7 +52,7 @@
                         <td class="text-start px-3">
                             <div class="match-layout">
                                 <div class="right-side">
-                                    <div class="match_nat1">India</div>
+                                    <div class="match_nat1">--</div>
                                 </div>
                             </div>
                         </td>
@@ -74,7 +74,7 @@
                         <td class="text-start px-3">
                             <div class="match-layout">
                                 <div class="right-side">
-                                    <div class="match_nat2">India</div>
+                                    <div class="match_nat2">--</div>
                                 </div>
                             </div>
                         </td>
@@ -96,7 +96,7 @@
             </table>
 
             <!-- Match Odds -->
-            <table class="table text-center mb-0 align-middle odds-table my-4 border-t-2 border-gray-300">
+            <table class="table text-center mb-0 align-middle odds-table my-4 border-t-2 border-gray-300" style="display: none;">
                 <thead class="table-light">
                     <tr>
                         <th style="">Match Odds</th>
@@ -109,7 +109,7 @@
                         <td class="text-start px-3">
                             <div class="match-layout">
                                 <div class="right-side">
-                                    <div class="match_nat0">India</div>
+                                    <div class="match_nat0">--</div>
                                 </div>
                             </div>
                         </td>
@@ -131,7 +131,7 @@
                         <td class="text-start px-3">
                             <div class="match-layout">
                                 <div class="right-side">
-                                    <div class="match_nat1">India</div>
+                                    <div class="match_nat1">--</div>
                                 </div>
                             </div>
                         </td>
@@ -153,7 +153,7 @@
                         <td class="text-start px-3">
                             <div class="match-layout">
                                 <div class="right-side">
-                                    <div class="match_nat2">India</div>
+                                    <div class="match_nat2">--</div>
                                 </div>
                             </div>
                         </td>
@@ -176,7 +176,7 @@
 
             
             <!-- Line Market -->
-            <table class="table text-center mb-0 align-middle odds-table my-4 border-t-2 border-gray-300" style="display: none;">
+            <table class="table text-center mb-0 align-middle odds-table my-4 border-t-2 border-gray-300" style="display: none;" style="display: none;">
                 <thead class="table-light">
                     <tr>
                         <th style="">Line Market</th>

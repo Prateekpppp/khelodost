@@ -126,6 +126,10 @@
 
         let section = data.section;
 
+        if(section.length) {
+            $(m_div).parents('table').show();
+        }
+        
         $(section).each(function(i,j){
             
             $(m_div).find(`.match_nat${i}`).html(j.nat);
@@ -149,6 +153,10 @@
 
         let m_div = $('.bookmaker');
         let section = data.section;
+
+        if(section.length) {
+            $(m_div).parents('table').show();
+        }
 
         $(section).each(function(i,j){
             

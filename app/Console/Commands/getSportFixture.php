@@ -69,6 +69,7 @@ class getSportFixture extends Command
                     if($item['marketId']){
                         
                         $date = explode(' / ',$item['eventName'])[1];
+                        $date = explode(' (IST)',$date)[0];
                         
                         if(strtotime(now()) > strtotime($date) && $item['inPlay']=="True"){
                             $sportInplayDataArray[] = $item;

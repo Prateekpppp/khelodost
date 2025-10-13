@@ -14,33 +14,6 @@
                     </tr>
                 </thead>
                 <tbody class="sportData">
-                    <tr>
-                        <!-- Cricket -->
-                        <td class="text-start px-3">
-                            <div class="match-layout">
-                                <!-- Left Side: Date & Time -->
-                                <span class="match-status today">Today<br><small>6:00 PM</small></span>
-
-                                <!-- Right Side: Teams -->
-                                <div class="right-side">
-                                    <div>India</div>
-                                    <div>China</div>
-                                </div>
-                            </div>
-                        </td>
-
-                        <td>
-                            <a class="odd-btn">2.32<br><small>—</small></a>
-                        </td>
-
-                        <td>
-                            <a class="odd-btn">1.72<br><small>—</small></a>
-                        </td>
-
-                        <td>
-                            <a class="odd-btn">0<br><small>—</small></a>
-                        </td>
-                    </tr>
                 </tbody>
             </table>
         </div>

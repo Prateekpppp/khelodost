@@ -3,6 +3,10 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Storage;
+use Pusher\Pusher;
+use GuzzleHttp\Client;
 
 class getUpcomingEventData extends Command
 {
@@ -28,7 +32,7 @@ class getUpcomingEventData extends Command
         //
 
         $sportname = $this->argument('sportname');
-        $eventData = Storage::get('sports/upcoming/'.$sportname.'.json');
+        $eventData = Storage::get('sports/event/'.$sportname.'.json');
 
         $eventData = json_decode($eventData,true);
         
@@ -64,8 +68,8 @@ class getUpcomingEventData extends Command
             $body = $response->getBody()->getContents(); 
 
             
-            Storage::put('event/inplay/'.$eventId.'.json', $body);
-            dd($body);
+            Storage::put('event/upcoming/'.$eventId.'.json', $body);
+            // dd($body);
             usleep(500000);
         }
 

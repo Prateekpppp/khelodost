@@ -34,87 +34,8 @@
                 </div>
             </div>
 
-            <!-- Bookmaker -->
-            <table class="table text-center mb-0 align-middle odds-table my-4 border-t-2 border-gray-300">
-                <thead class="table-light">
-                    <tr>
-                        <th style="">Bookmaker</th>
-                        <th style="">Back</th>
-                        <th style="">Lay</th>
-                    </tr>
-                </thead>
-                <tbody class="bookmaker">
-                    <tr class="m_row0">
-                        <td class="text-start px-3">
-                            <div class="match-layout">
-                                <div class="right-side">
-                                    <div class="match_nat0">India</div>
-                                </div>
-                            </div>
-                        </td>
-
-                        <td>
-                            <a class="odd-btn back3">--</a>
-                            <a class="odd-btn back2">--</a>
-                            <a class="odd-btn back1">--</a>
-                        </td>
-                        
-                        <td>
-                            <a class="odd-btn lay lay1">--</a>
-                            <a class="odd-btn lay lay2">--</a>
-                            <a class="odd-btn lay lay3">--</a>
-                        </td>
-
-                    </tr>
-                    <tr class="m_row1">
-                        <td class="text-start px-3">
-                            <div class="match-layout">
-                                <div class="right-side">
-                                    <div class="match_nat1">India</div>
-                                </div>
-                            </div>
-                        </td>
-
-                        <td>
-                            <a class="odd-btn back3">--</a>
-                            <a class="odd-btn back2">--</a>
-                            <a class="odd-btn back1">--</a>
-                        </td>
-                        
-                        <td>
-                            <a class="odd-btn lay lay1">--</a>
-                            <a class="odd-btn lay lay2">--</a>
-                            <a class="odd-btn lay lay3">--</a>
-                        </td>
-
-                    </tr>
-                    <tr class="m_row2">
-                        <td class="text-start px-3">
-                            <div class="match-layout">
-                                <div class="right-side">
-                                    <div class="match_nat2">India</div>
-                                </div>
-                            </div>
-                        </td>
-
-                        <td>
-                            <a class="odd-btn back3">--</a>
-                            <a class="odd-btn back2">--</a>
-                            <a class="odd-btn back1">--</a>
-                        </td>
-                        
-                        <td>
-                            <a class="odd-btn lay lay1">--</a>
-                            <a class="odd-btn lay lay2">--</a>
-                            <a class="odd-btn lay lay3">--</a>
-                        </td>
-
-                    </tr>
-                </tbody>
-            </table>
-
             <!-- Match Odds -->
-            <table class="table text-center mb-0 align-middle odds-table my-4 border-t-2 border-gray-300">
+            <table class="table text-center mb-0 align-middle odds-table my-4 border-t-2 border-gray-300" style="display: none;">
                 <thead class="table-light">
                     <tr>
                         <th style="">Match Odds</th>
@@ -127,7 +48,7 @@
                         <td class="text-start px-3">
                             <div class="match-layout">
                                 <div class="right-side">
-                                    <div class="match_nat0">India</div>
+                                    <div class="match_nat0">--</div>
                                 </div>
                             </div>
                         </td>
@@ -149,7 +70,7 @@
                         <td class="text-start px-3">
                             <div class="match-layout">
                                 <div class="right-side">
-                                    <div class="match_nat1">India</div>
+                                    <div class="match_nat1">--</div>
                                 </div>
                             </div>
                         </td>
@@ -171,7 +92,7 @@
                         <td class="text-start px-3">
                             <div class="match-layout">
                                 <div class="right-side">
-                                    <div class="match_nat2">India</div>
+                                    <div class="match_nat2">--</div>
                                 </div>
                             </div>
                         </td>
@@ -192,6 +113,197 @@
                 </tbody>
             </table>
 
+            <!-- Bookmaker -->
+            <table class="table text-center mb-0 align-middle odds-table my-4 border-t-2 border-gray-300" style="display: none;">
+                <thead class="table-light">
+                    <tr>
+                        <th style="">Bookmaker</th>
+                        <th style="">Back</th>
+                        <th style="">Lay</th>
+                    </tr>
+                </thead>
+                <tbody class="bookmaker">
+                    <tr class="m_row0">
+                        <td class="text-start px-3">
+                            <div class="match-layout">
+                                <div class="right-side">
+                                    <div class="match_nat0">--</div>
+                                </div>
+                            </div>
+                        </td>
+
+                        <td>
+                            <a class="odd-btn back3">--</a>
+                            <a class="odd-btn back2">--</a>
+                            <a class="odd-btn back1">--</a>
+                        </td>
+                        
+                        <td>
+                            <a class="odd-btn lay lay1">--</a>
+                            <a class="odd-btn lay lay2">--</a>
+                            <a class="odd-btn lay lay3">--</a>
+                        </td>
+
+                    </tr>
+                    <tr class="m_row1">
+                        <td class="text-start px-3">
+                            <div class="match-layout">
+                                <div class="right-side">
+                                    <div class="match_nat1">--</div>
+                                </div>
+                            </div>
+                        </td>
+
+                        <td>
+                            <a class="odd-btn back3">--</a>
+                            <a class="odd-btn back2">--</a>
+                            <a class="odd-btn back1">--</a>
+                        </td>
+                        
+                        <td>
+                            <a class="odd-btn lay lay1">--</a>
+                            <a class="odd-btn lay lay2">--</a>
+                            <a class="odd-btn lay lay3">--</a>
+                        </td>
+
+                    </tr>
+                    <tr class="m_row2">
+                        <td class="text-start px-3">
+                            <div class="match-layout">
+                                <div class="right-side">
+                                    <div class="match_nat2">--</div>
+                                </div>
+                            </div>
+                        </td>
+
+                        <td>
+                            <a class="odd-btn back3">--</a>
+                            <a class="odd-btn back2">--</a>
+                            <a class="odd-btn back1">--</a>
+                        </td>
+                        
+                        <td>
+                            <a class="odd-btn lay lay1">--</a>
+                            <a class="odd-btn lay lay2">--</a>
+                            <a class="odd-btn lay lay3">--</a>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Normal-->
+            <table class="table text-center mb-0 align-middle odds-table my-4 border-t-2 border-gray-300" style="display: none;">
+                <thead class="table-light">
+                    <tr>
+                        <th style="">Normal</th>
+                        <th style="">Yes</th>
+                        <th style="">No</th>
+                    </tr>
+                </thead>
+                <tbody class="updateNormal">
+                    
+                </tbody>
+            </table>
+            
+            <!-- Meter-->
+            <table class="table text-center mb-0 align-middle odds-table my-4 border-t-2 border-gray-300" style="display: none;">
+                <thead class="table-light">
+                    <tr>
+                        <th style="">Meter</th>
+                        <th style="">Yes</th>
+                        <th style="">No</th>
+                    </tr>
+                </thead>
+                <tbody class="updateMeter">
+                    
+                </tbody>
+            </table>
+                        
+            <!-- Over By Over-->
+            <table class="table text-center mb-0 align-middle odds-table my-4 border-t-2 border-gray-300" style="display: none;">
+                <thead class="table-light">
+                    <tr>
+                        <th style="">Over By Over</th>
+                        <th style="">Yes</th>
+                        <th style="">No</th>
+                    </tr>
+                </thead>
+                <tbody class="overbyover">
+                    
+                </tbody>
+            </table>
+                                    
+            <!-- Ball by Ball-->
+            <table class="table text-center mb-0 align-middle odds-table my-4 border-t-2 border-gray-300" style="display: none;">
+                <thead class="table-light">
+                    <tr>
+                        <th style="">Ball by Ball</th>
+                        <th style="">Yes</th>
+                        <th style="">No</th>
+                    </tr>
+                </thead>
+                <tbody class="ballbyball">
+                    
+                </tbody>
+            </table>
+
+            <!-- Tied Match -->
+            <table class="table text-center mb-0 align-middle odds-table my-4 border-t-2 border-gray-300" style="display: none;">
+                <thead class="table-light">
+                    <tr>
+                        <th style="">Tied Match</th>
+                        <th style="">Back</th>
+                        <th style="">Lay</th>
+                    </tr>
+                </thead>
+                <tbody class="tiedmatch">
+                    <tr class="m_row0">
+                        <td class="text-start px-3">
+                            <div class="match-layout">
+                                <div class="right-side">
+                                    <div class="match_nat0">--</div>
+                                </div>
+                            </div>
+                        </td>
+
+                        <td>
+                            <a class="odd-btn back3">--</a>
+                            <a class="odd-btn back2">--</a>
+                            <a class="odd-btn back1">--</a>
+                        </td>
+                        
+                        <td>
+                            <a class="odd-btn lay lay1">--</a>
+                            <a class="odd-btn lay lay2">--</a>
+                            <a class="odd-btn lay lay3">--</a>
+                        </td>
+
+                    </tr>
+                    <tr class="m_row1">
+                        <td class="text-start px-3">
+                            <div class="match-layout">
+                                <div class="right-side">
+                                    <div class="match_nat1">--</div>
+                                </div>
+                            </div>
+                        </td>
+
+                        <td>
+                            <a class="odd-btn back3">--</a>
+                            <a class="odd-btn back2">--</a>
+                            <a class="odd-btn back1">--</a>
+                        </td>
+                        
+                        <td>
+                            <a class="odd-btn lay lay1">--</a>
+                            <a class="odd-btn lay lay2">--</a>
+                            <a class="odd-btn lay lay3">--</a>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
             
             <!-- Line Market -->
             <table class="table text-center mb-0 align-middle odds-table my-4 border-t-2 border-gray-300" style="display: none;">
@@ -206,6 +318,34 @@
                     
                 </tbody>
             </table>
+            
+            <!-- Odd Even -->
+            <table class="table text-center mb-0 align-middle odds-table my-4 border-t-2 border-gray-300" style="display: none;">
+                <thead class="table-light">
+                    <tr>
+                        <th style="">Odd Even</th>
+                        <th style="">Back</th>
+                        <th style="">Lay</th>
+                    </tr>
+                </thead>
+                <tbody class="oddeven">
+                    
+                </tbody>
+            </table>
+            
+            <!-- Khado -->
+            <table class="table text-center mb-0 align-middle odds-table my-4 border-t-2 border-gray-300" style="display: none;">
+                <thead class="table-light">
+                    <tr>
+                        <th style="">Khado</th>
+                        <th style="">Back</th>
+                    </tr>
+                </thead>
+                <tbody class="khado">
+                    
+                </tbody>
+            </table>
+            
         </div>
     </div>
 </main>

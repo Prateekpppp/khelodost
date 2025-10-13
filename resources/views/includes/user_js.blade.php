@@ -14,53 +14,66 @@
             date = date.split(dateHour)[0];
             date += ' '+dateHour+'M';
             
-            this.eventDate = new Date(date).toLocaleString();
+            this.eventDate = date;
 
             html += eval(res.sport)(this);
         });
         $('.sportData').html(html);
     }
 
+    // Sport Page js start
+        function cricket(data){
+            let eventPage = "{{url('eventPage')}}";
+            let c_time = (new Date()).getTime();
+            if((new Date()).getTime() < (new Date(data.eventDate)).getTime()) {
+                eventPage = "{{url('upcomingEventPage')}}";
+            }
+            return `
+                <tr data-gameId='${data.gameId}' data-marketId='${data.marketId}' data-eventName="${data.eventName}" data-eventDate="${data.eventDate}">
+                    <!-- Cricket -->
+                    <td class="text-start px-3">
+                        <div class="match-layout">
+                            <!-- Left Side: Date & Time -->
+                            <span class="match-status today">${data.eventDate}</small></span>
 
-    function cricket(data){
-        let eventPage = "{{url('eventPage')}}";
-        let c_time = (new Date()).getTime();
-        if((new Date()).getTime() < (new Date(data.eventDate)).getTime()) {
-            eventPage = "{{url('upcomingEventPage')}}";
+                            <!-- Right Side: Teams -->
+                            <a href="${eventPage}/${data.gameId}" class="right-side eventPage">
+                                ${data.eventName}
+                            </a>
+                        </div>
+                    </td>
+
+                    <td>
+                        <a class="odd-btn">${data.back11}<br><small>${data.back11}</small></a>
+                        <a class="odd-btn">${data.back1}<br><small>${data.back1}</small></a>
+                    </td>
+
+                    <td>
+                        <a class="odd-btn">${data.back12}<br><small>${data.back12}</small></a>
+                        <a class="odd-btn lay">${data.lay11}<br><small>${data.lay11}</small></a>
+                    </td>
+
+                    <td>
+                        <a class="odd-btn lay">${data.lay1}<br><small>${data.lay1}</small></a>
+                        <a class="odd-btn lay">${data.lay12}<br><small>${data.lay12}</small></a>
+                    </td>
+                </tr>
+            `;
         }
-        return `
-            <tr data-gameId='${data.gameId}' data-marketId='${data.marketId}'>
-                <!-- Cricket -->
-                <td class="text-start px-3">
-                    <div class="match-layout">
-                        <!-- Left Side: Date & Time -->
-                        <span class="match-status today">${data.eventDate}</small></span>
 
-                        <!-- Right Side: Teams -->
-                        <a href="${eventPage}/${data.gameId}" class="right-side">
-                            ${data.eventName}
-                        </a>
-                    </div>
-                </td>
+        // $('body').on('click','.eventPage', function(){
+        //     let url = $(this).attr('data-href');
+        //     let tr = $(this).parents('tr');
+        //     let data = {};
+        //     data['gameId'] = $(tr).attr('data-gameId');
+        //     data['eventName'] = $(tr).attr('data-eventName');
+        //     data['eventDate'] = $(tr).attr('data-eventDate');
+        //     console.log('data---',data);
+            
+        //     callApi('get',url,data);
+        // });
 
-                <td>
-                    <a class="odd-btn">${data.back11}<br><small>${data.back11}</small></a>
-                    <a class="odd-btn">${data.back1}<br><small>${data.back1}</small></a>
-                </td>
-
-                <td>
-                    <a class="odd-btn">${data.back12}<br><small>${data.back12}</small></a>
-                    <a class="odd-btn lay">${data.lay11}<br><small>${data.lay11}</small></a>
-                </td>
-
-                <td>
-                    <a class="odd-btn lay">${data.lay1}<br><small>${data.lay1}</small></a>
-                    <a class="odd-btn lay">${data.lay12}<br><small>${data.lay12}</small></a>
-                </td>
-            </tr>
-        `;
-    }
-
+    // sport page js end
 
     function inplay(res){
 
@@ -100,10 +113,24 @@
                 updateMatchOdds(this);
             } else if(this.mname == "Bookmaker"){
                 updateBookmaker(this);
+            } else if(this.mname == "TIED_MATCH"){
+                updateTiedmatch(this);
             } else if(this.mname == "fancy1"){
                 updateLinemarket(this);
-            } else if(this.mname == "Bookmaker"){
-                updateBookmaker(this);
+            } else if(this.mname == "Normal"){
+                updateNormal(this);
+            } else if(this.mname == "meter"){
+                updateMeter(this);
+            } else if(this.mname == "Ball By Ball"){
+                updateBallbyball(this);
+            } else if(this.mname == "Over By Over"){
+                updateOverbyover(this);
+            } else if(this.mname == "oddeven"){
+                updateOddeven(this);
+            } else if(this.mname == "khado"){
+                updateKhado(this);
+            // } else if(this.gtype == "cricketcasino"){
+            //     updateKhado(this);
             }
         //     let date = (this.eventName).split(' / ')[1];
         //     this.eventName = (this.eventName).split(' / ')[0];
@@ -126,6 +153,10 @@
 
         let section = data.section;
 
+        if(section.length) {
+            $(m_div).parents('table').show();
+        }
+        
         $(section).each(function(i,j){
             
             $(m_div).find(`.match_nat${i}`).html(j.nat);
@@ -149,6 +180,10 @@
 
         let m_div = $('.bookmaker');
         let section = data.section;
+
+        if(section.length) {
+            $(m_div).parents('table').show();
+        }
 
         $(section).each(function(i,j){
             
@@ -195,6 +230,245 @@
                     
                     <td>
                         <a class="odd-btn lay lay1">${j.odds[0].odds}</a>
+                    </td>
+
+                </tr>
+            `;
+            
+        });
+        $(m_div).html(html);
+
+    }
+    
+    function updateTiedmatch(data){
+
+        let m_div = $('.tiedmatch');
+        let section = data.section;
+
+        if(section.length) {
+            $(m_div).parents('table').show();
+        }
+
+        $(section).each(function(i,j){
+            
+            $(m_div).find(`.match_nat${i}`).html(j.nat);
+            
+            $(j.odds).each(function(){
+                let odd = $(m_div).find(`.m_row${i}`).find(`.${this.oname}`);
+                if($(odd).html() != this.odds){
+                    $(this).addClass('odd_change');
+                    setTimeout(() => {
+                        $(this).removeClass('odd_change');
+                    }, 300);
+                }
+                $(odd).html(this.odds);
+            });
+        });
+
+    }
+    
+    function updateNormal(data){
+
+        let m_div = $('.updateNormal');
+        let section = data.section;
+        let html =``;
+
+        if(section.length) {
+            $(m_div).parents('table').show();
+        }
+        $(section).each(function(i,j){
+            html += `
+                <tr class="m_row">
+                    <td class="text-start px-3">
+                        <div class="match-layout">
+                            <div class="right-side">
+                                <div class="match_nat">${j.nat}</div>
+                            </div>
+                        </div>
+                    </td>
+
+                    <td>
+                        <a class="odd-btn back1">${j.odds[0].odds}</a>
+                    </td>
+                    
+                    <td>
+                        <a class="odd-btn lay lay1">${j.odds[0].odds}</a>
+                    </td>
+
+                </tr>
+            `;
+            
+        });
+        $(m_div).html(html);
+
+    }
+    
+    function updateMeter(data){
+
+        let m_div = $('.updateMeter');
+        let section = data.section;
+        let html =``;
+
+        if(section.length) {
+            $(m_div).parents('table').show();
+        }
+        $(section).each(function(i,j){
+            html += `
+                <tr class="m_row">
+                    <td class="text-start px-3">
+                        <div class="match-layout">
+                            <div class="right-side">
+                                <div class="match_nat">${j.nat}</div>
+                            </div>
+                        </div>
+                    </td>
+
+                    <td>
+                        <a class="odd-btn back1">${j.odds[0].odds}</a>
+                    </td>
+                    
+                    <td>
+                        <a class="odd-btn lay lay1">${j.odds[0].odds}</a>
+                    </td>
+
+                </tr>
+            `;
+            
+        });
+        $(m_div).html(html);
+
+    }
+    
+    function updateBallbyball(data){
+
+        let m_div = $('.ballbyball');
+        let section = data.section;
+        let html =``;
+
+        if(section.length) {
+            $(m_div).parents('table').show();
+        }
+        $(section).each(function(i,j){
+            html += `
+                <tr class="m_row">
+                    <td class="text-start px-3">
+                        <div class="match-layout">
+                            <div class="right-side">
+                                <div class="match_nat">${j.nat}</div>
+                            </div>
+                        </div>
+                    </td>
+
+                    <td>
+                        <a class="odd-btn back1">${j.odds[0].odds}</a>
+                    </td>
+                    
+                    <td>
+                        <a class="odd-btn lay lay1">${j.odds[0].odds}</a>
+                    </td>
+
+                </tr>
+            `;
+            
+        });
+        $(m_div).html(html);
+
+    }
+    
+    function updateOverbyover(data){
+
+        let m_div = $('.overbyover');
+        let section = data.section;
+        let html =``;
+
+        if(section.length) {
+            $(m_div).parents('table').show();
+        }
+        $(section).each(function(i,j){
+            html += `
+                <tr class="m_row">
+                    <td class="text-start px-3">
+                        <div class="match-layout">
+                            <div class="right-side">
+                                <div class="match_nat">${j.nat}</div>
+                            </div>
+                        </div>
+                    </td>
+
+                    <td>
+                        <a class="odd-btn back1">${j.odds[0].odds}</a>
+                    </td>
+                    
+                    <td>
+                        <a class="odd-btn lay lay1">${j.odds[0].odds}</a>
+                    </td>
+
+                </tr>
+            `;
+            
+        });
+        $(m_div).html(html);
+
+    }
+
+    function updateOddeven(data){
+
+        let m_div = $('.oddeven');
+        let section = data.section;
+        let html =``;
+
+        if(section.length) {
+            $(m_div).parents('table').show();
+        }
+        $(section).each(function(i,j){
+            html += `
+                <tr class="m_row">
+                    <td class="text-start px-3">
+                        <div class="match-layout">
+                            <div class="right-side">
+                                <div class="match_nat">${j.nat}</div>
+                            </div>
+                        </div>
+                    </td>
+
+                    <td>
+                        <a class="odd-btn back1">${j.odds[0].odds}</a>
+                    </td>
+                    
+                    <td>
+                        <a class="odd-btn lay lay1">${j.odds[0].odds}</a>
+                    </td>
+
+                </tr>
+            `;
+            
+        });
+        $(m_div).html(html);
+
+    }
+    
+    function updateKhado(data){
+
+        let m_div = $('.khado');
+        let section = data.section;
+        let html =``;
+
+        if(section.length) {
+            $(m_div).parents('table').show();
+        }
+        $(section).each(function(i,j){
+            html += `
+                <tr class="m_row">
+                    <td class="text-start px-3">
+                        <div class="match-layout">
+                            <div class="right-side">
+                                <div class="match_nat">${j.nat}</div>
+                            </div>
+                        </div>
+                    </td>
+
+                    <td>
+                        <a class="odd-btn back1">${j.odds[0].odds}</a>
                     </td>
 
                 </tr>

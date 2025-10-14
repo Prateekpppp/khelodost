@@ -205,6 +205,8 @@
                 updateKhado(this);
             } else if(this.gtype == "cricketcasino"){
                 cricketcasino(this);
+            } else {
+                updateOtherData(this);
             }
         //     let date = (this.eventName).split(' / ')[1];
         //     this.eventName = (this.eventName).split(' / ')[0];
@@ -565,7 +567,7 @@
                         <th style="">Back</th>
                     </tr>
                 </thead>
-                <tbody class="khado">
+                <tbody class="cricketCasino">
         `;
 
         // if(section.length) {
@@ -586,6 +588,65 @@
                     <td>
                         <a class="odd-btn back1">${j.odds[0].odds}</a>
                     </td>
+
+                </tr>
+            `;
+            
+        });
+        
+        html += `
+                    </tbody>
+                </table>
+            `;
+
+        $(m_box).append(html);
+
+    }
+    
+    function updateOtherData(data){
+
+        let m_box = $('.eventDatabox');
+        let section = data.section;
+        let html =`
+            <table class="table text-center mb-0 align-middle odds-table my-4 border-t-2 border-gray-300" style="display: none;">
+                <thead class="table-light">
+                    <tr>
+                        <th style="">${data.mname}</th>
+                        <th style="">Back</th>
+                        <th style="">Lay</th>
+                    </tr>
+                </thead>
+                <tbody class="otherData">
+        `;
+
+        // if(section.length) {
+        //     $(m_div).parents('table').show();
+        // }
+
+        $(section).each(function(i,j){
+            html += `
+                <tr class="m_row">
+                    <td class="text-start px-3">
+                        <div class="match-layout">
+                            <div class="right-side">
+                                <div class="match_nat">${j.nat}</div>
+                            </div>
+                        </div>
+                    </td>`;
+
+            html +=`
+                    <td>
+                        <a class="odd-btn back1 ${(j.odds[0].odds)?'':'d-none'}">${j.odds[0].odds}</a>
+                        <a class="odd-btn back1 ${(j.odds[1].odds)?'':'d-none'}">${j.odds[1].odds}</a>
+                        <a class="odd-btn back1 ${(j.odds[2].odds)?'':'d-none'}">${j.odds[2].odds}</a>
+                    </td>
+                    <td>
+                        <a class="odd-btn back1 ${(j.odds[0].odds)?'':'d-none'}">${j.odds[0].odds}</a>
+                        <a class="odd-btn back1 ${(j.odds[1].odds)?'':'d-none'}">${j.odds[1].odds}</a>
+                        <a class="odd-btn back1 ${(j.odds[2].odds)?'':'d-none'}">${j.odds[2].odds}</a>
+                    </td>`;
+            
+            html += `
 
                 </tr>
             `;

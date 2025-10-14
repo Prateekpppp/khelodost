@@ -117,8 +117,6 @@
                 updateTiedmatch(this);
             } else if(this.mname == "fancy1"){
                 updateLinemarket(this);
-            } else if(this.mname == "TIED_MATCH"){
-                updateTiedmatch(this);
             } else if(this.mname == "Normal"){
                 updateNormal(this);
             } else if(this.mname == "meter"){
@@ -131,6 +129,8 @@
                 updateOddeven(this);
             } else if(this.mname == "khado"){
                 updateKhado(this);
+            // } else if(this.gtype == "cricketcasino"){
+            //     updateKhado(this);
             }
         //     let date = (this.eventName).split(' / ')[1];
         //     this.eventName = (this.eventName).split(' / ')[0];

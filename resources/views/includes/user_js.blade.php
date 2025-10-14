@@ -639,14 +639,14 @@
 
             html +=`
                     <td>
-                        <a class="odd-btn back1 ${(j.odds[0].odds)?'':'d-none'}">${j.odds[0].odds}</a>
-                        <a class="odd-btn back1 ${(j.odds[1].odds)?'':'d-none'}">${j.odds[1].odds}</a>
-                        <a class="odd-btn back1 ${(j.odds[2].odds)?'':'d-none'}">${j.odds[2].odds}</a>
+                    <a class="odd-btn back3 ${(j.odds[2].odds)?'':'d-none'}">${j.odds[2].odds}</a>
+                    <a class="odd-btn back2 ${(j.odds[1].odds)?'':'d-none'}">${j.odds[1].odds}</a>
+                    <a class="odd-btn back1 ${(j.odds[0].odds)?'':'d-none'}">${j.odds[0].odds}</a>
                     </td>
                     <td>
-                        <a class="odd-btn back1 ${(j.odds[0].odds)?'':'d-none'}">${j.odds[0].odds}</a>
-                        <a class="odd-btn back1 ${(j.odds[1].odds)?'':'d-none'}">${j.odds[1].odds}</a>
-                        <a class="odd-btn back1 ${(j.odds[2].odds)?'':'d-none'}">${j.odds[2].odds}</a>
+                        <a class="odd-btn lay1 ${(j.odds[3].odds)?'':'d-none'}">${j.odds[3].odds}</a>
+                        <a class="odd-btn lay2 ${(j.odds[4].odds)?'':'d-none'}">${j.odds[4].odds}</a>
+                        <a class="odd-btn lay3 ${(j.odds[5].odds)?'':'d-none'}">${j.odds[5].odds}</a>
                     </td>`;
             
             html += `

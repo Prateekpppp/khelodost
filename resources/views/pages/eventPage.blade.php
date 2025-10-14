@@ -333,6 +333,19 @@
                 </tbody>
             </table>
             
+            <!-- Khado -->
+            <table class="table text-center mb-0 align-middle odds-table my-4 border-t-2 border-gray-300" style="display: none;">
+                <thead class="table-light">
+                    <tr>
+                        <th style="">Khado</th>
+                        <th style="">Back</th>
+                    </tr>
+                </thead>
+                <tbody class="khado">
+                    
+                </tbody>
+            </table>
+            
         </div>
     </div>
 </main>

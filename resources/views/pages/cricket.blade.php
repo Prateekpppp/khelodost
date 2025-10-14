@@ -13,7 +13,7 @@
                         <th style="width: 20%">2</th>
                     </tr>
                 </thead>
-                <tbody class="sportData">
+                <tbody class="cricket">
                 </tbody>
             </table>
         </div>
@@ -33,8 +33,8 @@
       cluster: 'ap2'
     });
 
-    var channel = pusher.subscribe('sportsupdate');
-    channel.bind('sportsupdate-event', function(data) {
+    var channel = pusher.subscribe('cricket-sportsupdate');
+    channel.bind('cricket-sportsupdate-event', function(data) {
         updateSports(data);
     });
 

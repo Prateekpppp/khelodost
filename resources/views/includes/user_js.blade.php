@@ -557,8 +557,10 @@
     
     function cricketcasino(data){
 
-        let m_box = $('.eventDatabox');
+        let m_box = $('.cricketCasino');
         let section = data.section;
+        $(m_box).html('');
+
         let html =`
             <!-- cricketcasino ${data.mname} -->
             <table class="table text-center mb-0 align-middle odds-table my-4 border-t-2 border-gray-300" style="display: none;">
@@ -607,8 +609,9 @@
     function updateOtherData(data){
         console.log('other data-=--',data);
         
-        let m_box = $('.eventDatabox');
+        let m_box = $('.updateOtherData');
         let section = data.section;
+        $(m_box).html('');
         let html =`
         <!-- ${data.mname} -->
             <table class="table text-center mb-0 align-middle odds-table my-4 border-t-2 border-gray-300" style="display: none;">
@@ -644,9 +647,9 @@
                     <a class="odd-btn back1 ${(j.odds[0].odds)?'':'d-none'}">${j.odds[0].odds}</a>
                     </td>
                     <td>
-                        <a class="odd-btn lay1 ${(j.odds[3].odds)?'':'d-none'}">${j.odds[3].odds}</a>
-                        <a class="odd-btn lay2 ${(j.odds[4].odds)?'':'d-none'}">${j.odds[4].odds}</a>
-                        <a class="odd-btn lay3 ${(j.odds[5].odds)?'':'d-none'}">${j.odds[5].odds}</a>
+                        <a class="odd-btn lay lay1 ${(j.odds[3].odds)?'':'d-none'}">${j.odds[3].odds}</a>
+                        <a class="odd-btn lay lay2 ${(j.odds[4].odds)?'':'d-none'}">${j.odds[4].odds}</a>
+                        <a class="odd-btn lay lay3 ${(j.odds[5].odds)?'':'d-none'}">${j.odds[5].odds}</a>
                     </td>`;
             
             html += `

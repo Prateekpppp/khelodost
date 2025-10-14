@@ -15,7 +15,7 @@ class getUpcomingEventData extends Command
      *
      * @var string
      */
-    protected $signature = 'app:get-upcoming-event-data';
+    protected $signature = 'app:get-upcoming-event-data {sportname}';
 
     /**
      * The console command description.
@@ -32,7 +32,7 @@ class getUpcomingEventData extends Command
         //
 
         $sportname = $this->argument('sportname');
-        $eventData = Storage::get('sports/event/'.$sportname.'.json');
+        $eventData = Storage::get('sports/upcoming/'.$sportname.'.json');
 
         $eventData = json_decode($eventData,true);
         

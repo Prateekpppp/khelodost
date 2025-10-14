@@ -16,6 +16,6 @@ Schedule::command('app:get-event-data cricket')->everySecond();
 // Schedule::command('app:get-event-data tennis')->everySecond();
 
 // upcoming event crons
-// Schedule::command('app:get-upcoming-event-data cricket')->everySecond();
+Schedule::command('app:get-upcoming-event-data cricket')->everySecond();
 // Schedule::command('app:get-upcoming-event-data soccer')->everySecond();
 // Schedule::command('app:get-upcoming-event-data tennis')->everySecond();

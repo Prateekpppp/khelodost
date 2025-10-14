@@ -3,7 +3,7 @@
 @section('sports_body')
 <main class="layout-content-center p-3">
     <div class="card shadow-sm mb-4">
-        <div class="card-body p-0">
+        <div class="card-body p-0 flex flex-col overflow-x-scroll w-100">
             <table class="table text-center mb-0 align-middle odds-table">
                 <thead class="table-light">
                     <tr>
@@ -13,7 +13,7 @@
                         <th style="width: 20%">2</th>
                     </tr>
                 </thead>
-                <tbody class="sportData">
+                <tbody class="cricket">
                 </tbody>
             </table>
         </div>
@@ -33,8 +33,8 @@
       cluster: 'ap2'
     });
 
-    var channel = pusher.subscribe('sportsupdate');
-    channel.bind('sportsupdate-event', function(data) {
+    var channel = pusher.subscribe('cricket-sportsupdate');
+    channel.bind('cricket-sportsupdate-event', function(data) {
         updateSports(data);
     });
 

@@ -66,40 +66,65 @@ class getSportFixture extends Command
             foreach ($chunk as $item) {
                 if($sportname=='cricket'){
 
-                    if($item['marketId']){
+                    // if($item['marketId']){
+                        $data = [];
+                        $data['eventName'] = $item['eventName'];
+                        $data['gameId'] = $item['gameId'];
+                        $data['marketId'] = $item['marketId'];
+                        $data['back11'] = $item['back11'];
+                        $data['back1'] = $item['back1'];
+                        $data['back12'] = $item['back12'];
+                        $data['lay11'] = $item['lay11'];
+                        $data['lay1'] = $item['lay1'];
+                        $data['lay12'] = $item['lay12'];
+                        $data['section'] = $item['section'];
                         
                         $date = explode(' / ',$item['eventName'])[1];
                         $date = explode(' (IST)',$date)[0];
                         
                         if(strtotime(now()) > strtotime($date) && $item['inPlay']=="True"){
-                            $sportInplayDataArray[] = $item;
+                            $sportInplayDataArray[] = $data;
                         } else if(strtotime(now()) < strtotime($date)){
-                            $sportUpcomingDataArray[] = $item;
+                            $sportUpcomingDataArray[] = $data;
                         }
-                    }
+                    // }
 
                 } else{
                     
-                    if($item['mid']){
+                    // if($item['mid']){
+                        $data = [];
+                        $data['gmid'] = $item['gmid'];
+                        $data['ename'] = $item['ename'];
+                        $data['mid'] = $item['mid'];
+                        $data['mname'] = $item['mname'];
+                        $data['stime'] = $item['stime'];
+                        $data['section'] = [];
+                        
+                        foreach($item['section'] as $section){
+                            $data['section'][] = $section['odds'];
+                        }
                         
                         $date = $item['stime'];
                         
                         if(strtotime(now()) > strtotime($date) && $item['iplay']=="true"){
-                            $sportInplayDataArray[] = $item;
+                            $sportInplayDataArray[] = $data;
                         } else if(strtotime(now()) < strtotime($date)){
-                            $sportUpcomingDataArray[] = $item;
+                            $sportUpcomingDataArray[] = $data;
                         }
-                    }
+                    // }
 
                 }
             }
         }
 
         // $sportInplayDataArray = array_slice($sportInplayDataArray, 0, 2);
-        // $sportUpcomingDataArray = array_slice($sportUpcomingDataArray, 0, 5);
+        
 
         $body = array_merge($sportInplayDataArray,$sportUpcomingDataArray);
-        $body = array_slice($body, 0, 10);
+        // $body = array_slice($body, 0, 10);
+        if($sportname!='cricket'){
+            $body = array_slice($body, 0, 13);
+        }
         $body = json_encode($body);
 
         $sportInplayDataArray = json_encode($sportInplayDataArray);
@@ -108,7 +133,7 @@ class getSportFixture extends Command
         Storage::put('sports/inplay/'.$sportname.'.json', $sportInplayDataArray);
         Storage::put('sports/upcoming/'.$sportname.'.json', $sportUpcomingDataArray);
 
-        $response = $pusher->trigger('sportsupdate', 'sportsupdate-event', ['data' => $body,'sport'=>$sportname]);
+        $response = $pusher->trigger($sportname.'-sportsupdate', $sportname.'-sportsupdate-event', ['data' => $body,'sport'=>$sportname]);
             
 
             // return json_decode($response->getBody(), true);

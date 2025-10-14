@@ -21,7 +21,7 @@
                 </div>
             </div>
     <div class="shadow-sm mb-4">
-        <div class="card-body p-0">
+        <div class="card-body p-0 eventDatabox">
             <div class="text-center">
                 <h4 class="my-1 bg-[#0c9971] text-white p-2">India Vs South Africa</h4>
                 <div class="flex flex-row justify-evenly items-center my-1">
@@ -192,6 +192,62 @@
                 </tbody>
             </table>
 
+            <!-- Normal-->
+            <table class="table text-center mb-0 align-middle odds-table my-4 border-t-2 border-gray-300" style="display: none;">
+                <thead class="table-light">
+                    <tr>
+                        <th style="">Normal</th>
+                        <th style="">Yes</th>
+                        <th style="">No</th>
+                    </tr>
+                </thead>
+                <tbody class="updateNormal">
+                    
+                </tbody>
+            </table>
+            
+            <!-- Meter-->
+            <table class="table text-center mb-0 align-middle odds-table my-4 border-t-2 border-gray-300" style="display: none;">
+                <thead class="table-light">
+                    <tr>
+                        <th style="">Meter</th>
+                        <th style="">Yes</th>
+                        <th style="">No</th>
+                    </tr>
+                </thead>
+                <tbody class="updateMeter">
+                    
+                </tbody>
+            </table>
+                        
+            <!-- Over By Over-->
+            <table class="table text-center mb-0 align-middle odds-table my-4 border-t-2 border-gray-300" style="display: none;">
+                <thead class="table-light">
+                    <tr>
+                        <th style="">Over By Over</th>
+                        <th style="">Yes</th>
+                        <th style="">No</th>
+                    </tr>
+                </thead>
+                <tbody class="overbyover">
+                    
+                </tbody>
+            </table>
+                                    
+            <!-- Ball by Ball-->
+            <table class="table text-center mb-0 align-middle odds-table my-4 border-t-2 border-gray-300" style="display: none;">
+                <thead class="table-light">
+                    <tr>
+                        <th style="">Ball by Ball</th>
+                        <th style="">Yes</th>
+                        <th style="">No</th>
+                    </tr>
+                </thead>
+                <tbody class="ballbyball">
+                    
+                </tbody>
+            </table>
+
             <!-- Tied Match -->
             <table class="table text-center mb-0 align-middle odds-table my-4 border-t-2 border-gray-300" style="display: none;">
                 <thead class="table-light">
@@ -277,6 +333,19 @@
                 </tbody>
             </table>
             
+            <!-- Khado -->
+            <table class="table text-center mb-0 align-middle odds-table my-4 border-t-2 border-gray-300" style="display: none;">
+                <thead class="table-light">
+                    <tr>
+                        <th style="">Khado</th>
+                        <th style="">Back</th>
+                    </tr>
+                </thead>
+                <tbody class="khado">
+                    
+                </tbody>
+            </table>
+            
         </div>
     </div>
 </main>
@@ -285,9 +354,9 @@
 @section('js')
 
 <script>
-    // setInterval(() => {
+    setInterval(() => {
         callApi('get',`{{route('user.upcomingEventData')}}`,{eventId:{{$eventId}}},updateEvent);
-    // }, 500);
+    }, 500);
 </script>
 
 @endsection

@@ -21,7 +21,7 @@
                 </div>
             </div>
     <div class="shadow-sm mb-4">
-        <div class="card-body p-0">
+        <div class="card-body p-0 eventDatabox">
             <div class="text-center">
                 <h4 class="my-1 bg-[#0c9971] text-white p-2">India Vs South Africa</h4>
                 <div class="flex flex-row justify-evenly items-center my-1">
@@ -345,6 +345,13 @@
                     
                 </tbody>
             </table>
+
+            <div class="cricketCasino">
+                
+            </div>
+            <div class="updateOtherData">
+                
+            </div>
             
         </div>
     </div>

@@ -33,7 +33,7 @@
 
     var channel = pusher.subscribe('soccer-sportsupdate');
     channel.bind('soccer-sportsupdate-event', function(data) {
-        updateSports(data);
+        updateSoccer(data);
     });
 
   </script>

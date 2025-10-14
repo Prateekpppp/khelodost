@@ -67,27 +67,44 @@ class getSportFixture extends Command
                 if($sportname=='cricket'){
 
                     // if($item['marketId']){
+                        $data = [];
+                        $data['eventName'] = $item['eventName'];
+                        $data['gameId'] = $item['gameId'];
+                        $data['marketId'] = $item['marketId'];
+                        $data['back11'] = $item['back11'];
+                        $data['back1'] = $item['back1'];
+                        $data['back12'] = $item['back12'];
+                        $data['lay11'] = $item['lay11'];
+                        $data['lay1'] = $item['lay1'];
+                        $data['lay12'] = $item['lay12'];
+                        $data['section'] = $item['section'];
                         
                         $date = explode(' / ',$item['eventName'])[1];
                         $date = explode(' (IST)',$date)[0];
                         
                         if(strtotime(now()) > strtotime($date) && $item['inPlay']=="True"){
-                            $sportInplayDataArray[] = $item;
+                            $sportInplayDataArray[] = $data;
                         } else if(strtotime(now()) < strtotime($date)){
-                            $sportUpcomingDataArray[] = $item;
+                            $sportUpcomingDataArray[] = $data;
                         }
                     // }
 
                 } else{
                     
                     // if($item['mid']){
+                        $data = [];
+                        $data['ename'] = $item['ename'];
+                        $data['gmid'] = $item['gmid'];
+                        $data['mid'] = $item['mid'];
+                        $data['stime'] = $item['stime'];
+                        $data['section'] = $item['section'];
                         
                         $date = $item['stime'];
                         
                         if(strtotime(now()) > strtotime($date) && $item['iplay']=="true"){
-                            $sportInplayDataArray[] = $item;
+                            $sportInplayDataArray[] = $data;
                         } else if(strtotime(now()) < strtotime($date)){
-                            $sportUpcomingDataArray[] = $item;
+                            $sportUpcomingDataArray[] = $data;
                         }
                     // }
 

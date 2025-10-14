@@ -4,6 +4,8 @@
         let html = ``;
         
         data = JSON.parse(res.data);
+        console.log(res.sport, 'data-----',data);
+        
         $(data).each(function(){
 
             let date = (this.eventName).split(' / ')[1];
@@ -18,11 +20,20 @@
 
             html += eval(res.sport)(this);
         });
-        if(res.key==0){
-            $(`.${res.sport}`).html(html);
-        } else{
-            $(`.${res.sport}`).append(html);
-        }
+        $(`.${res.sport}`).html(html);
+    }
+
+    
+    function updateSoccer(res){
+        let html = ``;
+        
+        data = JSON.parse(res.data);
+        console.log(res.sport, 'data-----',data);
+        $(data).each(function(){
+
+            html += soccer(this);
+        });
+        $(`.${res.sport}`).html(html);
     }
 
     // Sport Page js start
@@ -72,16 +83,16 @@
                 eventPage = "{{url('upcomingEventPage')}}";
             }
             return `
-                <tr data-gameId='${data.gameId}' data-marketId='${data.marketId}' data-eventName="${data.eventName}" data-eventDate="${data.eventDate}">
+                <tr data-gmid='${data.gmid}' data-mid='${data.mid}' data-ename="${data.ename}" data-stime="${data.stime}">
                     <!-- Cricket -->
                     <td class="text-start px-3">
                         <div class="match-layout">
                             <!-- Left Side: Date & Time -->
-                            <span class="match-status today">${data.eventDate}</small></span>
+                            <span class="match-status today">${data.stime}</small></span>
 
                             <!-- Right Side: Teams -->
-                            <a href="${eventPage}/${data.gameId}" class="right-side eventPage">
-                                ${data.eventName}
+                            <a href="${eventPage}/${data.gmid}" class="right-side eventPage">
+                                ${data.ename}
                             </a>
                         </div>
                     </td>

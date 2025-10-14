@@ -35,7 +35,7 @@
             </div>
 
             <!-- Match Odds -->
-            <table class="table text-center mb-0 align-middle odds-table my-4 border-t-2 border-gray-300" style="display: none !important;">
+            <table class="table text-center mb-0 align-middle odds-table my-4 border-t-2 border-gray-300" style="display: none;">
                 <thead class="table-light">
                     <tr>
                         <th style="">Match Odds</th>
@@ -114,7 +114,7 @@
             </table>
 
             <!-- Bookmaker -->
-            <table class="table text-center mb-0 align-middle odds-table my-4 border-t-2 border-gray-300" style="display: none !important;">
+            <table class="table text-center mb-0 align-middle odds-table my-4 border-t-2 border-gray-300" style="display: none;">
                 <thead class="table-light">
                     <tr>
                         <th style="">Bookmaker</th>
@@ -193,7 +193,7 @@
             </table>
 
             <!-- Tied Match -->
-            <table class="table text-center mb-0 align-middle odds-table my-4 border-t-2 border-gray-300" style="display: none !important;">
+            <table class="table text-center mb-0 align-middle odds-table my-4 border-t-2 border-gray-300" style="display: none;">
                 <thead class="table-light">
                     <tr>
                         <th style="">Tied Match</th>
@@ -250,7 +250,7 @@
             </table>
             
             <!-- Line Market -->
-            <table class="table text-center mb-0 align-middle odds-table my-4 border-t-2 border-gray-300" style="display: none !important;">
+            <table class="table text-center mb-0 align-middle odds-table my-4 border-t-2 border-gray-300" style="display: none;">
                 <thead class="table-light">
                     <tr>
                         <th style="">Line Market</th>
@@ -264,7 +264,7 @@
             </table>
             
             <!-- Odd Even -->
-            <table class="table text-center mb-0 align-middle odds-table my-4 border-t-2 border-gray-300" style="display: none !important;">
+            <table class="table text-center mb-0 align-middle odds-table my-4 border-t-2 border-gray-300" style="display: none;">
                 <thead class="table-light">
                     <tr>
                         <th style="">Odd Even</th>

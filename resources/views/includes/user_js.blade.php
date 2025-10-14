@@ -322,7 +322,8 @@
     }
     
     function updateNormal(data){
-
+        console.log('normal--',data);
+        
         let m_div = $('.updateNormal');
         let section = data.section;
         let html =``;
@@ -332,7 +333,7 @@
         }
         $(section).each(function(i,j){
             html += `
-                <tr class="m_row">
+                <tr class="m_row relative">
                     <td class="text-start px-3">
                         <div class="match-layout">
                             <div class="right-side">
@@ -347,10 +348,14 @@
                     
                     <td>
                         <a class="odd-btn lay lay1">${j.odds[0].odds}</a>
+                        <div class="odd_suspended ${(j.gstatus=="SUSPENDED")?"":"d-block"}">Suspended</div>
+                        <div class="odd_running">Ball Running</div>
                     </td>
 
                 </tr>
+
             `;
+            console.log('html--',html);
             
         });
         $(m_div).html(html);

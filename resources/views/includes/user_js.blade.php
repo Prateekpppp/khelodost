@@ -560,7 +560,7 @@
         let m_box = $('.eventDatabox');
         let section = data.section;
         let html =`
-            <!-- ${data.mname} -->
+            <!-- cricketcasino ${data.mname} -->
             <table class="table text-center mb-0 align-middle odds-table my-4 border-t-2 border-gray-300" style="display: none;">
                 <thead class="table-light">
                     <tr>
@@ -605,7 +605,8 @@
     }
     
     function updateOtherData(data){
-
+        console.log('other data-=--',data);
+        
         let m_box = $('.eventDatabox');
         let section = data.section;
         let html =`

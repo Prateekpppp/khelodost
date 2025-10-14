@@ -205,8 +205,8 @@
                 updateKhado(this);
             } else if(this.gtype == "cricketcasino"){
                 cricketcasino(this);
-            } else {
-                updateOtherData(this);
+            // } else {
+            //     updateOtherData(this);
             }
         //     let date = (this.eventName).split(' / ')[1];
         //     this.eventName = (this.eventName).split(' / ')[0];
@@ -557,13 +557,11 @@
     
     function cricketcasino(data){
 
-        let m_box = $('.cricketCasino');
+        let m_box = $('.eventDatabox');
         let section = data.section;
-        $(m_box).html('');
-
         let html =`
             <!-- cricketcasino ${data.mname} -->
-            <table class="table text-center mb-0 align-middle odds-table my-4 border-t-2 border-gray-300" style="display: none;">
+            <table class="table text-center mb-0 align-middle odds-table my-4 border-t-2 border-gray-300"">
                 <thead class="table-light">
                     <tr>
                         <th style="">${data.mname}</th>
@@ -609,9 +607,8 @@
     function updateOtherData(data){
         console.log('other data-=--',data);
         
-        let m_box = $('.updateOtherData');
+        let m_box = $('.eventDatabox');
         let section = data.section;
-        $(m_box).html('');
         let html =`
         <!-- ${data.mname} -->
             <table class="table text-center mb-0 align-middle odds-table my-4 border-t-2 border-gray-300" style="display: none;">

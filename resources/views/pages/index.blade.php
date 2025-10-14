@@ -60,7 +60,7 @@
             <!-- 🔷 In Play -->
             <div class="card shadow-sm mb-3">
                 <div class="card-header bg-success text-white">⏵In Play</div>
-                <div class="card-body p-0">
+                <div class="card-body p-0 flex overflow-x-scroll w-100">
                     <table class="table text-center mb-0 align-middle odds-table">
                         <thead class="table-light">
                             <tr>

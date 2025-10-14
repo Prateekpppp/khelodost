@@ -202,8 +202,8 @@
                 updateOddeven(this);
             } else if(this.mname == "khado"){
                 updateKhado(this);
-            // } else if(this.gtype == "cricketcasino"){
-            //     updateKhado(this);
+            } else if(this.gtype == "cricketcasino"){
+                cricketcasino(this);
             }
         //     let date = (this.eventName).split(' / ')[1];
         //     this.eventName = (this.eventName).split(' / ')[0];
@@ -549,6 +549,54 @@
             
         });
         $(m_div).html(html);
+
+    }
+    
+    function cricketcasino(data){
+
+        let m_box = $('.eventDatabox');
+        let section = data.section;
+        let html =`
+            <table class="table text-center mb-0 align-middle odds-table my-4 border-t-2 border-gray-300" style="display: none;">
+                <thead class="table-light">
+                    <tr>
+                        <th style="">${data.maname}</th>
+                        <th style="">Back</th>
+                    </tr>
+                </thead>
+                <tbody class="khado">
+        `;
+
+        // if(section.length) {
+        //     $(m_div).parents('table').show();
+        // }
+
+        $(section).each(function(i,j){
+            html += `
+                <tr class="m_row">
+                    <td class="text-start px-3">
+                        <div class="match-layout">
+                            <div class="right-side">
+                                <div class="match_nat">${j.nat}</div>
+                            </div>
+                        </div>
+                    </td>
+
+                    <td>
+                        <a class="odd-btn back1">${j.odds[0].odds}</a>
+                    </td>
+
+                </tr>
+            `;
+            
+        });
+        
+        html += `
+                    </tbody>
+                </table>
+            `;
+
+        $(m_box).append(html);
 
     }
 

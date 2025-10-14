@@ -209,9 +209,6 @@ body {
 
 .card-body {
     padding: 0.25rem 0.5rem !important;
-    display: flex;
-    max-width: 100%;
-    overflow-x: scroll;
 }
 
 /*Scrollable Game Wrapper */

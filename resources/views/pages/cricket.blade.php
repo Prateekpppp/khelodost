@@ -3,7 +3,7 @@
 @section('sports_body')
 <main class="layout-content-center p-3">
     <div class="card shadow-sm mb-4">
-        <div class="card-body p-0">
+        <div class="card-body p-0 flex flex-col overflow-x-scroll w-100">
             <table class="table text-center mb-0 align-middle odds-table">
                 <thead class="table-light">
                     <tr>

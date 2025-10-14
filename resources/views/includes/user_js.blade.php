@@ -18,7 +18,11 @@
 
             html += eval(res.sport)(this);
         });
-        $(`.${res.sport}`).html(html);
+        if(res.key==0){
+            $(`.${res.sport}`).html(html);
+        } else{
+            $(`.${res.sport}`).append(html);
+        }
     }
 
     // Sport Page js start

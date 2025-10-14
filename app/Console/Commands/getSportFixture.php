@@ -99,8 +99,6 @@ class getSportFixture extends Command
         // $sportUpcomingDataArray = array_slice($sportUpcomingDataArray, 0, 5);
 
         $body = array_merge($sportInplayDataArray,$sportUpcomingDataArray);
-        // $body = array_slice($body, 0, 10);
-        $body = json_encode($body);
 
         $sportInplayDataArray = json_encode($sportInplayDataArray);
         $sportUpcomingDataArray = json_encode($sportUpcomingDataArray);
@@ -108,7 +106,15 @@ class getSportFixture extends Command
         Storage::put('sports/inplay/'.$sportname.'.json', $sportInplayDataArray);
         Storage::put('sports/upcoming/'.$sportname.'.json', $sportUpcomingDataArray);
 
-        $response = $pusher->trigger($sportname.'-sportsupdate', $sportname.'-sportsupdate-event', ['data' => $body,'sport'=>$sportname]);
+        // $body = array_slice($body, 0, 10);
+        $body = array_chunk($body,5);
+
+        foreach ($body as $key=>$bodyChunk) {
+            $bodyChunk = json_encode($bodyChunk);
+    
+            $response = $pusher->trigger($sportname.'-sportsupdate', $sportname.'-sportsupdate-event', ['key'=>$key,'data' => $bodyChunk,'sport'=>$sportname]);
+            
+        }
             
 
             // return json_decode($response->getBody(), true);

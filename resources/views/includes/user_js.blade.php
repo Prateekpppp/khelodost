@@ -4,8 +4,6 @@
         let html = ``;
         
         data = JSON.parse(res.data);
-        console.log('data------',data);
-        
         $(data).each(function(){
 
             let date = (this.eventName).split(' / ')[1];
@@ -181,6 +179,7 @@
         res = JSON.parse(res);
         data = res.data;
         
+        console.log('data------',data);
         
         $(data).each(function(){
             

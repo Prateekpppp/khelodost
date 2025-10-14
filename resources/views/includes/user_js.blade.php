@@ -560,7 +560,7 @@
             <table class="table text-center mb-0 align-middle odds-table my-4 border-t-2 border-gray-300" style="display: none;">
                 <thead class="table-light">
                     <tr>
-                        <th style="">${data.maname}</th>
+                        <th style="">${data.mname}</th>
                         <th style="">Back</th>
                     </tr>
                 </thead>

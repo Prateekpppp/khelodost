@@ -285,9 +285,9 @@
 @section('js')
 
 <script>
-    // setInterval(() => {
+    setInterval(() => {
         callApi('get',`{{route('user.upcomingEventData')}}`,{eventId:{{$eventId}}},updateEvent);
-    // }, 500);
+    }, 500);
 </script>
 
 @endsection

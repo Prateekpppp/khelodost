@@ -197,11 +197,25 @@
                 <thead class="table-light">
                     <tr>
                         <th style="">Normal</th>
-                        <th style="">Back</th>
-                        <th style="">Lay</th>
+                        <th style="">Yes</th>
+                        <th style="">No</th>
                     </tr>
                 </thead>
                 <tbody class="updateNormal">
+                    
+                </tbody>
+            </table>
+            
+            <!-- Meter-->
+            <table class="table text-center mb-0 align-middle odds-table my-4 border-t-2 border-gray-300" style="display: none;">
+                <thead class="table-light">
+                    <tr>
+                        <th style="">Meter</th>
+                        <th style="">Yes</th>
+                        <th style="">No</th>
+                    </tr>
+                </thead>
+                <tbody class="updateMeter">
                     
                 </tbody>
             </table>

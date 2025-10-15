@@ -30,7 +30,7 @@
                             <span class="match-status today">${data.stime}</small></span>
 
                             <!-- Right Side: Teams -->
-                            <a href="javascript:void(0)" data-href="${eventPage}/${data.gmid}" class="right-side eventPage">
+                            <a href="${eventPage}/${data.gmid}" class="right-side eventPage">
                                 ${data.ename}
                             </a>
                         </div>

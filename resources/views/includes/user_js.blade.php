@@ -79,12 +79,12 @@
         function soccer(data){
             let eventPage = "{{url('eventPage')}}";
             let c_time = (new Date()).getTime();
-            if((new Date()).getTime() < (new Date(data.eventDate)).getTime()) {
+            if((new Date()).getTime() < (new Date(data.stime)).getTime()) {
                 eventPage = "{{url('upcomingEventPage')}}";
             }
-            return `
+            html += `
                 <tr data-gmid='${data.gmid}' data-mid='${data.mid}' data-ename="${data.ename}" data-stime="${data.stime}">
-                    <!-- Cricket -->
+                    <!-- Football -->
                     <td class="text-start px-3">
                         <div class="match-layout">
                             <!-- Left Side: Date & Time -->
@@ -96,23 +96,22 @@
                             </a>
                         </div>
                     </td>
-
                     <td>
-                        <a class="odd-btn">${data.back11}<br><small>${data.back11}</small></a>
-                        <a class="odd-btn">${data.back1}<br><small>${data.back1}</small></a>
+                        <a class="odd-btn ${data.section[0].odds[0].oname}">${this.odds[0].odds}</a>
+                        <a class="odd-btn lay ${data.section[0].odds[1].oname}">${this.odds[1].odds}</a>
                     </td>
-
                     <td>
-                        <a class="odd-btn">${data.back12}<br><small>${data.back12}</small></a>
-                        <a class="odd-btn lay">${data.lay11}<br><small>${data.lay11}</small></a>
+                        <a class="odd-btn ${data.section[2].odds[0].oname}">${this.odds[0].odds}</a>
+                        <a class="odd-btn lay ${data.section[2].odds[1].oname}">${this.odds[1].odds}</a>
                     </td>
-
                     <td>
-                        <a class="odd-btn lay">${data.lay1}<br><small>${data.lay1}</small></a>
-                        <a class="odd-btn lay">${data.lay12}<br><small>${data.lay12}</small></a>
+                        <a class="odd-btn ${data.section[1].odds[0].oname}">${this.odds[0].odds}</a>
+                        <a class="odd-btn lay ${data.section[1].odds[1].oname}">${this.odds[1].odds}</a>
                     </td>
                 </tr>
             `;
+
+            return html;
         }
 
         // $('body').on('click','.eventPage', function(){

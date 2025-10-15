@@ -93,9 +93,10 @@ class getSportFixture extends Command
                     
                     // if($item['mid']){
                         $data = [];
-                        $data['ename'] = $item['ename'];
                         $data['gmid'] = $item['gmid'];
+                        $data['ename'] = $item['ename'];
                         $data['mid'] = $item['mid'];
+                        $data['mname'] = $item['mname'];
                         $data['stime'] = $item['stime'];
                         $data['section'] = $item['section'];
                         

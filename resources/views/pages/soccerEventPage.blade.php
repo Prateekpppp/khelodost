@@ -26,8 +26,8 @@
 @endsection
 
 
+@include('includes.soccerEvent_js')
 @section('js')
-    @include('includes.soccerEvent_js')
 
 <script>
     

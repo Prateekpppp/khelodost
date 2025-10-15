@@ -101,11 +101,8 @@ class getSportFixture extends Command
                         $data['mid'] = $item['mid'];
                         $data['mname'] = $item['mname'];
                         $data['stime'] = $item['stime'];
-                        $data['section'] = [];
+                        $data['section'] = $item['section'];
                         
-                        foreach($item['section'] as $section){
-                            $data['section'][] = $section;
-                        }
                         $sportDataArray[] = $data;
                         $date = $item['stime'];
                         

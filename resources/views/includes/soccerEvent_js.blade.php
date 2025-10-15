@@ -35,18 +35,22 @@
                             </a>
                         </div>
                     </td>
-                    <td>
-                        <a class="odd-btn ${data.section[0][0].oname}">${data.section[0][0].odds}</a>
-                        <a class="odd-btn lay ${data.section[0][1].oname}">${data.section[0][1].odds}</a>
-                    </td>
-                    <td>
-                        <a class="odd-btn ${data.section[2][0].oname}">${data.section[2][0].odds}</a>
-                        <a class="odd-btn lay ${data.section[2][1].oname}">${data.section[2][1].odds}</a>
-                    </td>
-                    <td>
-                        <a class="odd-btn ${data.section[1][0].oname}">${data.section[1][0].odds}</a>
-                        <a class="odd-btn lay ${data.section[1][1].oname}">${data.section[1][1].odds}</a>
-                    </td>
+                    `;
+                
+                $(data.section).each(function(i,j){
+                    html +=`
+                        <td>
+                        `;
+                            $(j.odds).each(function(){
+                                html +=`
+                                    <a class="odd-btn ${this.otype} ${this.oname}">${this.odds}</a>
+                                `;
+                            });
+                    html +=`
+                        </td>
+                        `;
+                });
+                html +=`
                 </tr>
             `;
 

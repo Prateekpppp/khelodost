@@ -14,58 +14,33 @@
                             <th style="width: 20%">2</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <!-- Row 1 -->
-                        <tr>
-                            <td class="text-start px-3">
-                                <div class="match-layout">
-                                    <span class="match-status today">Today<br><small>3:00 PM</small></span>
-                                    <div class="right-side">
-                                        <div>India</div>
-                                        <div>Australia</div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td><a class="odd-btn">1.85<br><small>—</small></a></td>
-                            <td><a class="odd-btn">3.20<br><small>—</small></a></td>
-                            <td><a class="odd-btn">2.10<br><small>—</small></a></td>
-                        </tr>
-
-                        <!-- Row 2 -->
-                        <tr>
-                            <td class="text-start px-3">
-                                <div class="match-layout">
-                                    <span class="match-status today">Today<br><small>5:30 PM</small></span>
-                                    <div class="right-side">
-                                        <div>USA</div>
-                                        <div>France</div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td><a class="odd-btn">2.00<br><small>—</small></a></td>
-                            <td><a class="odd-btn">3.50<br><small>—</small></a></td>
-                            <td><a class="odd-btn">1.90<br><small>—</small></a></td>
-                        </tr>
-
-                        <!-- Row 3 -->
-                        <tr>
-                            <td class="text-start px-3">
-                                <div class="match-layout">
-                                    <span class="match-status today">Today<br><small>5:30 PM</small></span>
-                                    <div class="right-side">
-                                        <div>Spain</div>
-                                        <div>Germany</div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td><a class="odd-btn">1.70<br><small>—</small></a></td>
-                            <td><a class="odd-btn">3.00<br><small>—</small></a></td>
-                            <td><a class="odd-btn">2.30<br><small>—</small></a></td>
-                        </tr>
+                    <tbody class="soccer">
+                        
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
 </main>
+@endsection
+
+@include('includes.soccerEvent_js')
+@section('js')
+<script src="https://js.pusher.com/8.4.0/pusher.min.js"></script>
+  <script>
+
+    // Enable pusher logging - don't include this in production
+    // Pusher.logToConsole = true;
+
+    var pusher = new Pusher('{{env('PUSHER_APP_KEY')}}', {
+      cluster: 'ap2'
+    });
+
+    var channel = pusher.subscribe('tennis-sportsupdate');
+    channel.bind('tennis-sportsupdate-event', function(data) {
+        updateSoccer(data);
+    });
+
+  </script>
+
 @endsection

@@ -53,18 +53,6 @@
             return html;
         }
 
-        // $('body').on('click','.eventPage', function(){
-        //     let url = $(this).attr('data-href');
-        //     let tr = $(this).parents('tr');
-        //     let data = {};
-        //     data['gameId'] = $(tr).attr('data-gameId');
-        //     data['eventName'] = $(tr).attr('data-eventName');
-        //     data['eventDate'] = $(tr).attr('data-eventDate');
-        //     console.log('data---',data);
-            
-        //     callApi('get',url,data);
-        // });
-
     // sport page js end
 
     // event page js start

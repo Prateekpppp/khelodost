@@ -123,7 +123,7 @@ class getSportFixture extends Command
         $body = array_merge($sportInplayDataArray,$sportUpcomingDataArray);
         // $body = array_slice($body, 0, 10);
         if($sportname!='cricket'){
-            $body = array_slice($body, 0, 13);
+            $body = array_slice($body, 0, 12);
         }
         $body = json_encode($body);
 

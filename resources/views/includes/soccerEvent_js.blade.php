@@ -18,9 +18,9 @@
             let eventPage = "{{url('soccerEvent')}}";
             let c_time = (new Date()).getTime();
             let html = ``;
-            if((new Date()).getTime() < (new Date(data.stime)).getTime()) {
-                eventPage = "{{url('soccerUpcomingEvent')}}";
-            }
+            // if((new Date()).getTime() < (new Date(data.stime)).getTime()) {
+            //     eventPage = "{{url('soccerUpcomingEvent')}}";
+            // }
             html += `
                 <tr data-gmid='${data.gmid}' data-mid='${data.mid}' data-ename="${data.ename}" data-stime="${data.stime}">
                     <!-- Football -->

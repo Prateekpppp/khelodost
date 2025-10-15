@@ -59,6 +59,7 @@ class getSportFixture extends Command
         
         $body = json_decode($body,true);
         $body = array_chunk($body,15);
+        $sportDataArray = [];
         $sportInplayDataArray = [];
         $sportUpcomingDataArray = [];
         
@@ -79,6 +80,8 @@ class getSportFixture extends Command
                         $data['lay12'] = $item['lay12'];
                         $data['section'] = $item['section'];
                         
+                        $sportDataArray[] = $data;
+
                         $date = explode(' / ',$item['eventName'])[1];
                         $date = explode(' (IST)',$date)[0];
                         
@@ -103,7 +106,7 @@ class getSportFixture extends Command
                         foreach($item['section'] as $section){
                             $data['section'][] = $section['odds'];
                         }
-                        
+                        $sportDataArray[] = $data;
                         $date = $item['stime'];
                         
                         if(strtotime(now()) > strtotime($date) && $item['iplay']=="true"){
@@ -120,7 +123,8 @@ class getSportFixture extends Command
         // $sportInplayDataArray = array_slice($sportInplayDataArray, 0, 2);
         
 
-        $body = array_merge($sportInplayDataArray,$sportUpcomingDataArray);
+        $body = $sportDataArray;
+        // $body = array_merge($sportInplayDataArray,$sportUpcomingDataArray);
         // $body = array_slice($body, 0, 10);
         if($sportname!='cricket'){
             $body = array_slice($body, 0, 12);
@@ -130,6 +134,7 @@ class getSportFixture extends Command
         $sportInplayDataArray = json_encode($sportInplayDataArray);
         $sportUpcomingDataArray = json_encode($sportUpcomingDataArray);
         
+        Storage::put('sports/'.$sportname.'.json', $body);
         Storage::put('sports/inplay/'.$sportname.'.json', $sportInplayDataArray);
         Storage::put('sports/upcoming/'.$sportname.'.json', $sportUpcomingDataArray);
 

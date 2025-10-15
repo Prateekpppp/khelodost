@@ -33,7 +33,7 @@
     
     eventId = {{$eventId}};
     setInterval(() => {
-        callApi('get',`{{route('user.eventData')}}`,{eventId:{{$eventId}}},updateSoccerEvent);
+        callApi('get',`{{route('user.getEventData')}}`,{eventId:{{$eventId}}},updateSoccerEvent);
     }, 500);
 </script>
 

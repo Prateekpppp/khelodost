@@ -27,9 +27,9 @@
         function cricket(data){
             let eventPage = "{{url('eventPage')}}";
             let c_time = (new Date()).getTime();
-            if((new Date()).getTime() < (new Date(data.eventDate)).getTime()) {
-                eventPage = "{{url('upcomingEventPage')}}";
-            }
+            // if((new Date()).getTime() < (new Date(data.eventDate)).getTime()) {
+            //     eventPage = "{{url('upcomingEventPage')}}";
+            // }
             return `
                 <tr data-gameId='${data.gameId}' data-marketId='${data.marketId}' data-eventName="${data.eventName}" data-eventDate="${data.eventDate}">
                     <!-- Cricket -->
@@ -270,7 +270,6 @@
     }
     
     function updateNormal(data){
-        console.log('normal--',data);
         
         let m_div = $('.updateNormal');
         let section = data.section;
@@ -303,7 +302,6 @@
                 </tr>
 
             `;
-            console.log('html--',html);
             
         });
         $(m_div).html(html);

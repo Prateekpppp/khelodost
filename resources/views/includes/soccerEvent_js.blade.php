@@ -110,7 +110,7 @@
                     $(data.section).each(function(i,j){
 
                         html +=`
-                            <tr class="m_row${i}">
+                            <tr class="m_row${i} relative">
                                 <!-- ${this.nat} -->
                                 <td class="text-start px-3">
                                     <div class="match-layout">
@@ -130,8 +130,7 @@
 
                     html +=`
                     
-                                    <div class="odd_suspended ${(j.gstatus=="SUSPENDED")?"":"d-blockwet"}">Suspended</div>
-                                    <div class="odd_running  ${(j.gstatus=="BALL RUNNING")?"":"d-blockwet"}">Ball Running</div>
+                                    <div class="odd_suspended ${(j.gstatus=="SUSPENDED")?"d-blockwet":""}">Suspended</div>
                                 </td>
                             </tr>
                         `;

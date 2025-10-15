@@ -79,6 +79,7 @@
         function soccer(data){
             let eventPage = "{{url('eventPage')}}";
             let c_time = (new Date()).getTime();
+            let html = ``;
             if((new Date()).getTime() < (new Date(data.stime)).getTime()) {
                 eventPage = "{{url('upcomingEventPage')}}";
             }
@@ -97,16 +98,16 @@
                         </div>
                     </td>
                     <td>
-                        <a class="odd-btn ${data.section[0].odds[0].oname}">${this.odds[0].odds}</a>
-                        <a class="odd-btn lay ${data.section[0].odds[1].oname}">${this.odds[1].odds}</a>
+                        <a class="odd-btn ${data.section[0][0].oname}">${data.section[0][0].odds}</a>
+                        <a class="odd-btn lay ${data.section[0][1].oname}">${data.section[0][1].odds}</a>
                     </td>
                     <td>
-                        <a class="odd-btn ${data.section[2].odds[0].oname}">${this.odds[0].odds}</a>
-                        <a class="odd-btn lay ${data.section[2].odds[1].oname}">${this.odds[1].odds}</a>
+                        <a class="odd-btn ${data.section[2][0].oname}">${data.section[2][0].odds}</a>
+                        <a class="odd-btn lay ${data.section[2][1].oname}">${data.section[2][1].odds}</a>
                     </td>
                     <td>
-                        <a class="odd-btn ${data.section[1].odds[0].oname}">${this.odds[0].odds}</a>
-                        <a class="odd-btn lay ${data.section[1].odds[1].oname}">${this.odds[1].odds}</a>
+                        <a class="odd-btn ${data.section[1][0].oname}">${data.section[1][0].odds}</a>
+                        <a class="odd-btn lay ${data.section[1][1].oname}">${data.section[1][1].odds}</a>
                     </td>
                 </tr>
             `;

@@ -33,7 +33,7 @@ class getEventData extends Command
         //
 
         $sportname = $this->argument('sportname');
-        $eventData = Storage::get('sports/inplay/'.$sportname.'.json');
+        $eventData = Storage::get('sports/'.$sportname.'.json');
 
         $eventData = json_decode($eventData,true);
         
@@ -68,7 +68,7 @@ class getEventData extends Command
             $body = $response->getBody(); 
             $body = $response->getBody()->getContents(); 
             
-            Storage::put('event/inplay/'.$eventId.'.json', $body);
+            Storage::put('event/'.$eventId.'.json', $body);
             
             usleep(500000);
         }

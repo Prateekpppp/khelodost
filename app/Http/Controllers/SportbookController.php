@@ -52,6 +52,16 @@ class SportbookController extends Controller
         return view('pages.eventPage',compact('eventId'));
     }
     
+    public function soccerEvent(Request $request){
+        $eventId = $request->eventId;
+        return view('pages.soccerEventPage',compact('eventId'));
+    }
+
+    public function soccerUpcomingEvent(Request $request){
+        $eventId = $request->eventId;
+        return view('pages.soccerUpcomingEventPage',compact('eventId'));
+    }
+
     public function inplay(Request $request){
         $eventId = $request->eventId;
         return view('pages.inplay',compact('eventId'));
@@ -76,6 +86,17 @@ class SportbookController extends Controller
 
     public function upcomingEventData(Request $request){
         $body = Storage::get('event/upcoming/'.$request->eventId.'.json');
+
+        // dd($body);
+        return response()->json([
+            'response'=>$body,
+            'code'=>'200'
+        ]);
+    }
+
+    
+    public function getEventData(Request $request){
+        $body = Storage::get('event/'.$request->eventId.'.json');
 
         // dd($body);
         return response()->json([

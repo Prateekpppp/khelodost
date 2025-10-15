@@ -363,7 +363,7 @@
 
 <script>
     setInterval(() => {
-        callApi('get',`{{route('user.eventData')}}`,{eventId:{{$eventId}}},updateEvent);
+        callApi('get',`{{route('user.getEventData')}}`,{eventId:{{$eventId}}},updateEvent);
     }, 500);
 </script>
 

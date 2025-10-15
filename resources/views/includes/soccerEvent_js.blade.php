@@ -129,6 +129,9 @@
                             });
 
                     html +=`
+                    
+                                    <div class="odd_suspended ${(j.gstatus=="SUSPENDED")?"":"d-blockwet"}">Suspended</div>
+                                    <div class="odd_running  ${(j.gstatus=="BALL RUNNING")?"":"d-blockwet"}">Ball Running</div>
                                 </td>
                             </tr>
                         `;

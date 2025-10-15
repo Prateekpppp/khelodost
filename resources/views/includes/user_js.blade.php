@@ -77,11 +77,11 @@
         }
 
         function soccer(data){
-            let eventPage = "{{url('eventPage')}}";
+            let eventPage = "{{url('soccerEvent')}}";
             let c_time = (new Date()).getTime();
             let html = ``;
             if((new Date()).getTime() < (new Date(data.stime)).getTime()) {
-                eventPage = "{{url('upcomingEventPage')}}";
+                eventPage = "{{url('soccerUpcomingEvent')}}";
             }
             html += `
                 <tr data-gmid='${data.gmid}' data-mid='${data.mid}' data-ename="${data.ename}" data-stime="${data.stime}">
@@ -349,7 +349,7 @@
                     <td>
                         <a class="odd-btn lay lay1">${j.odds[0].odds}</a>
                         <div class="odd_suspended ${(j.gstatus=="SUSPENDED")?"":"d-block"}">Suspended</div>
-                        <div class="odd_running">Ball Running</div>
+                        <div class="odd_running  ${(j.gstatus=="BALL RUNNING")?"":"d-block"}">Ball Running</div>
                     </td>
 
                 </tr>

@@ -14,7 +14,7 @@
                             <th style="width: 20%">2</th>
                         </tr>
                     </thead>
-                    <tbody class="soccer">
+                    <tbody class="tennis">
                         
                     </tbody>
                 </table>

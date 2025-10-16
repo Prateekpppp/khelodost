@@ -10,7 +10,6 @@
                         <tr>
                             <th class="text-start fw-bold" style="min-width: 200px;">🎾 Tennis</th>
                             <th style="width: 20%">1</th>
-                            <th style="width: 20%">X</th>
                             <th style="width: 20%">2</th>
                         </tr>
                     </thead>

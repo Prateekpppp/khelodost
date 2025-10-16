@@ -123,8 +123,8 @@ class getSportFixture extends Command
         $body = $sportDataArray;
         // $body = array_merge($sportInplayDataArray,$sportUpcomingDataArray);
         // $body = array_slice($body, 0, 10);
-        if($sportname!='cricket'){
-            $body = array_slice($body, 0, 12);
+        if($sportname=='soccer'){
+            $body = array_slice($body, 0, 9);
         }
         $body = json_encode($body);
 
@@ -134,7 +134,7 @@ class getSportFixture extends Command
         Storage::put('sports/'.$sportname.'.json', $body);
         Storage::put('sports/inplay/'.$sportname.'.json', $sportInplayDataArray);
         Storage::put('sports/upcoming/'.$sportname.'.json', $sportUpcomingDataArray);
-
+        Log::info('----'.$sportname);
         $response = $pusher->trigger($sportname.'-sportsupdate', $sportname.'-sportsupdate-event', ['data' => $body,'sport'=>$sportname]);
             
 

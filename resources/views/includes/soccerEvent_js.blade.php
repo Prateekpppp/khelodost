@@ -7,7 +7,7 @@
         console.log(res.sport, 'data-----',data);
         $(data).each(function(){
 
-            html += soccer(this);
+            html += eval(res.sport)(this);
         });
         $(`.${res.sport}`).html(html);
     }
@@ -31,6 +31,47 @@
 
                             <!-- Right Side: Teams -->
                             <a href="${eventPage}/${data.gmid}" class="right-side eventPage">
+                                ${data.ename}
+                            </a>
+                        </div>
+                    </td>
+                    `;
+                
+                $(data.section).each(function(i,j){
+                    html +=`
+                        <td>
+                        `;
+                            $(j.odds).each(function(){
+                                html +=`
+                                    <a class="odd-btn ${this.otype} ${this.oname}">${this.odds}</a>
+                                `;
+                            });
+                    html +=`
+                        </td>
+                        `;
+                });
+                html +=`
+                </tr>
+            `;
+
+            return html;
+        }
+        
+        function tennis(data){
+            let eventPage = "{{url('soccerEvent')}}";
+            let c_time = (new Date()).getTime();
+            let html = ``;
+            
+            html += `
+                <tr data-gmid='${data.gmid}' data-mid='${data.mid}' data-ename="${data.ename}" data-stime="${data.stime}">
+                    <!-- Football -->
+                    <td class="text-start px-3">
+                        <div class="match-layout">
+                            <!-- Left Side: Date & Time -->
+                            <span class="match-status today">${data.stime}</small></span>
+
+                            <!-- Right Side: Teams -->
+                            <a href="javascript:void(0)" data-href="${eventPage}/${data.gmid}" class="right-side eventPage">
                                 ${data.ename}
                             </a>
                         </div>

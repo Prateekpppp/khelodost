@@ -111,7 +111,7 @@
             
             $(data).each(function(i,j){
                 if(!eventPageLoading) {
-                    if(i == 0) {
+                    if(i == 4) {
                         eventPageLoading = true;
                     }
                     createMarketDiv(this);

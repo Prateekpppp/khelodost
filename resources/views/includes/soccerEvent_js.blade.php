@@ -106,7 +106,6 @@
             res = res.response;
             res = JSON.parse(res);
             data = res.data;
-            console.log('log update soccer--',data);
             
             
             $(data).each(function(i,j){

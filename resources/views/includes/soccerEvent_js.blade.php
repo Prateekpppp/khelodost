@@ -57,7 +57,7 @@
         }
         
         function tennis(data){
-            let eventPage = "{{url('soccerEvent')}}";
+            let eventPage = "{{url('eventDetail')}}";
             let c_time = (new Date()).getTime();
             let html = ``;
             

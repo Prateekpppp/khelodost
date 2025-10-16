@@ -8,12 +8,12 @@ use Illuminate\Support\Facades\Schedule;
 // sport crons
 Schedule::command('app:get-sport-fixture cricket')->everySecond();
 Schedule::command('app:get-sport-fixture soccer')->everySecond();
-Schedule::command('app:get-sport-fixture tennis')->everySecond();
+// Schedule::command('app:get-sport-fixture tennis')->everySecond();
 
 // inplay event crons
 Schedule::command('app:get-event-data cricket')->everySecond();
 Schedule::command('app:get-event-data soccer')->everySecond();
-Schedule::command('app:get-event-data tennis')->everySecond();
+// Schedule::command('app:get-event-data tennis')->everySecond();
 
 // upcoming event crons
 // Schedule::command('app:get-upcoming-event-data cricket')->everySecond();

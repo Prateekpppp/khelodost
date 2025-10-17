@@ -14,6 +14,48 @@
 
     // Sport Page js start
 
+        function cricketEvents(data){
+            let eventPage = "{{url('soccerEvent')}}";
+            let c_time = (new Date()).getTime();
+            let html = ``;
+            // if((new Date()).getTime() < (new Date(data.stime)).getTime()) {
+            //     eventPage = "{{url('soccerUpcomingEvent')}}";
+            // }
+            html += `
+                <tr data-gmid='${data.gmid}' data-mid='${data.mid}' data-ename="${data.ename}" data-stime="${data.stime}">
+                    <!-- Football -->
+                    <td class="text-start px-3">
+                        <div class="match-layout">
+                            <!-- Left Side: Date & Time -->
+                            <span class="match-status today">${data.stime}</small></span>
+
+                            <a href="${eventPage}/${data.gmid}" class="right-side eventPage">
+                                ${data.ename}
+                            </a>
+                        </div>
+                    </td>
+                    `;
+                
+                $(data.section).each(function(i,j){
+                    html +=`
+                        <td>
+                        `;
+                            $(j.odds).each(function(){
+                                html +=`
+                                    <a class="odd-btn ${this.otype} ${this.oname}">${this.odds}</a>
+                                `;
+                            });
+                    html +=`
+                        </td>
+                        `;
+                });
+                html +=`
+                </tr>
+            `;
+
+            return html;
+        }
+
         function soccer(data){
             let eventPage = "{{url('soccerEvent')}}";
             let c_time = (new Date()).getTime();

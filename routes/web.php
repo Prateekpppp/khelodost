@@ -67,6 +67,10 @@ Route::middleware(['custom_session_middleware'])->group(function () {
         return view('pages.index');
     })->name('index');
 
+    Route::get('design', function () {
+        return view('design');
+    })->name('design');
+
     Route::get('/cricket', function () {
         return view('pages.cricket');
     })->name('cricket');

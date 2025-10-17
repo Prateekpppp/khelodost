@@ -48,6 +48,8 @@ Route::middleware(['custom_session_middleware'])->group(function () {
     
     Route::get('soccerEvent/{eventId}', [SportbookController::class,'soccerEvent'])->name('user.soccerEvent');
     
+    Route::get('eventDetail/{eventId}', [SportbookController::class,'soccerEvent'])->name('user.eventDetail');
+    
     Route::get('eventData', [SportbookController::class,'eventData'])->name('user.eventData');
     
     Route::get('getEventData', [SportbookController::class,'getEventData'])->name('user.getEventData');
@@ -64,6 +66,10 @@ Route::middleware(['custom_session_middleware'])->group(function () {
     Route::get('/', function () {
         return view('pages.index');
     })->name('index');
+
+    Route::get('design', function () {
+        return view('design');
+    })->name('design');
 
     Route::get('/cricket', function () {
         return view('pages.cricket');

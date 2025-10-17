@@ -45,3 +45,13 @@
     color: #fff;
     align-content: center;
 }
+
+.table_head {
+  display: flex;
+  flex-direction: row;
+  background: #fc7600;
+  height: 30px;
+  align-content: center;
+  align-items: center;
+  justify-content: space-between;
+}

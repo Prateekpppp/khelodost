@@ -46,7 +46,7 @@
             }
             html += eval(res.sport)(this);
         });
-        $(`.cricketDataIndex`).html(html);
+        $(`.${res.sport}InplayData`).html(html);
     }
 
     // Sport Page js start

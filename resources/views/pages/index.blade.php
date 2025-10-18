@@ -67,7 +67,7 @@
                             <div style="">X</div>
                             <div style="">2</div>
                         </div>
-                        <div class="cricketDataIndex">
+                        <div class="cricketInplayData">
                             
                             
                         </div>
@@ -251,14 +251,18 @@
     // Enable pusher logging - don't include this in production
     // Pusher.logToConsole = true;
 
-    var pusher = new Pusher('{{env('PUSHER_APP_KEY')}}', {
-      cluster: 'ap2'
-    });
+    // var pusher = new Pusher('{{env('PUSHER_APP_KEY')}}', {
+    //   cluster: 'ap2'
+    // });
 
-    var channel = pusher.subscribe('sportsupdate');
-    channel.bind('sportsupdate-event', function(data) {
-        updateCricketIndex(data);
-    });
+    // var channel = pusher.subscribe('sportsupdate');
+    // channel.bind('sportsupdate-event', function(data) {
+    //     updateCricketIndex(data);
+    // });
+    
+    setInterval(() => {
+        callApi('get',`{{route('user.getSportData','cricket')}}`,{sportname:`{{$sportname}}`},updateInplaySports);
+    }, 500);
 
   </script>
 

@@ -72,6 +72,93 @@
 
     // sport page js end
 
+
+    
+    let cricketEventPageLoading = false;
+    function updateCricketEvent(res){
+
+        res = res.response;
+        res = JSON.parse(res);
+        data = res.data;
+        
+        
+        $(data).each(function(i,j){
+            if(!cricketEventPageLoading) {
+                if(i == data.length-1) {
+                    cricketEventPageLoading = true;
+                }
+                create_cMarketDiv(this);
+            } else {
+                update_cMarket(this);
+            } 
+            
+        });
+    }
+
+    function create_cMarketDiv(data){
+        
+        let html = '';
+        
+        html += `
+            <!-- ${data.mname} -->
+            <div id="market_${data.mid}" class="flex flex-col" data-marketId="${data.mid}">
+                <div class="bg-[#fc7600] mt-3 p-2 data_market_${data.mid}">
+                    ${data.mname}
+                </div>`;
+
+                $(data.section).each(function(i,j){
+
+                    html +=`
+                        <div class="m_row${i} px-2 py-1 flex flex-row items-center border-b border-gray-500 relative">
+                            <div class="match_nat${i} w-[60%]">${this.nat}</div>
+                            <div class="flex flex-1 justify-end">
+                        `;
+
+                        $(this.odds).each(function(i,j){
+                            html +=`
+                                <a class="odd-btn ${j.otype} ${j.oname}">${j.odds}</a>
+                            `;
+                        });
+
+                html +=`
+                            </div>
+                            <div class="odd_suspended ${(j.gstatus=="SUSPENDED")?"d-blockwet":""}">Suspended</div>
+                        </div>
+                    `;
+                })
+            
+            html +=`
+            </div>
+        `;
+
+        $('.eventData').append(html);
+    }
+
+    function update_cMarket(data){
+
+        let m_div = $(`#market_${data.mid}`);
+
+        let section = data.section;
+        
+        $(section).each(function(i,j){
+            
+            $(m_div).find(`.match_nat${i}`).html(j.nat);
+            
+            $(j.odds).each(function(){
+                let odd = $(m_div).find(`.m_row${i}`).find(`.${this.oname}`);
+                if($(odd).html() != this.odds){
+                    $(this).addClass('odd_change');
+                    setTimeout(() => {
+                        $(this).removeClass('odd_change');
+                    }, 300);
+                }
+                $(odd).html(this.odds);
+            });
+        });
+
+
+    }
+    
     function inplay(res){
 
         console.log('res in eventPage',res.data);

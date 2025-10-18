@@ -22,6 +22,32 @@
         });
         $(`.${res.sport}`).html(html);
     }
+    
+    function updateInplaySports(res){
+        let html = ``;
+        
+        data = JSON.parse(res.data);
+        console.log(res.sport, 'data-----',data);
+        
+        $(data).each(function(){
+
+            let date = (this.eventName).split(' / ')[1];
+            this.eventName = (this.eventName).split(' / ')[0];
+
+            date = date.split('M (')[0];
+            dateHour = date[date.length-1];
+            date = date.split(dateHour)[0];
+            date += ' '+dateHour+'M';
+            
+            this.eventDate = date;
+
+            if((new Date()).getTime() < (new Date(data.eventDate)).getTime()) {
+                return false;
+            }
+            html += eval(res.sport)(this);
+        });
+        $(`.cricketDataIndex`).html(html);
+    }
 
     // Sport Page js start
         function cricket(data){
@@ -159,31 +185,32 @@
 
     }
     
-    function inplay(res){
+    // function inplay(res){
 
-        console.log('res in eventPage',res.data);
-        data = res.data;
-        data = JSON.parse(data);
-        console.log('data in eventPage',data);
-        let html = ``;
+    //     console.log('res in eventPage',res.data);
+    //     data = res.data;
+    //     data = JSON.parse(data);
+    //     console.log('data in eventPage',data);
+    //     let html = ``;
         
-        // $(data).each(function(){
+    //     // $(data).each(function(){
 
-        //     let date = (this.eventName).split(' / ')[1];
-        //     this.eventName = (this.eventName).split(' / ')[0];
+    //     //     let date = (this.eventName).split(' / ')[1];
+    //     //     this.eventName = (this.eventName).split(' / ')[0];
 
-        //     date = date.split('M (')[0];
-        //     dateHour = date[date.length-1];
-        //     date = date.split(dateHour)[0];
-        //     date += ' '+dateHour+'M';
+    //     //     date = date.split('M (')[0];
+    //     //     dateHour = date[date.length-1];
+    //     //     date = date.split(dateHour)[0];
+    //     //     date += ' '+dateHour+'M';
             
-        //     this.eventDate = new Date(date).toLocaleString();
+    //     //     this.eventDate = new Date(date).toLocaleString();
 
-        //     html += eventData(this);
-        // });
-        // $('.eventData').html(html);
-    }
+    //     //     html += eventData(this);
+    //     // });
+    //     // $('.eventData').html(html);
+    // }
 
+    
     function updateEvent(res){
 
         res = res.response;

@@ -261,7 +261,7 @@
     // });
     
     setInterval(() => {
-        callApi('get',`{{route('user.getSportData','cricket')}}`,{sportname:`{{$sportname}}`},updateInplaySports);
+        callApi('get',`{{route('user.getSportData','cricket')}}`,{sportname:`cricket`},updateInplaySports);
     }, 500);
 
   </script>

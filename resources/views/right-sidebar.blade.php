@@ -19,10 +19,7 @@
   <div class="card-body tab-content">
     <!-- Betslip Tab -->
     <div class="tab-pane fade show active" id="betslip" role="tabpanel">
-      <p class="text-center text-muted">Please login to see your betslip.</p>
-      <div class="text-center">
-        <a href="login" class="text-primary">Login</a>
-      </div>
+      @include('includes.betslip')
     </div>
 
     <!-- Open Bets Tab -->

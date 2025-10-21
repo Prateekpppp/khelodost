@@ -170,7 +170,7 @@
                     $(data.section).each(function(i,j){
 
                         html +=`
-                            <div class="m_row${i} px-2 py-1 flex flex-row items-center border-b border-gray-500 market_data" data-market_Id="${data.mid}" data-nat="${this.nat}">
+                            <div class="m_row${i} px-2 py-1 flex flex-row items-center border-b border-gray-500 market_data" data-market_Id="${data.mid}" data-nat="${this.nat}" data-mname="${data.mname}">
                                 <div class="match_nat${i} w-[60%]">${this.nat}</div>
                                 <div class="flex flex-1 justify-center relative">
                             `;

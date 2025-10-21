@@ -15,12 +15,17 @@ return new class extends Migration
             $table->id();
             $table->string('username');
             $table->string('betId');
+            $table->string('mname');
+            $table->string('eventId');
             $table->string('marketId');
             $table->string('wallet_before');
+            $table->string('wallet_after')->nullable();
+            $table->string('oddVal');
             $table->string('bet_amount');
+            $table->string('profit');
+            // $table->string('loss');
             $table->string('ip')->nullable();
             $table->tinyInteger('status');
-            $table->string('marketId');
             $table->timestamps();
         });
     }

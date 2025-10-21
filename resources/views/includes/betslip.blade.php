@@ -29,8 +29,8 @@
          <button class=" chipName7" type="button" value="50000">50000</button>
          <button class=" chipName7" type="button" value="75000">75000</button>
          <button class=" " type="button" onclick="stakeUpdate(0);">Clear</button>
-         <button class="w-[46%] !bg-[#fff] !text-[#fc7600] border !border-[#fc7600]" type="button" onclick="ClearAllSelection();"> Cancel</button>
-         <button class="w-[46%]" type="button" onclick="placeBet();"> Place Bet</button>
+         <a href="javascript:void(0)" class="w-[46%] !bg-[#fff] !text-[#fc7600] border !border-[#fc7600]" type="button" onclick="ClearAllSelection();"> Cancel</a>
+         <a href="javascript:void(0)" class="w-[46%]" onclick="placeBet();"> Place Bet</a>
       </div>
    </div>
 </div>
@@ -42,7 +42,6 @@
    let betslipData = {};
 
    $('body').on('click','.odd-btn',function(){
-
       $('.betslip').show();
       updateBetslip(this);
 
@@ -73,6 +72,7 @@
       //    responseToast('minimum stake value is 100');
       // }
       betslipData.profit = parseFloat(betslipData.oddVal*val).toFixed(2);
+      betslipData.bet_amount = val;
       $('#profit').html(betslipData.profit);
       $('#loss').html(val);
       $('#stakeValue').val(val);
@@ -81,11 +81,14 @@
    function staKeAmount(stake){
       
    }
-   function betAmount(){
-      
-   }
+
 
    function placeBet(){
-      
+      if($('#stakeValue').val() < 100){
+         responseToast('minimum stake value is 100');
+         return false;
+      }
+      callApi('post',`{{route('user.placebet')}}`,betslipData,ajaxResponse);
+
    }
 </script>

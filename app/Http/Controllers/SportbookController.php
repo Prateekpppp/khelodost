@@ -120,4 +120,8 @@ class SportbookController extends Controller
             'code'=>'200'
         ]);
     }
+
+    public function placebet(Request $request){
+        dd('$request',$request->all());
+    }
 }

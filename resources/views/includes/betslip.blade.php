@@ -21,15 +21,19 @@
          </div>
       </div>
       <div class="flex flex-row flex-wrap justify-evenly bet-btns">
-         <button class=" chipName7" type="button" value="100">100</button>
-         <button class=" chipName7" type="button" value="500">500</button>
-         <button class=" chipName7" type="button" value="1000">1000</button>
-         <button class=" chipName7" type="button" value="10000">10000</button>
-         <button class=" chipName7" type="button" value="25000">25000</button>
-         <button class=" chipName7" type="button" value="50000">50000</button>
-         <button class=" chipName7" type="button" value="75000">75000</button>
-         <button class=" " type="button" onclick="stakeUpdate(0);">Clear</button>
-         <a href="javascript:void(0)" class="w-[46%] !bg-[#fff] !text-[#fc7600] border !border-[#fc7600]" type="button" onclick="ClearAllSelection();"> Cancel</a>
+         <button class="col-3" type="button" value="100">100</button>
+         <button class="col-3" type="button" value="500">500</button>
+         <button class="col-3" type="button" value="1000">1000</button>
+         <button class="col-3" type="button" value="10000">10000</button>
+         <button class="col-3" type="button" value="25000">25000</button>
+         <button class="col-3" type="button" value="50000">50000</button>
+         <button class="col-3" type="button" value="75000">75000</button>
+         <button class="col-3" type="button" value="100000">100000</button>
+         <button class="col-3" type="button" value="100">Min Stake</button>
+         <button class="col-3" type="button" value="100000">Max Stake</button>
+         <button class="col-3" type="button" onclick="">Edit Stake</button>
+         <button class="col-3" type="button" onclick="stakeUpdate(0);">Clear</button>
+         <a href="javascript:void(0)" class="w-[46%] !bg-[#fff] !text-[#fc7600] border !border-[#fc7600]" type="button" onclick="stakeUpdate(0);"> Cancel</a>
          <a href="javascript:void(0)" class="w-[46%]" onclick="placeBet();"> Place Bet</a>
       </div>
    </div>

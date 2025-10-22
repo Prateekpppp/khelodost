@@ -14,27 +14,63 @@
       </div>
       <div class="flex flex-row">
          <div class="stake_inputs w-50 p-2">
+            <label for="">Odds</label>
             <input step="0.01" id="oddVal" class="calProfitLoss odd-val odds-input form-control  CommanBtn" style="color:#000 !important">
-         </div>
-         <div class="stake_inputs w-50 p-2">
-            <input pattern="[0-9]*" step="1" id="stakeValue" class="calProfitLoss stake-input form-control  CommanBtn">
          </div>
       </div>
       <div class="flex flex-row flex-wrap justify-evenly bet-btns">
-         <button class="col-3" type="button" value="100">100</button>
-         <button class="col-3" type="button" value="500">500</button>
-         <button class="col-3" type="button" value="1000">1000</button>
-         <button class="col-3" type="button" value="10000">10000</button>
-         <button class="col-3" type="button" value="25000">25000</button>
-         <button class="col-3" type="button" value="50000">50000</button>
-         <button class="col-3" type="button" value="75000">75000</button>
-         <button class="col-3" type="button" value="100000">100000</button>
-         <button class="col-3" type="button" value="100">Min Stake</button>
-         <button class="col-3" type="button" value="100000">Max Stake</button>
-         <button class="col-3" type="button" onclick="">Edit Stake</button>
-         <button class="col-3" type="button" onclick="stakeUpdate(0);">Clear</button>
-         <a href="javascript:void(0)" class="w-[46%] !bg-[#fff] !text-[#fc7600] border !border-[#fc7600]" type="button" onclick="stakeUpdate(0);"> Cancel</a>
-         <a href="javascript:void(0)" class="w-[46%]" onclick="placeBet();"> Place Bet</a>
+         <div class="col-3 p-[0.1rem]">
+            <div class="flex flex-row justify-center">
+               <span class="p-1 bg-[#fc7600]">+</span>
+               <div class="stake_inputs w-[70%] p-2">
+                  <label for="">Stake</label>
+                  <input pattern="[0-9]*" step="1" id="stakeValue" class="calProfitLoss stake-input form-control  CommanBtn">
+               </div>
+               <span class="p-1 bg-[#fc7600]">-</span>
+            </div>
+         </div>
+         <div class="col-3 p-[0.1rem]">
+            <button type="button" value="100">100</button>
+         </div>
+         <div class="col-3 p-[0.1rem]">
+            <button type="button" value="500">500</button>
+         </div>
+         <div class="col-3 p-[0.1rem]">
+            <button type="button" value="1000">1000</button>
+         </div>
+         <div class="col-3 p-[0.1rem]">
+            <button type="button" value="10000">10000</button>
+         </div>
+         <div class="col-3 p-[0.1rem]">
+            <button type="button" value="25000">25000</button>
+         </div>
+         <div class="col-3 p-[0.1rem]">
+            <button type="button" value="50000">50000</button>
+         </div>
+         <div class="col-3 p-[0.1rem]">
+            <button type="button" value="75000">75000</button>
+         </div>
+         <div class="col-3 p-[0.1rem]">
+            <button type="button" value="100000">100000</button>
+         </div>
+         <div class="col-3 p-[0.1rem]">
+            <button type="button" value="100">Min Stake</button>
+         </div>
+         <div class="col-3 p-[0.1rem]">
+            <button type="button" value="100000">Max Stake</button>
+         </div>
+         <div class="col-3 p-[0.1rem]">
+            <button type="button" onclick="">Edit Stake</button>
+         </div>
+         <div class="col-3 p-[0.1rem]">
+            <button type="button" onclick="stakeUpdate(0);">Clear</button>
+         </div>
+         <div class="col-6 p-[0.1rem]">
+            <button href="javascript:void(0)" class="!bg-[#fff] !text-[#fc7600] border !border-[#fc7600]" type="button" onclick="stakeUpdate(0);"> Cancel</button>
+         </div>
+         <div class="col-6 p-[0.1rem]">
+            <button href="javascript:void(0)" class="" onclick="placeBet();"> Place Bet</button>
+         </div>
       </div>
    </div>
 </div>

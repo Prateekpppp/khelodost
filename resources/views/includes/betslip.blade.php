@@ -12,21 +12,21 @@
          <span id="profit" class="my-1 text-green-500"></span>
          <span id="loss" class="my-1 text-red-500"></span>
       </div>
-      <div class="flex flex-row">
-         <div class="stake_inputs w-50 p-2">
-            <label for="">Odds</label>
-            <input step="0.01" id="oddVal" class="calProfitLoss odd-val odds-input form-control  CommanBtn" style="color:#000 !important">
-         </div>
-      </div>
       <div class="flex flex-row flex-wrap justify-evenly bet-btns">
-         <div class="col-3 p-[0.1rem]">
-            <div class="flex flex-row justify-center">
-               <span class="p-1 bg-[#fc7600]">+</span>
-               <div class="stake_inputs w-[70%] p-2">
-                  <label for="">Stake</label>
-                  <input pattern="[0-9]*" step="1" id="stakeValue" class="calProfitLoss stake-input form-control  CommanBtn">
+         <div class="col-6 p-[0.1rem]">
+            <div class="flex flex-col gap-1">
+                  <label for="">Odds</label>
+                  <input type="number" pattern="[0-9]*" step="1" id="oddVal" class="calProfitLoss odd-val odds-input form-control p-0 border-0 CommanBtn">
+            </div>
+         </div>
+         <div class="col-6 p-[0.1rem]">
+            <label for="">Stake</label>
+            <div class="flex flex-row justify-center items-center gap-1">
+               <span class="p-1 bg-[#fc7600] h-[12px flex items-center">+</span>
+               <div class="stake_inputs w-[70%]">
+                  <input pattern="[0-9]*" step="1" id="stakeValue" class="calProfitLoss stake-input form-control p-0 border-0 CommanBtn">
                </div>
-               <span class="p-1 bg-[#fc7600]">-</span>
+               <span class="p-1 bg-[#fc7600] h-[12px flex items-center">-</span>
             </div>
          </div>
          <div class="col-3 p-[0.1rem]">

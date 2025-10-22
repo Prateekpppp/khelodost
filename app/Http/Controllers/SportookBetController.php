@@ -10,7 +10,7 @@ class SportookBetController extends Controller
 {
     //
     public function placebet(Request $request){
-        dd('$request',$request->all());
+        // dd('$request',$request->all());
 
         // foreach ($request->all() as $req) {
         //     i(!$req){
@@ -19,12 +19,10 @@ class SportookBetController extends Controller
         // }
 
         $user = User::getCurrentUser();
-        $user->unsattled_amount += $request->bet_amount;
-        $user->save();
-        
+
         $request->username = $user->username;
 
-        $request->betId = substr($request->username,0,5).'_'.rand(1000,9999).'_'.substr(time(),6,count(time())-1);
+        $request->betId = substr($request->username,0,5).'_'.rand(1000,9999).'_'.substr(time(),6,strlen(time())-1);
 
         $bet = new SportookBet();
         $bet->username = $request->username;
@@ -32,7 +30,7 @@ class SportookBetController extends Controller
         $bet->mname = $request->mname;
         $bet->eventId = $request->eventId;
         $bet->marketId = $request->marketId;
-        $bet->wallet_before = $user->wallet_before;
+        $bet->wallet_before = $user->wallet_amount;
         $bet->oddVal = $request->oddVal;
         $bet->bet_amount = $request->bet_amount;
         $bet->profit = $request->profit;
@@ -41,11 +39,31 @@ class SportookBetController extends Controller
         $bet->status = 1;
         $bet->save();
 
+        $user->unsattled_amount += $request->bet_amount;
+        $user->save();
+
         return response()->json([
             'code'=>'200',
             'message'=> 'Bet Placed Successfully'
         ]);
 
 
+    }
+
+    public function openBets(Request $request){
+        $openBets = SportookBet::whereIn('status',[1])->get();
+
+        // dd($openBets);
+        if(count($openBets)){
+            return response()->json([
+                'code'=>'200',
+                'data'=> $openBets
+            ]);
+        } else{
+            return response()->json([
+                'code'=>'401',
+                'data'=> 'No Openbets Available'
+            ]);
+        }
     }
 }

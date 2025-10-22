@@ -43,6 +43,8 @@ Route::middleware(['custom_session_middleware'])->group(function () {
         Route::get('deposit', [UserController::class,'deposit'])->name('user.deposit');
         
         Route::post('placebet', [SportookBetController::class,'placebet'])->name('user.placebet')->withoutMiddleware([VerifyCsrfToken::class]);
+        
+        Route::get('openbets', [SportookBetController::class,'openbets'])->name('user.openbets')->withoutMiddleware([VerifyCsrfToken::class]);
 
 
     });

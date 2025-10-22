@@ -59,6 +59,7 @@
       
       betslipData.oddVal = $(odd).attr('data-oddVal');
       betslipData.marketId = $(odd).parents('.market_data').attr('data-marketId');
+      betslipData.mname = $(odd).parents('.market_data').attr('data-mname');
       betslipData.nat = $(odd).parents('.market_data').attr('data-nat');
       
       stakeUpdate(100);
@@ -78,17 +79,68 @@
       $('#stakeValue').val(val);
    }
 
-   function staKeAmount(stake){
-      
-   }
-
-
    function placeBet(){
+
+      marketId = $(`.market_data[data-marketId='${betslipData.marketId}']`);
+      
+      oddVal = $(marketId).find(`.odd-btn[data-oddVal='${betslipData.oddVal}']`);
+      
+      if(!oddVal.length){
+         responseToast('Odd changed');
+         return false;
+      }
+
       if($('#stakeValue').val() < 100){
          responseToast('minimum stake value is 100');
          return false;
       }
-      callApi('post',`{{route('user.placebet')}}`,betslipData,ajaxResponse);
+      callApi('post',`{{route('user.placebet')}}`,betslipData,postPlacebet);
 
    }
+   
+   function postPlacebet(res){
+      ajaxResponse(res);
+      if(res.code == 200){
+         callApi('get','{{route('user.openbets')}}',null,openBets);
+      }
+   }
+   
+   function openBets(res){
+      
+      if(res.code == 200){
+         let bets = '';
+
+
+         $(res.data).each(function(i,j){
+
+            bets +=`
+               <div class="flex flex-col rounded-md border border-[#747a87] p-2 mt-2">
+                  
+                  <div class="bg-[#fc7600] flex flex-row gap-2 flex-1 mt-2 p-2">
+                     <span class="t_data w-[40%]">BetId</span>
+                     <span class="t_data w-[20%]">Date</span>
+                     <span class="t_data w-[20%]">Odd Value</span>
+                     <span class="t_data w-[20%]">Bet Amount</span>
+                  </div>
+                  <div class="flex fex-row gap-2 flex-1">
+                     <div class="t_data w-[40%]">${this.betId}</div>
+                     <div class="t_data w-[20%]">${formatData(this.created_at)}</div>
+                     <div class="t_data w-[20%]">${this.oddVal}</div>
+                     <div class="t_data w-[20%]">${this.bet_amount}</div>
+                  </div>
+                                 
+               </div>
+            `;
+
+         });
+
+         $('#openbets').html(bets);
+         $('#openBetsTab').tab('show');
+      }
+   }
+
+   $(document).ready(function(){
+      callApi('get','{{route('user.openbets')}}',null,openBets);
+   });
+
 </script>

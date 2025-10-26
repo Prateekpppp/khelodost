@@ -1,5 +1,5 @@
 <!-- Header -->
-<nav class="bg-primary-green navbar px-1 py-3">
+<nav class="bg-primary-green navbar px-1 py-2">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-nowrap position-relative">
         <!-- Toggle Button (Visible only on small screens) -->
         <button class="d-md-none custom-toggler position-absolute start-0 top-50 translate-middle-y ms-3" type="button"

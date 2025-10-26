@@ -8,7 +8,7 @@
         </button>
 
         <!-- Logo -->
-        <a href="{{ route('index') }}" class="flex items-center justify-center h-2 navbar-brand p-0 flex-shrink-0 ms-5 w-[30%]">
+        <a href="{{ route('index') }}" class="flex items-center justify-center h-2 navbar-brand p-0 flex-shrink-0 ms-5 w-[100%]">
             <img class="w-full" src="{{ asset('logo/logo.png') }}" alt="Logo" height="40"
                 style="max-width: 150px; height: auto;" />
         </a>

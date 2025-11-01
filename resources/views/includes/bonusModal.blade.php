@@ -10,7 +10,7 @@
 
         <div class="flex flex-col g-2 mb-3 items-center justify-center gap-3">
             <div class="text-[#0c0339] text-[13px]">Today's Bonus</div>
-            <span>Testing</span>
+            {{-- <span>Testing</span> --}}
             @if($claim_bonus)
                 @foreach($shareBonus as $bonus)
                 <div class="col-6 mb-2 mx-auto">

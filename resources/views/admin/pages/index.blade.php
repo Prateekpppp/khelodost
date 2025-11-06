@@ -127,7 +127,7 @@
                                             <tr>
                                                 <th>Event ID</th>
                                                 <th>Name</th>
-                                                <th>Exposure</th>
+                                                {{-- <th>Exposure</th> --}}
                                                 <th>Date</th>
                                                 <th>Status</th>
                                                 {{-- <th>Action</th> --}}
@@ -139,7 +139,7 @@
                                                     <tr>
                                                         <td>{{$row->eventId}}</td>
                                                         <td>{{$row->eventName}}</td>
-                                                        <td>{{$row->exposure}}</td>
+                                                        {{-- <td>{{$row->exposure}}</td> --}}
                                                         <td>{{$row->eventDate}}</td>
                                                         @php
                                                             $teamA = explode(' v ',$row->eventName)[0] ?? 'Series';

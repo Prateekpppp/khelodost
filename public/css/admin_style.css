@@ -206,9 +206,10 @@ table tbody tr:hover {
     /* background: #0c0339; */
     /* border: 1px solid #4b4a5e; */
     color: #000 !important;
-    min-width: 180px;
+    /* min-width: 180px; */
+    width: 180px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    left: 0 !important;
+    right: 0 !important;
     top: 0 !important;
 }
 

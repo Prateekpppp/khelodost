@@ -147,7 +147,7 @@
                         <div class="card-header bg-primary fw-bold">Deposit & Withdraw</div>
                         <div class="card-body p-0">
                             <div class="table-responsive">
-                                <table class="table table-bordered table-striped table-dark mb-0">
+                                <table class="table table-bordered table-striped mb-0">
                                     <thead class="table-primary">
                                         <tr>
                                             <th class="text-nowrap">Sportname</th>
@@ -167,7 +167,7 @@
                                             <td>{{$transaction->mname}}</td>
                                             <td>{{$transaction->nat}}</td>
                                             <td>{{$transaction->profit}}</td>
-                                            <td>{{$transaction->profit + $transaction->bet_amount}}</td>
+                                            <td>{{$transaction->wallet_before}}</td>
                                             <td class="text-success fw-bold text-nowrap">{{$transaction->status? $transaction->updated_at : 'Unsattled'}}</td>
                                         </tr>
                                         @endforeach
@@ -226,7 +226,7 @@
                         <div class="card-header bg-primary fw-bold">Deposit & Withdraw</div>
                         <div class="card-body p-0">
                             <div class="table-responsive">
-                                <table class="table table-bordered table-striped table-dark mb-0">
+                                <table class="table table-bordered table-striped mb-0">
                                     <thead class="table-primary">
                                         <tr>
                                             <th class="text-nowrap">Date/Time</th>
@@ -273,7 +273,7 @@
                         <div class="card-header bg-primary fw-bold">Activity Log</div>
                         <div class="card-body p-0">
                             <div class="table-responsive">
-                                <table class="table table-bordered table-striped table-dark mb-0">
+                                <table class="table table-bordered table-striped mb-0">
                                     <thead class="table-primary">
                                         <tr>
                                             <th class="text-nowrap">Login Date & Time</th>

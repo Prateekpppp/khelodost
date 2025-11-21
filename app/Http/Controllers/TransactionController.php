@@ -79,7 +79,7 @@ class TransactionController extends Controller
 
             $sdata['payload'] = json_encode($data);
 
-            $sdata['payload'] = (new AuthController)->aes256cbc($apiData['encryptionKey'],$sdata['payload']);
+            $sdata['payload'] = (new AuthController)->aes128cbc($apiData['encryptionKey'],$sdata['payload']);
 
             $sdata['sign'] = $sdata['payload'].$apiData['signatureKey'];
             

@@ -41,6 +41,7 @@
 <script>
 
     $('input').on('change',function(){
+        $(this).attr('disabled','disabled');
         callApi('post', `{{Route('admin.action.block_market')}}`, {name:$(this).attr('data-name')}, ajaxResponseModal);
     });
     

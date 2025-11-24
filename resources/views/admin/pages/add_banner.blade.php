@@ -47,6 +47,7 @@
 <script>
 
     $('#status').on('change',function(){
+        $(this).attr('disabled','disabled');
         callApi('post', `{{Route('admin.action.bannerUpdate')}}`, {id:$(this).attr('data-id')}, ajaxResponseModal);
     });
 </script>

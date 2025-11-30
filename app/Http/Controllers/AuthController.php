@@ -190,10 +190,7 @@ class AuthController extends Controller
         // dd('request',$request);
         // return response()->json($request);
         if($request->phone){
-            $user = User::where([
-                'phone'=>$request->phone,
-                'status'=>2
-            ])->first();
+            $user = User::where('phone',$request->phone)->whereIn('status',[1,2])->first();
 
         }
 

@@ -196,7 +196,7 @@ class AuthController extends Controller
 
         if(empty($user)){
             return response()->json([
-                'message'=> 'User not found',
+                'message'=> 'User not found or blocked, please contact support',
                 'response_code'=> '104'
             ]);
         } else{

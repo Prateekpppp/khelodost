@@ -145,7 +145,7 @@
 </div>
 <div class="flex items-center justify-between p-2 !bg-[#0552cc]">
   <h2 class="page-title !text-white m-0">Referral Link</h2>
-                                <div>{{route('user.referral_code',$user->referral_code)}}</div>
+                                <div>{{route('user.referral_code',$userData->referral_code)}}</div>
 </div>
 <main class="layout-content-center !p-0">
     <div class="main-container">

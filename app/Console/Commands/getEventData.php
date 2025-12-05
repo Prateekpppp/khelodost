@@ -70,8 +70,18 @@ class getEventData extends Command
             
             Storage::put('event/'.$eventId.'.json', $body);
 
+            event(new EventNotification($body));
+
             if(!file_exists(storage_path('app/private/sattleEvent/'.$eventId.'.json'))){
                 Storage::put('sattleEvent/'.$eventId.'.json', $body);
+            } else{
+                $sattleEventData = Storage::get('private/sattleEvent/'.$eventId.'.json');
+                $sattleEventData = json_decode($sattleEventData,true);
+
+                $newEventData = json_decode($body,true);
+
+
+                Storage::put('sattleEvent/'.$eventId.'.json', json_encode($sattleEventData));
             }
             
             usleep(500000);

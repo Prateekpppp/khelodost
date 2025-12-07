@@ -41,6 +41,8 @@
     
     $(document).ready(function(){
         betslipData.eventId = "{{($eventId)?$eventId:''}}";
+        // var socket = io("http://localhost:6001");
+        let socket = io();
     });
     
     $('.iframetv').on('click', function(){

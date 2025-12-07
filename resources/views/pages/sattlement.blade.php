@@ -68,7 +68,7 @@
                                             $teamA = explode(' v ',$row->eventName)[0] ?? 'Series';
                                             $teamB = explode(' v ',$row->eventName)[1] ?? 'Series';
                                         @endphp
-                                        <td>{{(!$row->status)?'upcoming':(($row->status==1)?'Going In-play':'Finished')}}</td>
+                                        <td>{{(!$row->status)?'upcoming':(($row->status==1)?'Going In-play':'Under Sattlement')}}</td>
                                         {{-- <td class="{{($row->status)?'text-success':'text-danger'}}">{{($row->status)?'Active':'Inactive'}}</td> --}}
                                         <td>
                                             <div class="flex flex-row items-center justify-between">

@@ -22,7 +22,10 @@ const io = new Server(server, {
 
 io.on("connection", (socket) => {
     console.log("Client connected");
-    socket.write('Hello client! Data from the server here.');
+
+    socket.emit('message', 'Welcome! This data is from the server.');
+
+    
     // socket.on("get-file-data", () => {
     //     const filePath = "/var/www/laravel/storage/app/private/data.txt";
 
